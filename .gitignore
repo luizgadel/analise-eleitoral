@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+node_modules/
+dist/
+dados/brutos/*
+dados/processados/*
+!dados/brutos/.gitkeep
+!dados/processados/.gitkeep
+.DS_Store

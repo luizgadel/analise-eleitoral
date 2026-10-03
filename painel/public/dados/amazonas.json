@@ -1,0 +1,6031 @@
+{
+  "uf": "AM",
+  "estado": "Amazonas",
+  "totais": {
+    "candidatos2022": 149,
+    "candidatos2026": 139,
+    "eleitos2022": 8,
+    "deputados": 8,
+    "sairam": 126,
+    "entraram": 116,
+    "continuam": 23,
+    "trocaramPartido": 9,
+    "votos2022": 1930224,
+    "publicidade2022": 64268120.69,
+    "publicidade2026": 28611494.0
+  },
+  "eleitos": [
+    {
+      "nome": "Amom Mandel Lins Filho",
+      "nomeUrna": "Amom Mandel",
+      "partido": "CIDADANIA",
+      "numero": "2323",
+      "foto": "/fotos/eleitos/220715.jpg",
+      "resultado": "Eleito pelo quociente",
+      "partidoAtual": "REPUBLICANOS",
+      "partido2026": "REPUBLICANOS",
+      "concorre2026": true,
+      "votos": 288555,
+      "gasto2022": 447549.93,
+      "gasto2026": 988185.52
+    },
+    {
+      "nome": "Alberto Barros Cavalcante Neto",
+      "nomeUrna": "Capitão Alberto Neto",
+      "partido": "PL",
+      "numero": "2210",
+      "foto": "/fotos/eleitos/204572.jpg",
+      "resultado": "Eleito pela média",
+      "partidoAtual": "PL",
+      "partido2026": "",
+      "concorre2026": false,
+      "votos": 147846,
+      "gasto2022": 1047836.69,
+      "gasto2026": 0.0
+    },
+    {
+      "nome": "Saullo Velame Vianna",
+      "nomeUrna": "Saullo Vianna",
+      "partido": "UNIÃO",
+      "numero": "4455",
+      "foto": "/fotos/eleitos/220713.jpg",
+      "resultado": "Eleito pelo quociente",
+      "partidoAtual": "MDB",
+      "partido2026": "MDB",
+      "concorre2026": true,
+      "votos": 127287,
+      "gasto2022": 2561000.0,
+      "gasto2026": 397269.5
+    },
+    {
+      "nome": "Silas Câmara",
+      "nomeUrna": "Silas Câmara",
+      "partido": "REPUBLICANOS",
+      "numero": "1010",
+      "foto": "/fotos/eleitos/74356.jpg",
+      "resultado": "Eleito pelo quociente",
+      "partidoAtual": "REPUBLICANOS",
+      "partido2026": "REPUBLICANOS",
+      "concorre2026": true,
+      "votos": 125068,
+      "gasto2022": 3058073.2,
+      "gasto2026": 770502.0
+    },
+    {
+      "nome": "Átila Sidney Lins de Albuquerque",
+      "nomeUrna": "Átila Lins",
+      "partido": "PSD",
+      "numero": "5525",
+      "foto": "/fotos/eleitos/74090.jpg",
+      "resultado": "Eleito pelo quociente",
+      "partidoAtual": "PSD",
+      "partido2026": "PSD",
+      "concorre2026": true,
+      "votos": 102401,
+      "gasto2022": 1742489.74,
+      "gasto2026": 746568.26
+    },
+    {
+      "nome": "Sidney Ricardo de Oliveira Leite",
+      "nomeUrna": "Sidney Leite",
+      "partido": "PSD",
+      "numero": "5555",
+      "foto": "/fotos/eleitos/204557.jpg",
+      "resultado": "Eleito pela média",
+      "partidoAtual": "PSD",
+      "partido2026": "PSD",
+      "concorre2026": true,
+      "votos": 102181,
+      "gasto2022": 2415363.64,
+      "gasto2026": 725568.0
+    },
+    {
+      "nome": "Adail José Figueiredo Pinheiro",
+      "nomeUrna": "Adail Filho",
+      "partido": "REPUBLICANOS",
+      "numero": "1000",
+      "foto": "/fotos/eleitos/220714.jpg",
+      "resultado": "Eleito pela média",
+      "partidoAtual": "MDB",
+      "partido2026": "MDB",
+      "concorre2026": true,
+      "votos": 90028,
+      "gasto2022": 1759795.8,
+      "gasto2026": 721220.0
+    },
+    {
+      "nome": "Fausto Vieira dos Santos Junior",
+      "nomeUrna": "Fausto Jr.",
+      "partido": "UNIÃO",
+      "numero": "4477",
+      "foto": "/fotos/eleitos/220712.jpg",
+      "resultado": "Eleito pela média",
+      "partidoAtual": "UNIÃO",
+      "partido2026": "UNIÃO",
+      "concorre2026": true,
+      "votos": 87876,
+      "gasto2022": 2585026.61,
+      "gasto2026": 1887784.05
+    }
+  ],
+  "desempenho": [
+    {
+      "nome": "Amom Mandel Lins Filho",
+      "nomeUrna": "Amom Mandel",
+      "partido": "CIDADANIA",
+      "numero": "2323",
+      "foto": "/fotos/eleitos/220715.jpg",
+      "disputou2022": true,
+      "eleito": true,
+      "votos": 288555,
+      "gasto2022": 447549.93,
+      "gastoAteSemana": 399574.02,
+      "gasto2026": 988185.52,
+      "concorre2026": true
+    },
+    {
+      "nome": "Alberto Barros Cavalcante Neto",
+      "nomeUrna": "Capitão Alberto Neto",
+      "partido": "PL",
+      "numero": "2210",
+      "foto": "/fotos/eleitos/204572.jpg",
+      "disputou2022": true,
+      "eleito": true,
+      "votos": 147846,
+      "gasto2022": 1047836.69,
+      "gastoAteSemana": 726100.35,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Saullo Velame Vianna",
+      "nomeUrna": "Saullo Vianna",
+      "partido": "UNIÃO",
+      "numero": "4455",
+      "foto": "/fotos/eleitos/220713.jpg",
+      "disputou2022": true,
+      "eleito": true,
+      "votos": 127287,
+      "gasto2022": 2561000.0,
+      "gastoAteSemana": 1743760.05,
+      "gasto2026": 397269.5,
+      "concorre2026": true
+    },
+    {
+      "nome": "Silas Câmara",
+      "nomeUrna": "Silas Câmara",
+      "partido": "REPUBLICANOS",
+      "numero": "1010",
+      "foto": "/fotos/eleitos/74356.jpg",
+      "disputou2022": true,
+      "eleito": true,
+      "votos": 125068,
+      "gasto2022": 3058073.2,
+      "gastoAteSemana": 1968876.3,
+      "gasto2026": 770502.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Atila Sidney Lins de Albuquerque",
+      "nomeUrna": "Atila Lins",
+      "partido": "PSD",
+      "numero": "5525",
+      "foto": "/fotos/eleitos/74090.jpg",
+      "disputou2022": true,
+      "eleito": true,
+      "votos": 102401,
+      "gasto2022": 1742489.74,
+      "gastoAteSemana": 1666696.54,
+      "gasto2026": 746568.26,
+      "concorre2026": true
+    },
+    {
+      "nome": "Sidney Ricardo de Oliveira Leite",
+      "nomeUrna": "Sidney Leite",
+      "partido": "PSD",
+      "numero": "5555",
+      "foto": "/fotos/eleitos/204557.jpg",
+      "disputou2022": true,
+      "eleito": true,
+      "votos": 102181,
+      "gasto2022": 2415363.64,
+      "gastoAteSemana": 1965709.36,
+      "gasto2026": 725568.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Adail José Figueiredo Pinheiro",
+      "nomeUrna": "Adail Filho",
+      "partido": "REPUBLICANOS",
+      "numero": "1000",
+      "foto": "/fotos/eleitos/220714.jpg",
+      "disputou2022": true,
+      "eleito": true,
+      "votos": 90028,
+      "gasto2022": 1759795.8,
+      "gastoAteSemana": 1600717.93,
+      "gasto2026": 721220.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "José Ricardo Wendling",
+      "nomeUrna": "Zé Ricardo",
+      "partido": "PT",
+      "numero": "1313",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 89017,
+      "gasto2022": 1799442.76,
+      "gastoAteSemana": 1681621.89,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Fausto Vieira dos Santos Júnior",
+      "nomeUrna": "Fausto Santos Jr",
+      "partido": "UNIÃO",
+      "numero": "4477",
+      "foto": "/fotos/eleitos/220712.jpg",
+      "disputou2022": true,
+      "eleito": true,
+      "votos": 87876,
+      "gasto2022": 2585026.61,
+      "gastoAteSemana": 2202000.17,
+      "gasto2026": 1887784.05,
+      "concorre2026": true
+    },
+    {
+      "nome": "Marcelo Ramos Rodrigues",
+      "nomeUrna": "Marcelo Ramos",
+      "partido": "PSD",
+      "numero": "5500",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 74387,
+      "gasto2022": 3144586.56,
+      "gastoAteSemana": 2681100.26,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "David Valente Reis",
+      "nomeUrna": "David Reis",
+      "partido": "AVANTE",
+      "numero": "7070",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 62540,
+      "gasto2022": 320000.0,
+      "gastoAteSemana": 54400.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Pauderney Tomaz Avelino",
+      "nomeUrna": "Pauderney Avelino",
+      "partido": "UNIÃO",
+      "numero": "4444",
+      "foto": "/fotos/2026/40002532762.jpg",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 52014,
+      "gasto2022": 2766411.12,
+      "gastoAteSemana": 2268099.89,
+      "gasto2026": 1040527.76,
+      "concorre2026": true
+    },
+    {
+      "nome": "Alfredo Pereira do Nascimento",
+      "nomeUrna": "Alfredo Nascimento",
+      "partido": "PL",
+      "numero": "2222",
+      "foto": "/fotos/2026/40002540481.jpg",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 46760,
+      "gasto2022": 1733060.15,
+      "gastoAteSemana": 1555718.85,
+      "gasto2026": 1696058.38,
+      "concorre2026": true
+    },
+    {
+      "nome": "João Carlos dos Santos Mello",
+      "nomeUrna": "João Carlos",
+      "partido": "REPUBLICANOS",
+      "numero": "1033",
+      "foto": "/fotos/2026/40002533208.jpg",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 44085,
+      "gasto2022": 705744.33,
+      "gastoAteSemana": 585999.83,
+      "gasto2026": 655584.04,
+      "concorre2026": true
+    },
+    {
+      "nome": "Pablo Oliva Souza",
+      "nomeUrna": "Delegado Pablo",
+      "partido": "UNIÃO",
+      "numero": "4422",
+      "foto": "/fotos/2026/40002540483.jpg",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 43521,
+      "gasto2022": 2556267.25,
+      "gastoAteSemana": 2363225.83,
+      "gasto2026": 257286.27,
+      "concorre2026": true
+    },
+    {
+      "nome": "Vanessa Grazziotin",
+      "nomeUrna": "Vanessa",
+      "partido": "PC do B",
+      "numero": "6513",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 36816,
+      "gasto2022": 2909236.82,
+      "gastoAteSemana": 2765942.65,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Marcel Alexandre da Silva",
+      "nomeUrna": "Marcel Alexandre",
+      "partido": "AVANTE",
+      "numero": "7022",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 30547,
+      "gasto2022": 366488.6,
+      "gastoAteSemana": 366488.6,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Louismar de Matos Bonates",
+      "nomeUrna": "Coronel Bonates",
+      "partido": "UNIÃO",
+      "numero": "4456",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 27666,
+      "gasto2022": 2567746.33,
+      "gastoAteSemana": 2089616.33,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Vanderlecia Ortega dos Santos",
+      "nomeUrna": "Vanda Witoto",
+      "partido": "REDE",
+      "numero": "1818",
+      "foto": "/fotos/2026/40002531438.jpg",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 25545,
+      "gasto2022": 1080896.46,
+      "gastoAteSemana": 1062757.98,
+      "gasto2026": 976761.16,
+      "concorre2026": true
+    },
+    {
+      "nome": "Rodrigo Guedes Oliveira de Araujo",
+      "nomeUrna": "Rodrigo Guedes",
+      "partido": "REPUBLICANOS",
+      "numero": "1020",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 20305,
+      "gasto2022": 237818.4,
+      "gastoAteSemana": 225906.9,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Débora Cristina Pereira Mafra",
+      "nomeUrna": "Delegada Débora Mafra",
+      "partido": "PSD",
+      "numero": "5580",
+      "foto": "/fotos/2026/40002532765.jpg",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 19710,
+      "gasto2022": 929650.2,
+      "gastoAteSemana": 727400.95,
+      "gasto2026": 29559.93,
+      "concorre2026": true
+    },
+    {
+      "nome": "Viviane Pereira da Silva Lago Lima",
+      "nomeUrna": "Viviane Lima",
+      "partido": "MDB",
+      "numero": "1515",
+      "foto": "/fotos/2026/40002533205.jpg",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 19337,
+      "gasto2022": 1552466.3,
+      "gastoAteSemana": 1194985.8,
+      "gasto2026": 1604230.5,
+      "concorre2026": true
+    },
+    {
+      "nome": "Marcelo Augusto da Eira Corrêa",
+      "nomeUrna": "Marcelo Serafim",
+      "partido": "AVANTE",
+      "numero": "7040",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 16544,
+      "gasto2022": 138937.13,
+      "gastoAteSemana": 108037.13,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Israel Alexandre Muniz Paulain",
+      "nomeUrna": "Israel Paulain",
+      "partido": "CIDADANIA",
+      "numero": "2345",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 14850,
+      "gasto2022": 249936.06,
+      "gastoAteSemana": 194336.06,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Diego Roberto Afonso",
+      "nomeUrna": "Diego Afonso",
+      "partido": "UNIÃO",
+      "numero": "4411",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 12926,
+      "gasto2022": 1025642.67,
+      "gastoAteSemana": 943172.66,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Lissandro Breval Santiago",
+      "nomeUrna": "Lissandro Breval",
+      "partido": "AVANTE",
+      "numero": "7000",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 11919,
+      "gasto2022": 217519.9,
+      "gastoAteSemana": 139953.7,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Rodrigo de Sá Barbosa",
+      "nomeUrna": "Rodrigo Sá",
+      "partido": "PL",
+      "numero": "2244",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 11833,
+      "gasto2022": 261089.68,
+      "gastoAteSemana": 206823.68,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Orsine Rufino de Oliveira Junior",
+      "nomeUrna": "Orsine Jr",
+      "partido": "PSD",
+      "numero": "5566",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 10033,
+      "gasto2022": 616900.0,
+      "gastoAteSemana": 578032.8,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Givancir de Oliveira Silva",
+      "nomeUrna": "Givancir dos Rodoviários",
+      "partido": "PSD",
+      "numero": "5599",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 8955,
+      "gasto2022": 500000.0,
+      "gastoAteSemana": 349686.4,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Rafael Amaral da Costa e Silva",
+      "nomeUrna": "Delegado Costa e Silva",
+      "partido": "PL",
+      "numero": "2233",
+      "foto": "/fotos/2026/40002540485.jpg",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 8810,
+      "gasto2022": 521992.55,
+      "gastoAteSemana": 467761.73,
+      "gasto2026": 69002.5,
+      "concorre2026": true
+    },
+    {
+      "nome": "Cícero Custódio da Silva",
+      "nomeUrna": "Sassá da Construção Civil",
+      "partido": "PT",
+      "numero": "1318",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 8653,
+      "gasto2022": 832900.0,
+      "gastoAteSemana": 803974.37,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Jose Nilmar Alves de Oliveira",
+      "nomeUrna": "Nilmar Oliveira",
+      "partido": "PL",
+      "numero": "2211",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 6772,
+      "gasto2022": 380000.0,
+      "gastoAteSemana": 293772.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Raymison Monteiro de Souza",
+      "nomeUrna": "Dr. Raymison",
+      "partido": "CIDADANIA",
+      "numero": "2333",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 5876,
+      "gasto2022": 234192.0,
+      "gastoAteSemana": 233638.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Hissa Nagib Abrahão Filho",
+      "nomeUrna": "Hissa Abrahão",
+      "partido": "AVANTE",
+      "numero": "7044",
+      "foto": "/fotos/2026/40002533204.jpg",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 5869,
+      "gasto2022": 247919.93,
+      "gastoAteSemana": 208591.93,
+      "gasto2026": 568301.5,
+      "concorre2026": true
+    },
+    {
+      "nome": "Emília Ferraz de Carvalho",
+      "nomeUrna": "Delegada Emília Ferraz",
+      "partido": "UNIÃO",
+      "numero": "4401",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 5745,
+      "gasto2022": 2560955.37,
+      "gastoAteSemana": 2550393.87,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Márcia Auxiliadora Cardoso Baranda",
+      "nomeUrna": "Márcia Baranda",
+      "partido": "MDB",
+      "numero": "1505",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 5418,
+      "gasto2022": 1300000.0,
+      "gastoAteSemana": 454507.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Tiago do Vale Falcão",
+      "nomeUrna": "Tiago Falcão",
+      "partido": "PATRIOTA",
+      "numero": "5111",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 4944,
+      "gasto2022": 299762.0,
+      "gastoAteSemana": 284998.5,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Emidio Niro Kohashi",
+      "nomeUrna": "Niró Japonês",
+      "partido": "PSDB",
+      "numero": "4500",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 4853,
+      "gasto2022": 55000.0,
+      "gastoAteSemana": 55000.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Edjane Rodrigues da Silva",
+      "nomeUrna": "Edjane da Fetagri",
+      "partido": "PT",
+      "numero": "1333",
+      "foto": "/fotos/2026/40002545598.jpg",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 4593,
+      "gasto2022": 378154.21,
+      "gastoAteSemana": 370897.5,
+      "gasto2026": 265502.5,
+      "concorre2026": true
+    },
+    {
+      "nome": "Leda Maria Maia Xavier",
+      "nomeUrna": "Leda Maia",
+      "partido": "UNIÃO",
+      "numero": "4440",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 4519,
+      "gasto2022": 2561226.15,
+      "gastoAteSemana": 1855403.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Andreia Mara Andrade Pessoa",
+      "nomeUrna": "Andréia Mara",
+      "partido": "PSD",
+      "numero": "5512",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 4272,
+      "gasto2022": 928904.4,
+      "gastoAteSemana": 928901.8,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Cristiane Souza dos Anjos",
+      "nomeUrna": "Kiky Anjos",
+      "partido": "PSD",
+      "numero": "5577",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 4059,
+      "gasto2022": 1139901.3,
+      "gastoAteSemana": 970277.5,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Luiz de Souza Borges Neto",
+      "nomeUrna": "Luiz Borges",
+      "partido": "PT",
+      "numero": "1363",
+      "foto": "/fotos/2026/40002545593.jpg",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 4052,
+      "gasto2022": 626189.75,
+      "gastoAteSemana": 496189.75,
+      "gasto2026": 179139.5,
+      "concorre2026": true
+    },
+    {
+      "nome": "Cristina Lúcia Ferreira Paiva",
+      "nomeUrna": "Cris Paiva",
+      "partido": "AVANTE",
+      "numero": "7007",
+      "foto": "/fotos/2026/40002536439.jpg",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 3783,
+      "gasto2022": 199797.46,
+      "gastoAteSemana": 161435.0,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Rosenildo Queiroz da Silva",
+      "nomeUrna": "Babalu",
+      "partido": "SOLIDARIEDADE",
+      "numero": "7707",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 3431,
+      "gasto2022": 50000.0,
+      "gastoAteSemana": 50000.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Nelson Raimundo de Oliveira Azedo",
+      "nomeUrna": "Dr. Nelson Azedo",
+      "partido": "MDB",
+      "numero": "1500",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 3417,
+      "gasto2022": 99927.0,
+      "gastoAteSemana": 88027.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Alfredo Jacauna Pinheiro Filho",
+      "nomeUrna": "Jacauna",
+      "partido": "PL",
+      "numero": "2277",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 3277,
+      "gasto2022": 105000.0,
+      "gastoAteSemana": 95127.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Francidalva de Morais Machado",
+      "nomeUrna": "Dalva Morais",
+      "partido": "MDB",
+      "numero": "1522",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 2710,
+      "gasto2022": 600000.0,
+      "gastoAteSemana": 537190.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Edson Carlos de Deus Castilho",
+      "nomeUrna": "Prof. Edson Carlos",
+      "partido": "REPUBLICANOS",
+      "numero": "1012",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 2582,
+      "gasto2022": 25000.0,
+      "gastoAteSemana": 25000.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Carlos Cristiano Felix",
+      "nomeUrna": "Carlos Felix e Bancada Mista",
+      "partido": "PATRIOTA",
+      "numero": "5100",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 2518,
+      "gasto2022": 99988.99,
+      "gastoAteSemana": 99988.99,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Maria Francelizia da Silva",
+      "nomeUrna": "Professora Francelizia",
+      "partido": "PT",
+      "numero": "1315",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 2473,
+      "gasto2022": 369993.5,
+      "gastoAteSemana": 284249.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Maria Mirtes Sales de Oliveira",
+      "nomeUrna": "Mirtes Salles",
+      "partido": "REPUBLICANOS",
+      "numero": "1044",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 2432,
+      "gasto2022": 361000.0,
+      "gastoAteSemana": 355733.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Marilena Monica Perez Said",
+      "nomeUrna": "Monica Mendes",
+      "partido": "CIDADANIA",
+      "numero": "2332",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 2396,
+      "gasto2022": 298383.41,
+      "gastoAteSemana": 206872.41,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Raimunda Nonata de Melo Martins",
+      "nomeUrna": "Pra Raimunda da Quadrangular",
+      "partido": "REPUBLICANOS",
+      "numero": "1077",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 2366,
+      "gasto2022": 600000.0,
+      "gastoAteSemana": 575783.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Aná Campos Guimarães",
+      "nomeUrna": "Conselheira Aná Campos",
+      "partido": "UNIÃO",
+      "numero": "4488",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 2214,
+      "gasto2022": 199999.9,
+      "gastoAteSemana": 125908.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Sóstenes Adiel Pereira Batista",
+      "nomeUrna": "Totti Adiel",
+      "partido": "PSC",
+      "numero": "2000",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 2181,
+      "gasto2022": 44922.0,
+      "gastoAteSemana": 44922.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Augusto Cesar Paula de Andrade",
+      "nomeUrna": "Tc Cesar Andrade",
+      "partido": "REPUBLICANOS",
+      "numero": "1011",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 2137,
+      "gasto2022": 150000.0,
+      "gastoAteSemana": 150000.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Liliane Araujo de Almeida",
+      "nomeUrna": "Liliane Araújo",
+      "partido": "AVANTE",
+      "numero": "7001",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 2083,
+      "gasto2022": 149920.39,
+      "gastoAteSemana": 149735.09,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Marcio Paixão Ribeiro",
+      "nomeUrna": "Marcio Paixão",
+      "partido": "AVANTE",
+      "numero": "7077",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 2070,
+      "gasto2022": 55914.33,
+      "gastoAteSemana": 52464.33,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Tania Mara Ferreira da Costa",
+      "nomeUrna": "Tania e Conselheiras Tutelares",
+      "partido": "PATRIOTA",
+      "numero": "5102",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 2026,
+      "gasto2022": 120000.0,
+      "gastoAteSemana": 118434.59,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Paulo Henrique da Paixão e Silva Junior",
+      "nomeUrna": "Paulo Paixão",
+      "partido": "PDT",
+      "numero": "1212",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 2015,
+      "gasto2022": 0.0,
+      "gastoAteSemana": 0.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Gelson do Nascimento Albuquerque",
+      "nomeUrna": "Guma",
+      "partido": "PDT",
+      "numero": "1234",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 1807,
+      "gasto2022": 171000.0,
+      "gastoAteSemana": 165000.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Katiane Gama Feitoza",
+      "nomeUrna": "Katy Feitoza",
+      "partido": "AVANTE",
+      "numero": "7010",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 1744,
+      "gasto2022": 150000.0,
+      "gastoAteSemana": 135640.9,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "João Paulo Andrade de Queiroz",
+      "nomeUrna": "Professor João Paulo",
+      "partido": "NOVO",
+      "numero": "3030",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 1688,
+      "gasto2022": 3500.41,
+      "gastoAteSemana": 2777.41,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Mario Rubens Macedo Vianna",
+      "nomeUrna": "Dr Mario Vianna",
+      "partido": "PDT",
+      "numero": "1222",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 1670,
+      "gasto2022": 152008.57,
+      "gastoAteSemana": 109060.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Eli Costa de Souza",
+      "nomeUrna": "Eli Souza",
+      "partido": "MDB",
+      "numero": "1512",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 1652,
+      "gasto2022": 30000.0,
+      "gastoAteSemana": 29300.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "João Francisco de Miranda Soares",
+      "nomeUrna": "Joãozinho Miranda",
+      "partido": "SOLIDARIEDADE",
+      "numero": "7789",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 1574,
+      "gasto2022": 39977.45,
+      "gastoAteSemana": 39972.5,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Wanessa Simões Pacheco",
+      "nomeUrna": "Wanessa Pacheco",
+      "partido": "PDT",
+      "numero": "1213",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 1503,
+      "gasto2022": 50989.0,
+      "gastoAteSemana": 50128.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Gilvandro Mota da Silva",
+      "nomeUrna": "Coronel Gilvandro",
+      "partido": "PSD",
+      "numero": "5544",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 1447,
+      "gasto2022": 359729.0,
+      "gastoAteSemana": 359652.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "César Augusto Oliveira da Fonseca",
+      "nomeUrna": "Sargento Augusto",
+      "partido": "MDB",
+      "numero": "1577",
+      "foto": "/fotos/2026/40002541586.jpg",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 1384,
+      "gasto2022": 50000.0,
+      "gastoAteSemana": 49752.0,
+      "gasto2026": 14003.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Dennyson Ramos Moreira",
+      "nomeUrna": "Dennyson Moreira",
+      "partido": "PATRIOTA",
+      "numero": "5122",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 1375,
+      "gasto2022": 100000.0,
+      "gastoAteSemana": 99676.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Alcides Cordovil de Assis",
+      "nomeUrna": "Alcides Cordovil",
+      "partido": "PTB",
+      "numero": "1414",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 1351,
+      "gasto2022": 225000.0,
+      "gastoAteSemana": 225000.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Jefferson Praia Bezerra",
+      "nomeUrna": "Jefferson Praia",
+      "partido": "REDE",
+      "numero": "1819",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 1335,
+      "gasto2022": 250536.2,
+      "gastoAteSemana": 200087.96,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Edmilson Aguiar de Souza",
+      "nomeUrna": "Edmilson Boka",
+      "partido": "PTB",
+      "numero": "1478",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 1264,
+      "gasto2022": 25000.0,
+      "gastoAteSemana": 24076.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Jose Adalberto da Silva",
+      "nomeUrna": "Adal-frente Verde",
+      "partido": "PV",
+      "numero": "4343",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 1195,
+      "gasto2022": 22456.22,
+      "gastoAteSemana": 22356.21,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Suelania Cristina Gonzaga de Figueiredo",
+      "nomeUrna": "Professora Suelania",
+      "partido": "PSDB",
+      "numero": "4555",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 1182,
+      "gasto2022": 29951.2,
+      "gastoAteSemana": 21748.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Nazildo dos Reis Oliveira",
+      "nomeUrna": "Nazildo Reis",
+      "partido": "PTB",
+      "numero": "1422",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 1116,
+      "gasto2022": 24968.3,
+      "gastoAteSemana": 24968.3,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Izabel Santarém Barroso",
+      "nomeUrna": "Izabel Barroso",
+      "partido": "PSC",
+      "numero": "2044",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 1043,
+      "gasto2022": 44998.35,
+      "gastoAteSemana": 43490.83,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Antônio Carlos Santos Silva",
+      "nomeUrna": "Carlos Silva",
+      "partido": "PROS",
+      "numero": "9022",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 996,
+      "gasto2022": 3620.0,
+      "gastoAteSemana": 84.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Antônia Socorro Dantas da Silva",
+      "nomeUrna": "Tenente Socorro Dantas",
+      "partido": "MDB",
+      "numero": "1519",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 952,
+      "gasto2022": 100000.0,
+      "gastoAteSemana": 99350.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Eleomea Maria Barroso Vieira",
+      "nomeUrna": "Eleomea Barroso",
+      "partido": "PSDB",
+      "numero": "4545",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 931,
+      "gasto2022": 100818.7,
+      "gastoAteSemana": 98607.7,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Iêda Santos Cardoso",
+      "nomeUrna": "Dra Iêda Cardoso",
+      "partido": "PSB",
+      "numero": "4040",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 911,
+      "gasto2022": 0.0,
+      "gastoAteSemana": 0.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Silvio José Cintra Maia",
+      "nomeUrna": "Silvio Maia",
+      "partido": "AGIR",
+      "numero": "3622",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 910,
+      "gasto2022": 0.0,
+      "gastoAteSemana": 0.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Elison Nunes de Souza",
+      "nomeUrna": "Elison Nunes",
+      "partido": "PROS",
+      "numero": "9023",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 903,
+      "gasto2022": 650.0,
+      "gastoAteSemana": 548.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Maria Josefa de Assis Alves",
+      "nomeUrna": "Pastora Jô",
+      "partido": "PL",
+      "numero": "2255",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 898,
+      "gasto2022": 106884.35,
+      "gastoAteSemana": 25004.35,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Welton Yudi Oda",
+      "nomeUrna": "Professor Welton Oda",
+      "partido": "PSOL",
+      "numero": "5050",
+      "foto": "/fotos/2026/40002551011.jpg",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 872,
+      "gasto2022": 54863.02,
+      "gastoAteSemana": 47675.06,
+      "gasto2026": 59925.4,
+      "concorre2026": true
+    },
+    {
+      "nome": "Pericles de Souza Araujo",
+      "nomeUrna": "Tenente Pericles",
+      "partido": "PMN",
+      "numero": "3377",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 840,
+      "gasto2022": 10000.0,
+      "gastoAteSemana": 9979.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Francisco Virgilio Melo da Silva",
+      "nomeUrna": "Virgilio Melo",
+      "partido": "PSDB",
+      "numero": "4567",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 831,
+      "gasto2022": 39995.25,
+      "gastoAteSemana": 23625.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Castor Segundo de Medeiros Regalado Regis",
+      "nomeUrna": "Castor",
+      "partido": "PSC",
+      "numero": "2020",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 828,
+      "gasto2022": 15000.26,
+      "gastoAteSemana": 12122.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Gelma Maria Santos Silva",
+      "nomeUrna": "Gelma Santos",
+      "partido": "PSC",
+      "numero": "2022",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 798,
+      "gasto2022": 35000.0,
+      "gastoAteSemana": 34945.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Jucelino Vieira do Nascimento",
+      "nomeUrna": "Jucelino Nascimento",
+      "partido": "PSC",
+      "numero": "2023",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 793,
+      "gasto2022": 20000.0,
+      "gastoAteSemana": 16000.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Keylla Maria de Oliveira Marinho",
+      "nomeUrna": "Keylla Marinho",
+      "partido": "SOLIDARIEDADE",
+      "numero": "7713",
+      "foto": "/fotos/2026/40002549904.jpg",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 748,
+      "gasto2022": 49958.0,
+      "gastoAteSemana": 44958.0,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Cicero Jose de Lima Alencar",
+      "nomeUrna": "Cicero Alencar",
+      "partido": "DC",
+      "numero": "2727",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 743,
+      "gasto2022": 0.0,
+      "gastoAteSemana": 0.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Joele Silva da Cruz",
+      "nomeUrna": "Joele Silva",
+      "partido": "PL",
+      "numero": "2200",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 732,
+      "gasto2022": 19950.0,
+      "gastoAteSemana": 17400.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Severino Germano da Silva",
+      "nomeUrna": "Sub Oficial Germano",
+      "partido": "PMN",
+      "numero": "3333",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 730,
+      "gasto2022": 0.0,
+      "gastoAteSemana": 0.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Tania Maria Mussa",
+      "nomeUrna": "Tania Bancada da Causa Animal",
+      "partido": "PATRIOTA",
+      "numero": "5155",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 697,
+      "gasto2022": 120000.0,
+      "gastoAteSemana": 120000.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Nicia Andrea Mota Medeiros",
+      "nomeUrna": "Dedeia Medeiros",
+      "partido": "REPUBLICANOS",
+      "numero": "1088",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 644,
+      "gasto2022": 200000.0,
+      "gastoAteSemana": 132519.05,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Jose Luiz Viana Benevides",
+      "nomeUrna": "Jose Benevides",
+      "partido": "PMN",
+      "numero": "3331",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 632,
+      "gasto2022": 9999.25,
+      "gastoAteSemana": 9999.25,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Antonio Sidney Silva da Costa",
+      "nomeUrna": "Magal do Social",
+      "partido": "PTB",
+      "numero": "1415",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 585,
+      "gasto2022": 0.0,
+      "gastoAteSemana": 0.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Marilene Alves de Oliveira",
+      "nomeUrna": "Mary Alves",
+      "partido": "PMN",
+      "numero": "3311",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 577,
+      "gasto2022": 94351.0,
+      "gastoAteSemana": 91696.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Ismael Franklin Gonçalves",
+      "nomeUrna": "Cacique Mungurukú",
+      "partido": "PDT",
+      "numero": "1214",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 569,
+      "gasto2022": 0.0,
+      "gastoAteSemana": 0.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Alan Kardeck Pereira Amazonas",
+      "nomeUrna": "Alan Amazonas",
+      "partido": "PDT",
+      "numero": "1200",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 557,
+      "gasto2022": 156000.0,
+      "gastoAteSemana": 119822.11,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Celso Corsino da Silva",
+      "nomeUrna": "Celso Corsino",
+      "partido": "DC",
+      "numero": "2777",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 536,
+      "gasto2022": 611.4,
+      "gastoAteSemana": 500.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Ernando Figueira Santana Filho",
+      "nomeUrna": "Ernando Santana",
+      "partido": "PDT",
+      "numero": "1236",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 536,
+      "gasto2022": 23000.0,
+      "gastoAteSemana": 19529.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Appio da Silva Tolentino",
+      "nomeUrna": "Appio Tolentino",
+      "partido": "SOLIDARIEDADE",
+      "numero": "7700",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 527,
+      "gasto2022": 25980.0,
+      "gastoAteSemana": 25980.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Peter Schmidt",
+      "nomeUrna": "Coronel Peter",
+      "partido": "PMN",
+      "numero": "3322",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 525,
+      "gasto2022": 9982.01,
+      "gastoAteSemana": 9696.01,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Jerson Aranha de Oliveira Junior",
+      "nomeUrna": "Jerson Aranha",
+      "partido": "REDE",
+      "numero": "1888",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 524,
+      "gasto2022": 99875.0,
+      "gastoAteSemana": 99754.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Pedrinha Lasmar Cruz",
+      "nomeUrna": "Pedrinha Lasmar",
+      "partido": "PDT",
+      "numero": "1232",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 486,
+      "gasto2022": 30000.0,
+      "gastoAteSemana": 28500.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Evalcilene Costa dos Santos",
+      "nomeUrna": "Val Santos",
+      "partido": "PSOL",
+      "numero": "5013",
+      "foto": "/fotos/2026/40002551007.jpg",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 458,
+      "gasto2022": 72512.02,
+      "gastoAteSemana": 67492.02,
+      "gasto2026": 21400.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Christiani Maria Mendes Barros",
+      "nomeUrna": "Cris Barros",
+      "partido": "PDT",
+      "numero": "1223",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 445,
+      "gasto2022": 72999.89,
+      "gastoAteSemana": 72058.89,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Cimara Alencar Cavalcante",
+      "nomeUrna": "Cimara Cavalcante",
+      "partido": "DC",
+      "numero": "2700",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 411,
+      "gasto2022": 4200.0,
+      "gastoAteSemana": 0.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Inaldo Cruz Placido",
+      "nomeUrna": "Inaldo Placido",
+      "partido": "PATRIOTA",
+      "numero": "5151",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 404,
+      "gasto2022": 30000.0,
+      "gastoAteSemana": 30000.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Marcos Oliveira Gazel",
+      "nomeUrna": "Daniel Oliveira",
+      "partido": "AGIR",
+      "numero": "3636",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 370,
+      "gasto2022": 0.0,
+      "gastoAteSemana": 0.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "João Batista da Costa Paula",
+      "nomeUrna": "João Bithy",
+      "partido": "PSC",
+      "numero": "2007",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 368,
+      "gasto2022": 20938.0,
+      "gastoAteSemana": 20938.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Edson do Nascimento Pereira",
+      "nomeUrna": "Edinho",
+      "partido": "AGIR",
+      "numero": "3600",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 344,
+      "gasto2022": 6000.0,
+      "gastoAteSemana": 6000.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Cirley Mendonça Botêlho",
+      "nomeUrna": "Missionária Cirley Botêlho",
+      "partido": "PSC",
+      "numero": "2073",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 307,
+      "gasto2022": 34976.5,
+      "gastoAteSemana": 34976.5,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "José Luiz da Silva Vasques",
+      "nomeUrna": "José Luiz",
+      "partido": "PSOL",
+      "numero": "5044",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 304,
+      "gasto2022": 54243.02,
+      "gastoAteSemana": 49083.02,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Gilmar da Silva Ribeiro",
+      "nomeUrna": "Irmão Ribeiro",
+      "partido": "AGIR",
+      "numero": "3633",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 283,
+      "gasto2022": 0.0,
+      "gastoAteSemana": 0.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Cleia Fatima Assunção Rebelo",
+      "nomeUrna": "Policial Cleia",
+      "partido": "SOLIDARIEDADE",
+      "numero": "7788",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 274,
+      "gasto2022": 41000.0,
+      "gastoAteSemana": 38564.57,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Rosimeire da Conceicao Anjos",
+      "nomeUrna": "Rosa dos Anjos Bancada Verde",
+      "partido": "PV",
+      "numero": "4333",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 273,
+      "gasto2022": 61888.36,
+      "gastoAteSemana": 61888.36,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Sirrame Maquiné de Sá",
+      "nomeUrna": "Sirrame Maquiné",
+      "partido": "PATRIOTA",
+      "numero": "5115",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 271,
+      "gasto2022": 16200.0,
+      "gastoAteSemana": 16200.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Helade Maués Gonçalves",
+      "nomeUrna": "Helade Maués",
+      "partido": "PTB",
+      "numero": "1401",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 268,
+      "gasto2022": 128411.0,
+      "gastoAteSemana": 113774.28,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Maria Elizabeth dos Santos Oliveira",
+      "nomeUrna": "Elizabeth Oliveira",
+      "partido": "MDB",
+      "numero": "1544",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 260,
+      "gasto2022": 149853.01,
+      "gastoAteSemana": 149853.01,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Gina Maria Reis Gonzalez",
+      "nomeUrna": "Gina Gonzalez",
+      "partido": "MDB",
+      "numero": "1599",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 260,
+      "gasto2022": 199961.0,
+      "gastoAteSemana": 157241.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Noé Martins da Silva",
+      "nomeUrna": "Noé Martins",
+      "partido": "PATRIOTA",
+      "numero": "5101",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 259,
+      "gasto2022": 33000.0,
+      "gastoAteSemana": 30000.31,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Darlam Melo dos Santos",
+      "nomeUrna": "Apóstolo Darlam Santos",
+      "partido": "PROS",
+      "numero": "9077",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 245,
+      "gasto2022": 900.0,
+      "gastoAteSemana": 800.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Ademir Rocha dos Santos",
+      "nomeUrna": "Ademir Rocha",
+      "partido": "PSC",
+      "numero": "2011",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 242,
+      "gasto2022": 20000.0,
+      "gastoAteSemana": 19680.62,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Adriana Moura de Mendonça",
+      "nomeUrna": "Adriana Mendonça",
+      "partido": "PROS",
+      "numero": "9099",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 240,
+      "gasto2022": 2999854.0,
+      "gastoAteSemana": 2894132.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Ester Lemos dos Santos",
+      "nomeUrna": "Ester Lemos",
+      "partido": "PMN",
+      "numero": "3399",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 226,
+      "gasto2022": 60000.0,
+      "gastoAteSemana": 60000.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Jefferson Alves de Lima",
+      "nomeUrna": "Jefferson Brasil Cante",
+      "partido": "DC",
+      "numero": "2773",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 217,
+      "gasto2022": 0.0,
+      "gastoAteSemana": 0.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Jonia Muniz da Silva",
+      "nomeUrna": "Jonia Muniz",
+      "partido": "AGIR",
+      "numero": "3612",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 210,
+      "gasto2022": 0.0,
+      "gastoAteSemana": 0.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Aldamir da Costa Souza",
+      "nomeUrna": "Aldamir Satere",
+      "partido": "PSB",
+      "numero": "4013",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 209,
+      "gasto2022": 0.0,
+      "gastoAteSemana": 0.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Bruno Farias da Luz",
+      "nomeUrna": "Bruno Luz",
+      "partido": "REDE",
+      "numero": "1801",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 196,
+      "gasto2022": 106378.0,
+      "gastoAteSemana": 106368.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Elisangela de Oliveira Brunno",
+      "nomeUrna": "Lili Bruno",
+      "partido": "REDE",
+      "numero": "1881",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 193,
+      "gasto2022": 30961.0,
+      "gastoAteSemana": 30950.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Alexander Cherem de Mello",
+      "nomeUrna": "Sub Oficial Cherem",
+      "partido": "PMN",
+      "numero": "3355",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 184,
+      "gasto2022": 9593.89,
+      "gastoAteSemana": 9593.89,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "George Gomes de Oliveira",
+      "nomeUrna": "Delegado George Gomes",
+      "partido": "REDE",
+      "numero": "1800",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 158,
+      "gasto2022": 0.0,
+      "gastoAteSemana": 0.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Vanilda de Oliveira Guimarães",
+      "nomeUrna": "Vania Guimarães",
+      "partido": "PL",
+      "numero": "2266",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 158,
+      "gasto2022": 10000.0,
+      "gastoAteSemana": 9000.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Josete Costa dos Santos",
+      "nomeUrna": "Joseth Yohanna",
+      "partido": "CIDADANIA",
+      "numero": "2300",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 154,
+      "gasto2022": 29952.09,
+      "gastoAteSemana": 26785.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Mario Fernando Nogueira Cardoso",
+      "nomeUrna": "Major Fernando Nogueira",
+      "partido": "PMN",
+      "numero": "3345",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 127,
+      "gasto2022": 0.0,
+      "gastoAteSemana": 0.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Renato Mendonça de Alencar",
+      "nomeUrna": "Renato Alencar",
+      "partido": "DC",
+      "numero": "2707",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 127,
+      "gasto2022": 0.0,
+      "gastoAteSemana": 0.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Maria Flaviane Castro Braga",
+      "nomeUrna": "Flaviane Braga",
+      "partido": "PTB",
+      "numero": "1444",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 114,
+      "gasto2022": 25000.0,
+      "gastoAteSemana": 25000.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Tatiane Santos de Oliveira",
+      "nomeUrna": "Thaty Barone",
+      "partido": "PMN",
+      "numero": "3344",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 113,
+      "gasto2022": 60032.0,
+      "gastoAteSemana": 59988.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Luciano de Farias",
+      "nomeUrna": "Luciano de Farias",
+      "partido": "PROS",
+      "numero": "9090",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 70,
+      "gasto2022": 0.0,
+      "gastoAteSemana": 0.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Delcinei de Oliveira Alves",
+      "nomeUrna": "Delcinei",
+      "partido": "PC do B",
+      "numero": "6562",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 63,
+      "gasto2022": 0.0,
+      "gastoAteSemana": 0.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Antônio Erivelton Fernandes da Silva",
+      "nomeUrna": "Erivelto Silva",
+      "partido": "AGIR",
+      "numero": "3655",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 45,
+      "gasto2022": 0.0,
+      "gastoAteSemana": 0.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Fabiana Zappia de Azevedo Frota Aragão",
+      "nomeUrna": "Dra Fabiana Aragão",
+      "partido": "PATRIOTA",
+      "numero": "5152",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 42,
+      "gasto2022": 35693.0,
+      "gastoAteSemana": 35693.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Aluizio Barbosa de Souza",
+      "nomeUrna": "Aluizio Barboza",
+      "partido": "PSC",
+      "numero": "2041",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 37,
+      "gasto2022": 0.0,
+      "gastoAteSemana": 0.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Maria Pereira Dantas",
+      "nomeUrna": "Maria Dantas",
+      "partido": "PODE",
+      "numero": "1955",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 31,
+      "gasto2022": 0.0,
+      "gastoAteSemana": 0.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Fátima Vitória de Jesus Spener Xavier",
+      "nomeUrna": "Fátima Spener",
+      "partido": "AGIR",
+      "numero": "3672",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 25,
+      "gasto2022": 3000.0,
+      "gastoAteSemana": 3000.0,
+      "gasto2026": null,
+      "concorre2026": false
+    },
+    {
+      "nome": "Adriana Pinto Borges",
+      "nomeUrna": "Adriana Borges",
+      "partido": "REPUBLICANOS",
+      "numero": "1001",
+      "foto": "/fotos/2026/40002533203.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 81250.76,
+      "concorre2026": true
+    },
+    {
+      "nome": "Adriana de Almeida Neves Xavier",
+      "nomeUrna": "Adriana Xavier",
+      "partido": "PT",
+      "numero": "1300",
+      "foto": "/fotos/2026/40002554165.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 55303.5,
+      "concorre2026": true
+    },
+    {
+      "nome": "Alexandre Neves Solorzano",
+      "nomeUrna": "Alexandre Solorzano",
+      "partido": "PSTU",
+      "numero": "1600",
+      "foto": "/fotos/2026/40002535273.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 8000.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Carlos Alexandre Ferreira Silva",
+      "nomeUrna": "Alexandre da Carbrás",
+      "partido": "SOLIDARIEDADE",
+      "numero": "7777",
+      "foto": "/fotos/2026/40002549901.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Amauri Gomes dos Santos",
+      "nomeUrna": "Amauri Gomes",
+      "partido": "PSD",
+      "numero": "5511",
+      "foto": "/fotos/2026/40002532766.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 217075.5,
+      "concorre2026": true
+    },
+    {
+      "nome": "Ana Paula Mesquita de Araujo",
+      "nomeUrna": "Ana Paula Mesquita",
+      "partido": "PSD",
+      "numero": "5512",
+      "foto": "/fotos/2026/40002532760.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 13000.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Ana Alice Roque de Souza",
+      "nomeUrna": "Ana Roque",
+      "partido": "UP",
+      "numero": "8000",
+      "foto": "/fotos/2026/40002546978.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Luiz Andre Souto Passos",
+      "nomeUrna": "Andre Passos",
+      "partido": "PODE",
+      "numero": "2022",
+      "foto": "/fotos/2026/40002541589.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 11221.5,
+      "concorre2026": true
+    },
+    {
+      "nome": "Anne Karolyne Moura de Souza",
+      "nomeUrna": "Anne Moura",
+      "partido": "PT",
+      "numero": "1314",
+      "foto": "/fotos/2026/40002545594.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 487419.33,
+      "concorre2026": true
+    },
+    {
+      "nome": "Arthur Virgilio do Carmo Ribeiro Neto",
+      "nomeUrna": "Arthur Neto",
+      "partido": "MDB",
+      "numero": "1545",
+      "foto": "/fotos/2026/40002531442.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 423507.5,
+      "concorre2026": true
+    },
+    {
+      "nome": "Maria Auxiliadora Oliveira de Castro",
+      "nomeUrna": "Auxiliadora Castro",
+      "partido": "PSTU",
+      "numero": "1616",
+      "foto": "/fotos/2026/40002535274.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 8000.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Elizabeth de Souza Levy Vasconcelos",
+      "nomeUrna": "Beth Docinho",
+      "partido": "MDB",
+      "numero": "1551",
+      "foto": "/fotos/2026/40002531444.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 2300.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Caila Carim Belchior",
+      "nomeUrna": "Caila Carim",
+      "partido": "MDB",
+      "numero": "1516",
+      "foto": "/fotos/2026/40002534877.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 784084.7,
+      "concorre2026": true
+    },
+    {
+      "nome": "Carles Waldemar Correa dos Santos",
+      "nomeUrna": "Carles Waldemar Maguila",
+      "partido": "SOLIDARIEDADE",
+      "numero": "7770",
+      "foto": "/fotos/2026/40002549906.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Christiane Maciel de Lima Melchior",
+      "nomeUrna": "Christiane Melchior",
+      "partido": "PSB",
+      "numero": "4000",
+      "foto": "/fotos/2026/40002541624.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Alfredo Alexandre de Menezes Junior",
+      "nomeUrna": "Coronel Menezes",
+      "partido": "AVANTE",
+      "numero": "7022",
+      "foto": "/fotos/2026/40002536433.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 34500.5,
+      "concorre2026": true
+    },
+    {
+      "nome": "Ubirajara Rosses do Nascimento Junior",
+      "nomeUrna": "Coronel Rosses",
+      "partido": "PL",
+      "numero": "2233",
+      "foto": "/fotos/2026/40002540484.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 480100.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Daniel Almeida de Souza",
+      "nomeUrna": "Daniel Souza",
+      "partido": "PDT",
+      "numero": "1213",
+      "foto": "/fotos/2026/40002549856.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Darlene Pereira Neves",
+      "nomeUrna": "Darlene Neves",
+      "partido": "PDT",
+      "numero": "1222",
+      "foto": "/fotos/2026/40002549862.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 40000.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Lazaro Sebastiao Santiago Mendes Neto",
+      "nomeUrna": "Delegado Lázaro Mendes",
+      "partido": "PSD",
+      "numero": "5588",
+      "foto": "/fotos/2026/40002532764.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 82497.5,
+      "concorre2026": true
+    },
+    {
+      "nome": "Joao Victor Tayah Lima",
+      "nomeUrna": "Delegado Tayah",
+      "partido": "PT",
+      "numero": "1350",
+      "foto": "/fotos/2026/40002545595.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 218915.86,
+      "concorre2026": true
+    },
+    {
+      "nome": "Denis da Silva Figueiroa",
+      "nomeUrna": "Denis Real",
+      "partido": "SOLIDARIEDADE",
+      "numero": "7707",
+      "foto": "/fotos/2026/40002549899.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Denis da Silva Pereira",
+      "nomeUrna": "Denis da Silva",
+      "partido": "PT",
+      "numero": "1313",
+      "foto": "/fotos/2026/40002545599.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 125984.43,
+      "concorre2026": true
+    },
+    {
+      "nome": "Denison de Carvalho Vilar",
+      "nomeUrna": "Denison Vilar da Saúde",
+      "partido": "DC",
+      "numero": "2777",
+      "foto": "/fotos/2026/40002536077.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 1000.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Diana Greicy Rodrigues da Silva",
+      "nomeUrna": "Diana Rodrigues",
+      "partido": "NOVO",
+      "numero": "3011",
+      "foto": "/fotos/2026/40002536449.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Alice Mafra Cavalcante Reis Penafort",
+      "nomeUrna": "Doutora Alice Mafra",
+      "partido": "MOBILIZA",
+      "numero": "3333",
+      "foto": "/fotos/2026/40002549918.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 17406.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Amanda Tereza Nascimento de Souza",
+      "nomeUrna": "Doutora Amanda Souza",
+      "partido": "DC",
+      "numero": "2766",
+      "foto": "/fotos/2026/40002536080.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Raione Cabral Queiroz",
+      "nomeUrna": "Dr Raione Cabral",
+      "partido": "AVANTE",
+      "numero": "7010",
+      "foto": "/fotos/2026/40002536437.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 17303.5,
+      "concorre2026": true
+    },
+    {
+      "nome": "Israel Fontes Dutra",
+      "nomeUrna": "Dr. Israel Tuyuka",
+      "partido": "PDT",
+      "numero": "1251",
+      "foto": "/fotos/2026/40002549858.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 66807.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Miguel Carratte Neto",
+      "nomeUrna": "Dr. Miguel Carratte",
+      "partido": "UNIÃO",
+      "numero": "4455",
+      "foto": "/fotos/2026/40002542678.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 101959.8,
+      "concorre2026": true
+    },
+    {
+      "nome": "Fernanda Aryel Rodrigues de Almeida Lima",
+      "nomeUrna": "Dra Aryel Almeida",
+      "partido": "AVANTE",
+      "numero": "7070",
+      "foto": "/fotos/2026/40002536432.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 43084.2,
+      "concorre2026": true
+    },
+    {
+      "nome": "Amanda Martins Pinheiro",
+      "nomeUrna": "Dra. Amanda Pinheiro",
+      "partido": "MDB",
+      "numero": "1505",
+      "foto": "/fotos/2026/40002531439.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 44702.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Maria Eunice Torres do Nascimento",
+      "nomeUrna": "Dra. Eunice Nascimento",
+      "partido": "AVANTE",
+      "numero": "7077",
+      "foto": "/fotos/2026/40002536438.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Patricia Del Pilar Suarez Sicchar",
+      "nomeUrna": "Dra. Patricia Sicchar",
+      "partido": "PL",
+      "numero": "2259",
+      "foto": "/fotos/2026/40002540486.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 93891.35,
+      "concorre2026": true
+    },
+    {
+      "nome": "Eberson dos Santos Lima",
+      "nomeUrna": "Eberson Batera",
+      "partido": "MOBILIZA",
+      "numero": "3322",
+      "foto": "/fotos/2026/40002552704.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Carlos Edgar Tavares de Oliveira",
+      "nomeUrna": "Edgar Oliveira",
+      "partido": "MISSÃO",
+      "numero": "1456",
+      "foto": "/fotos/2026/40002539049.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 475.34,
+      "concorre2026": true
+    },
+    {
+      "nome": "Eduardo Theo Ferreira de Menezes",
+      "nomeUrna": "Eduardo Theo",
+      "partido": "MISSÃO",
+      "numero": "1401",
+      "foto": "/fotos/2026/40002539045.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 1338.55,
+      "concorre2026": true
+    },
+    {
+      "nome": "Sebastião Efigênio Rodrigues Carvalho",
+      "nomeUrna": "Efigênio Carvalho",
+      "partido": "NOVO",
+      "numero": "3022",
+      "foto": "/fotos/2026/40002536454.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 5.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Eliabe Almeida Campos",
+      "nomeUrna": "Eliabe Campos",
+      "partido": "MISSÃO",
+      "numero": "1414",
+      "foto": "/fotos/2026/40002539043.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 3462.67,
+      "concorre2026": true
+    },
+    {
+      "nome": "Elpídio Marques Dácio",
+      "nomeUrna": "Elpídio dos Povos Mura",
+      "partido": "DC",
+      "numero": "2772",
+      "foto": "/fotos/2026/40002536085.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 6610.5,
+      "concorre2026": true
+    },
+    {
+      "nome": "Evaldo do Nascimento Vasconcelos",
+      "nomeUrna": "Evaldo Vasconcelos",
+      "partido": "PDT",
+      "numero": "1299",
+      "foto": "/fotos/2026/40002549855.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 18782.01,
+      "concorre2026": true
+    },
+    {
+      "nome": "Frank Carlos Oliveira de Souza",
+      "nomeUrna": "Frank Carlos",
+      "partido": "DC",
+      "numero": "2700",
+      "foto": "/fotos/2026/40002536079.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Glaucia Rebelo Barcelos",
+      "nomeUrna": "Glaucia Rebelo",
+      "partido": "REPUBLICANOS",
+      "numero": "1063",
+      "foto": "/fotos/2026/40002533202.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 23250.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Gláucia Amazonas da Silva",
+      "nomeUrna": "Gláucia Amazonas",
+      "partido": "DC",
+      "numero": "2707",
+      "foto": "/fotos/2026/40002536083.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Will Robson Fontes Goiabeira",
+      "nomeUrna": "Goiabeira",
+      "partido": "SOLIDARIEDADE",
+      "numero": "7712",
+      "foto": "/fotos/2026/40002549902.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Ronaldo Gonzaga Lavareda",
+      "nomeUrna": "Gonza",
+      "partido": "DC",
+      "numero": "2757",
+      "foto": "/fotos/2026/40002536078.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Hermano Galvão Alves Junior",
+      "nomeUrna": "Hermano Junior",
+      "partido": "PODE",
+      "numero": "2040",
+      "foto": "/fotos/2026/40002541588.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 15000.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Iana Nadina Lima de Oliveira",
+      "nomeUrna": "Iana Nadina",
+      "partido": "MISSÃO",
+      "numero": "1415",
+      "foto": "/fotos/2026/40002539048.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 1250.5,
+      "concorre2026": true
+    },
+    {
+      "nome": "Jean Alexander Batista Francine",
+      "nomeUrna": "Jean Batista",
+      "partido": "PL",
+      "numero": "2210",
+      "foto": "/fotos/2026/40002540478.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 117137.5,
+      "concorre2026": true
+    },
+    {
+      "nome": "Jean Carlos de Alencar Carvalho",
+      "nomeUrna": "Jean Carlos",
+      "partido": "NOVO",
+      "numero": "3044",
+      "foto": "/fotos/2026/40002554220.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Jesus Alves dos Santos",
+      "nomeUrna": "Jesus Alves",
+      "partido": "MDB",
+      "numero": "1500",
+      "foto": "/fotos/2026/40002531440.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 1138732.31,
+      "concorre2026": true
+    },
+    {
+      "nome": "Joana Darc Cordeiro de Lima",
+      "nomeUrna": "Joana Darc",
+      "partido": "UNIÃO",
+      "numero": "4444",
+      "foto": "/fotos/2026/40002542676.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 429584.2,
+      "concorre2026": true
+    },
+    {
+      "nome": "Joaquim Felipe Guimaraes Gomes",
+      "nomeUrna": "Joaquim Felipe",
+      "partido": "PSB",
+      "numero": "4044",
+      "foto": "/fotos/2026/40002541625.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Joelson Sales Silva",
+      "nomeUrna": "Joelson Silva",
+      "partido": "AVANTE",
+      "numero": "7001",
+      "foto": "/fotos/2026/40002536435.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 130639.61,
+      "concorre2026": true
+    },
+    {
+      "nome": "Jorge Elias Costa de Oliveira",
+      "nomeUrna": "Jorge Oliveira",
+      "partido": "PSD",
+      "numero": "5500",
+      "foto": "/fotos/2026/40002532759.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 93900.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Francisco Assis Santos Soares",
+      "nomeUrna": "Jornada",
+      "partido": "PDT",
+      "numero": "1233",
+      "foto": "/fotos/2026/40002549861.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 60815.5,
+      "concorre2026": true
+    },
+    {
+      "nome": "Josildo de Oliveira Silva",
+      "nomeUrna": "Josildo Oliveira",
+      "partido": "REPUBLICANOS",
+      "numero": "1044",
+      "foto": "/fotos/2026/40002533209.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 284380.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Juarez Souza Brandão Junior",
+      "nomeUrna": "Jota Brandão",
+      "partido": "MISSÃO",
+      "numero": "1433",
+      "foto": "/fotos/2026/40002539051.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 1447.59,
+      "concorre2026": true
+    },
+    {
+      "nome": "Joao Antonio de Oliveira Marques Lima",
+      "nomeUrna": "João Lima",
+      "partido": "UP",
+      "numero": "8080",
+      "foto": "/fotos/2026/40002546977.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Gilberto Borges dos Santos Junior",
+      "nomeUrna": "Junior Resgate",
+      "partido": "AVANTE",
+      "numero": "7000",
+      "foto": "/fotos/2026/40002536440.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 7432.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Jardel Araujo da Silva Inacio",
+      "nomeUrna": "Jàrdel Inácio",
+      "partido": "PSB",
+      "numero": "4004",
+      "foto": "/fotos/2026/40002541619.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 151.75,
+      "concorre2026": true
+    },
+    {
+      "nome": "Karola Karen Pontes Caldas",
+      "nomeUrna": "Karola Pro Vida",
+      "partido": "SOLIDARIEDADE",
+      "numero": "7711",
+      "foto": "/fotos/2026/40002549903.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Layon Gabriel Moraes Nunes",
+      "nomeUrna": "Layon Nunes",
+      "partido": "NOVO",
+      "numero": "3030",
+      "foto": "/fotos/2026/40002536448.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Lucilene Rodrigues de Souza",
+      "nomeUrna": "Lene Souza",
+      "partido": "SOLIDARIEDADE",
+      "numero": "7790",
+      "foto": "/fotos/2026/40002549905.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Creuza Regina de Souza Lima",
+      "nomeUrna": "Loira do Salgado",
+      "partido": "PSB",
+      "numero": "4007",
+      "foto": "/fotos/2026/40002541617.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Luciana Soares Viga",
+      "nomeUrna": "Luciana Viga",
+      "partido": "MISSÃO",
+      "numero": "1400",
+      "foto": "/fotos/2026/40002539046.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 11597.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Luis Carlos Rodrigues de Moura",
+      "nomeUrna": "Luis Carlos Velho",
+      "partido": "PT",
+      "numero": "1363",
+      "foto": "/fotos/2026/40002545600.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Luiz Andrade de Sousa",
+      "nomeUrna": "Luiz Andrade",
+      "partido": "REDE",
+      "numero": "1800",
+      "foto": "/fotos/2026/40002551010.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 8701.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Madalena de Souza Silva",
+      "nomeUrna": "Madalena Silva",
+      "partido": "PDT",
+      "numero": "1212",
+      "foto": "/fotos/2026/40002549860.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 88201.5,
+      "concorre2026": true
+    },
+    {
+      "nome": "Marciana Silva de Oliveira",
+      "nomeUrna": "Marcia Silva",
+      "partido": "PSB",
+      "numero": "4008",
+      "foto": "/fotos/2026/40002541621.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Antonio Marcos de Oliveira Apurinã",
+      "nomeUrna": "Marcos Apurinã",
+      "partido": "REDE",
+      "numero": "1818",
+      "foto": "/fotos/2026/40002551009.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 90000.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Maria Osvaldina Gato Castro",
+      "nomeUrna": "Maria Gato",
+      "partido": "NOVO",
+      "numero": "3033",
+      "foto": "/fotos/2026/40002536452.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Givanildo Marques Maia",
+      "nomeUrna": "Marquinhos Maia",
+      "partido": "SOLIDARIEDADE",
+      "numero": "7706",
+      "foto": "/fotos/2026/40002549900.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Marilia Freire da Silva",
+      "nomeUrna": "Marília Freire",
+      "partido": "PCDOB",
+      "numero": "6565",
+      "foto": "/fotos/2026/40002545596.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 40022.5,
+      "concorre2026": true
+    },
+    {
+      "nome": "Masami Miki",
+      "nomeUrna": "Massami Miki",
+      "partido": "REPUBLICANOS",
+      "numero": "1024",
+      "foto": "/fotos/2026/40002533210.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 1081792.5,
+      "concorre2026": true
+    },
+    {
+      "nome": "Alexandre Mateus dos Santos Lima",
+      "nomeUrna": "Mateus do Ti",
+      "partido": "MISSÃO",
+      "numero": "1420",
+      "foto": "/fotos/2026/40002539044.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Mauro Teixeira Pires Junior",
+      "nomeUrna": "Mauro Teixeira",
+      "partido": "PODE",
+      "numero": "2066",
+      "foto": "/fotos/2026/40002541584.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 15000.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Melyssa Geber Correa Reboucas de Lima",
+      "nomeUrna": "Melyssa Geber",
+      "partido": "PSB",
+      "numero": "4040",
+      "foto": "/fotos/2026/40002541622.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Estelio Pereira Gabino",
+      "nomeUrna": "Mestre Estelio Gabino",
+      "partido": "PSB",
+      "numero": "4022",
+      "foto": "/fotos/2026/40002541618.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Mickaelle Sevalho Neves Barbosa",
+      "nomeUrna": "Micka Sevalho",
+      "partido": "PL",
+      "numero": "2244",
+      "foto": "/fotos/2026/40002540482.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 94719.17,
+      "concorre2026": true
+    },
+    {
+      "nome": "Natalia Demes Bezerra Tavares Pereira",
+      "nomeUrna": "Natalia",
+      "partido": "PSOL",
+      "numero": "5055",
+      "foto": "/fotos/2026/40002551003.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 49105.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Nathalia Rachel Silva Nascimento",
+      "nomeUrna": "Nath Nascimento",
+      "partido": "PSD",
+      "numero": "5544",
+      "foto": "/fotos/2026/40002532758.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 340252.04,
+      "concorre2026": true
+    },
+    {
+      "nome": "Nathan Macena de Souza",
+      "nomeUrna": "Nathan Macena",
+      "partido": "MDB",
+      "numero": "1522",
+      "foto": "/fotos/2026/40002531443.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 1251533.05,
+      "concorre2026": true
+    },
+    {
+      "nome": "Raimundo Nonato da Conceição Rodrigues",
+      "nomeUrna": "Nonato Chegado",
+      "partido": "DC",
+      "numero": "2711",
+      "foto": "/fotos/2026/40002536081.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Oder Coelho Aurélio",
+      "nomeUrna": "Oder Aurélio",
+      "partido": "NOVO",
+      "numero": "3077",
+      "foto": "/fotos/2026/40002536450.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 1000.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Maria Odimar da Silva Guimaraes",
+      "nomeUrna": "Odimar Guimarães",
+      "partido": "REDE",
+      "numero": "1813",
+      "foto": "/fotos/2026/40002551008.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 30000.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Manoel da Paixao Tavares da Graca",
+      "nomeUrna": "Paixão",
+      "partido": "PSB",
+      "numero": "4023",
+      "foto": "/fotos/2026/40002541620.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Ruth da Costa Conceição da Rocha",
+      "nomeUrna": "Pastora Ruth Costa",
+      "partido": "PODE",
+      "numero": "2012",
+      "foto": "/fotos/2026/40002541590.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 17881.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Patricia Rakelly Benzaquem da Cruz",
+      "nomeUrna": "Patricia Benzaquem",
+      "partido": "MISSÃO",
+      "numero": "1477",
+      "foto": "/fotos/2026/40002539047.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 3143.5,
+      "concorre2026": true
+    },
+    {
+      "nome": "Patricia Barroso Veras",
+      "nomeUrna": "Patrícia Barroso",
+      "partido": "REDE",
+      "numero": "1888",
+      "foto": "/fotos/2026/40002551006.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 5000.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Paula Jussara dos Santos Portela",
+      "nomeUrna": "Paula Portela",
+      "partido": "PL",
+      "numero": "2200",
+      "foto": "/fotos/2026/40002540479.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 222783.3,
+      "concorre2026": true
+    },
+    {
+      "nome": "Paulo Arthur Braga Ruiz",
+      "nomeUrna": "Paulo Arthur",
+      "partido": "NOVO",
+      "numero": "3010",
+      "foto": "/fotos/2026/40002536453.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Edivan Castilho Ferreira",
+      "nomeUrna": "Pr. Edivan Castilho",
+      "partido": "PODE",
+      "numero": "2021",
+      "foto": "/fotos/2026/40002541585.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Amilton Bezerra Gadelha",
+      "nomeUrna": "Professor Amilton Gadelha",
+      "partido": "PODE",
+      "numero": "2025",
+      "foto": "/fotos/2026/40002541591.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Arqleydsson de Lima Pinheiro",
+      "nomeUrna": "Professor Arqleydsson",
+      "partido": "PCDOB",
+      "numero": "6555",
+      "foto": "/fotos/2026/40002545597.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 38756.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Antonio Dalmir Bezerra Salazar",
+      "nomeUrna": "Professor Dalmir Salazar",
+      "partido": "AVANTE",
+      "numero": "7012",
+      "foto": "/fotos/2026/40002536436.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 18562.6,
+      "concorre2026": true
+    },
+    {
+      "nome": "Roque Lane Wilkens Marinho",
+      "nomeUrna": "Professor Roque Lane",
+      "partido": "DC",
+      "numero": "2727",
+      "foto": "/fotos/2026/40002536082.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Josilene Vasconcelos Maia",
+      "nomeUrna": "Professora Lene Maia",
+      "partido": "DC",
+      "numero": "2789",
+      "foto": "/fotos/2026/40002536084.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Therezinha Ruiz de Oliveira",
+      "nomeUrna": "Professora Therezinha Ruiz",
+      "partido": "UNIÃO",
+      "numero": "4411",
+      "foto": "/fotos/2026/40002542671.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 904954.09,
+      "concorre2026": true
+    },
+    {
+      "nome": "Radyr Gomes de Oliveira Junior",
+      "nomeUrna": "Radyr Junior",
+      "partido": "AVANTE",
+      "numero": "7025",
+      "foto": "/fotos/2026/40002536434.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 10000.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Renata Costa Nascimento",
+      "nomeUrna": "Renata Kokama",
+      "partido": "PDT",
+      "numero": "1234",
+      "foto": "/fotos/2026/40002549857.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 46412.5,
+      "concorre2026": true
+    },
+    {
+      "nome": "Richard Santos Stone",
+      "nomeUrna": "Richard Stone",
+      "partido": "NOVO",
+      "numero": "3067",
+      "foto": "/fotos/2026/40002536451.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Rita do Socorro Cristo dos Santos",
+      "nomeUrna": "Rita da Enfermagem",
+      "partido": "PODE",
+      "numero": "2015",
+      "foto": "/fotos/2026/40002541587.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 3000.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Roberio Ramires dos Santos",
+      "nomeUrna": "Robério Kambeba",
+      "partido": "PDT",
+      "numero": "1255",
+      "foto": "/fotos/2026/40002549859.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 44998.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Denison Nascimento de Rezende",
+      "nomeUrna": "Ronaldinho Show",
+      "partido": "PSB",
+      "numero": "4011",
+      "foto": "/fotos/2026/40002541623.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Simon de Souza Guimaraes Bessa",
+      "nomeUrna": "Saimon Bessa",
+      "partido": "UNIÃO",
+      "numero": "4433",
+      "foto": "/fotos/2026/40002542675.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 347011.59,
+      "concorre2026": true
+    },
+    {
+      "nome": "Alexandre da Silva Salazar",
+      "nomeUrna": "Sargento Salazar",
+      "partido": "PL",
+      "numero": "2211",
+      "foto": "/fotos/2026/40002540480.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 1815612.55,
+      "concorre2026": true
+    },
+    {
+      "nome": "Soraya Gomes Cohen",
+      "nomeUrna": "Soraya Cohen",
+      "partido": "NOVO",
+      "numero": "3000",
+      "foto": "/fotos/2026/40002536447.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Tadeu de Souza Silva",
+      "nomeUrna": "Tadeu de Souza",
+      "partido": "PP",
+      "numero": "1111",
+      "foto": "/fotos/2026/40002542674.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 1346054.3,
+      "concorre2026": true
+    },
+    {
+      "nome": "Adriana Sales Gomes",
+      "nomeUrna": "Tenente Coronel Adriana",
+      "partido": "PP",
+      "numero": "1144",
+      "foto": "/fotos/2026/40002542673.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 765944.62,
+      "concorre2026": true
+    },
+    {
+      "nome": "Thaysa Lippy de Souza Florencio",
+      "nomeUrna": "Thaysa Lippy",
+      "partido": "UNIÃO",
+      "numero": "4400",
+      "foto": "/fotos/2026/40002542672.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 237976.43,
+      "concorre2026": true
+    },
+    {
+      "nome": "Valdenir Costa Soares",
+      "nomeUrna": "Valdeco Tattoo",
+      "partido": "PSOL",
+      "numero": "5033",
+      "foto": "/fotos/2026/40002551005.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 24166.5,
+      "concorre2026": true
+    },
+    {
+      "nome": "Vanete Cezario Carvalho",
+      "nomeUrna": "Vanete Carvalho",
+      "partido": "PODE",
+      "numero": "2026",
+      "foto": "/fotos/2026/40002541583.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Walzenir de Oliveira Falcao",
+      "nomeUrna": "Walzenir Falcão",
+      "partido": "UNIÃO",
+      "numero": "4456",
+      "foto": "/fotos/2026/40002542677.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 125394.2,
+      "concorre2026": true
+    },
+    {
+      "nome": "Wick Ryan Barbosa Bitencourt",
+      "nomeUrna": "Wick Ryan",
+      "partido": "MISSÃO",
+      "numero": "1444",
+      "foto": "/fotos/2026/40002539050.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 3187.0,
+      "concorre2026": true
+    },
+    {
+      "nome": "Álex Sousa de Sá",
+      "nomeUrna": "Álex Sousa",
+      "partido": "PSOL",
+      "numero": "5050",
+      "foto": "/fotos/2026/40002551004.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 60642.33,
+      "concorre2026": true
+    }
+  ],
+  "publicidadePartidos": [
+    {
+      "partido": "UNIÃO",
+      "gasto2022": 19384275.4,
+      "gasto2026": 4034664.36
+    },
+    {
+      "partido": "PSD",
+      "gasto2022": 11777524.84,
+      "gasto2026": 3288948.99
+    },
+    {
+      "partido": "REPUBLICANOS",
+      "gasto2022": 7097431.73,
+      "gasto2026": 6057476.82
+    },
+    {
+      "partido": "MDB",
+      "gasto2022": 4082207.31,
+      "gasto2026": 5740110.22
+    },
+    {
+      "partido": "PL",
+      "gasto2022": 4185813.42,
+      "gasto2026": 4846591.02
+    },
+    {
+      "partido": "PT",
+      "gasto2022": 4006680.22,
+      "gasto2026": 1332265.12
+    },
+    {
+      "partido": "PROS",
+      "gasto2022": 3005024.0,
+      "gasto2026": 0.0
+    },
+    {
+      "partido": "PC do B",
+      "gasto2022": 2909236.82,
+      "gasto2026": 0.0
+    },
+    {
+      "partido": "PP",
+      "gasto2022": 0.0,
+      "gasto2026": 2111998.92
+    },
+    {
+      "partido": "AVANTE",
+      "gasto2022": 1846497.74,
+      "gasto2026": 261522.41
+    },
+    {
+      "partido": "REDE",
+      "gasto2022": 1568646.66,
+      "gasto2026": 133701.0
+    },
+    {
+      "partido": "CIDADANIA",
+      "gasto2022": 1260013.49,
+      "gasto2026": 0.0
+    },
+    {
+      "partido": "PDT",
+      "gasto2022": 655997.46,
+      "gasto2026": 366016.51
+    },
+    {
+      "partido": "PATRIOTA",
+      "gasto2022": 854643.99,
+      "gasto2026": 0.0
+    },
+    {
+      "partido": "PTB",
+      "gasto2022": 428379.3,
+      "gasto2026": 0.0
+    },
+    {
+      "partido": "PSOL",
+      "gasto2022": 181618.06,
+      "gasto2026": 215239.23
+    },
+    {
+      "partido": "PMN",
+      "gasto2022": 253958.15,
+      "gasto2026": 0.0
+    },
+    {
+      "partido": "PSC",
+      "gasto2022": 235835.11,
+      "gasto2026": 0.0
+    },
+    {
+      "partido": "PSDB",
+      "gasto2022": 225765.15,
+      "gasto2026": 0.0
+    },
+    {
+      "partido": "SOLIDARIEDADE",
+      "gasto2022": 206915.45,
+      "gasto2026": 0.0
+    },
+    {
+      "partido": "PV",
+      "gasto2022": 84344.58,
+      "gasto2026": 0.0
+    },
+    {
+      "partido": "PCDOB",
+      "gasto2022": 0.0,
+      "gasto2026": 78778.5
+    },
+    {
+      "partido": "PODE",
+      "gasto2022": 0.0,
+      "gasto2026": 76105.5
+    },
+    {
+      "partido": "MISSÃO",
+      "gasto2022": 0.0,
+      "gasto2026": 25902.15
+    },
+    {
+      "partido": "MOBILIZA",
+      "gasto2022": 0.0,
+      "gasto2026": 17406.0
+    },
+    {
+      "partido": "PSTU",
+      "gasto2022": 0.0,
+      "gasto2026": 16000.0
+    },
+    {
+      "partido": "DC",
+      "gasto2022": 4811.4,
+      "gasto2026": 7610.5
+    },
+    {
+      "partido": "AGIR",
+      "gasto2022": 9000.0,
+      "gasto2026": 0.0
+    },
+    {
+      "partido": "NOVO",
+      "gasto2022": 3500.41,
+      "gasto2026": 1005.0
+    },
+    {
+      "partido": "PSB",
+      "gasto2022": 0.0,
+      "gasto2026": 151.75
+    },
+    {
+      "partido": "UP",
+      "gasto2022": 0.0,
+      "gasto2026": 0.0
+    }
+  ],
+  "notaVotos": "Votos nominais do primeiro turno da eleição ordinária de 2022.",
+  "notaPublicidade2022": "Soma de todas as despesas contratadas da campanha, de qualquer tipo. Prestação de contas de 2022, arquivo gerado pelo TSE em 16/11/2025.",
+  "notaGastoAntecipado": "Despesas contratadas com data até 25/09/2022, inclusive, uma semana antes do primeiro turno de 02/10/2022. A porcentagem divide esse valor pelo total final da mesma prestação de contas. Quem fechou a campanha com despesa zero fica fora do gráfico.",
+  "notaPublicidade2026": "Soma de todas as despesas contratadas publicadas no DivulgaCand, não só publicidade. A entrega mais recente entre essas candidaturas é de 27/09/2026.",
+  "quociente": {
+    "votosValidos": 1991796,
+    "vagas": 8,
+    "qe": 248974,
+    "oitenta": 199179,
+    "nota": "Quociente eleitoral de deputado federal no Amazonas em 2022: 1.991.796 votos válidos divididos por 8 cadeiras. A fração 0,5 é desprezada. Os 80% desse quociente eram o mínimo para o partido ou a federação disputar as sobras. A raia soma o voto nominal de cada federação e de cada partido que concorreu sozinho. O voto de legenda entra no quociente e não está separado nesta raia."
+  },
+  "federacoes": [
+    {
+      "nome": "UNIÃO",
+      "tipo": "partido",
+      "partidos": [
+        "UNIÃO"
+      ],
+      "votos": 363768,
+      "inicio": 0,
+      "fim": 363768
+    },
+    {
+      "nome": "PSD",
+      "tipo": "partido",
+      "partidos": [
+        "PSD"
+      ],
+      "votos": 327445,
+      "inicio": 363768,
+      "fim": 691213
+    },
+    {
+      "nome": "PSDB/CIDADANIA",
+      "tipo": "federacao",
+      "partidos": [
+        "PSDB",
+        "CIDADANIA"
+      ],
+      "votos": 319628,
+      "inicio": 691213,
+      "fim": 1010841
+    },
+    {
+      "nome": "REPUBLICANOS",
+      "tipo": "partido",
+      "partidos": [
+        "REPUBLICANOS"
+      ],
+      "votos": 289647,
+      "inicio": 1010841,
+      "fim": 1300488
+    },
+    {
+      "nome": "PL",
+      "tipo": "partido",
+      "partidos": [
+        "PL"
+      ],
+      "votos": 227086,
+      "inicio": 1300488,
+      "fim": 1527574
+    },
+    {
+      "nome": "PT/PC do B/PV",
+      "tipo": "federacao",
+      "partidos": [
+        "PT",
+        "PC do B",
+        "PV"
+      ],
+      "votos": 147135,
+      "inicio": 1527574,
+      "fim": 1674709
+    },
+    {
+      "nome": "AVANTE",
+      "tipo": "partido",
+      "partidos": [
+        "AVANTE"
+      ],
+      "votos": 137099,
+      "inicio": 1674709,
+      "fim": 1811808
+    },
+    {
+      "nome": "MDB",
+      "tipo": "partido",
+      "partidos": [
+        "MDB"
+      ],
+      "votos": 35390,
+      "inicio": 1811808,
+      "fim": 1847198
+    },
+    {
+      "nome": "PSOL/REDE",
+      "tipo": "federacao",
+      "partidos": [
+        "PSOL",
+        "REDE"
+      ],
+      "votos": 29585,
+      "inicio": 1847198,
+      "fim": 1876783
+    },
+    {
+      "nome": "PATRIOTA",
+      "tipo": "partido",
+      "partidos": [
+        "PATRIOTA"
+      ],
+      "votos": 12536,
+      "inicio": 1876783,
+      "fim": 1889319
+    },
+    {
+      "nome": "PDT",
+      "tipo": "partido",
+      "partidos": [
+        "PDT"
+      ],
+      "votos": 9588,
+      "inicio": 1889319,
+      "fim": 1898907
+    },
+    {
+      "nome": "PSC",
+      "tipo": "partido",
+      "partidos": [
+        "PSC"
+      ],
+      "votos": 6597,
+      "inicio": 1898907,
+      "fim": 1905504
+    },
+    {
+      "nome": "SOLIDARIEDADE",
+      "tipo": "partido",
+      "partidos": [
+        "SOLIDARIEDADE"
+      ],
+      "votos": 6554,
+      "inicio": 1905504,
+      "fim": 1912058
+    },
+    {
+      "nome": "PTB",
+      "tipo": "partido",
+      "partidos": [
+        "PTB"
+      ],
+      "votos": 4698,
+      "inicio": 1912058,
+      "fim": 1916756
+    },
+    {
+      "nome": "PMN",
+      "tipo": "partido",
+      "partidos": [
+        "PMN"
+      ],
+      "votos": 3954,
+      "inicio": 1916756,
+      "fim": 1920710
+    },
+    {
+      "nome": "PROS",
+      "tipo": "partido",
+      "partidos": [
+        "PROS"
+      ],
+      "votos": 2454,
+      "inicio": 1920710,
+      "fim": 1923164
+    },
+    {
+      "nome": "AGIR",
+      "tipo": "partido",
+      "partidos": [
+        "AGIR"
+      ],
+      "votos": 2187,
+      "inicio": 1923164,
+      "fim": 1925351
+    },
+    {
+      "nome": "DC",
+      "tipo": "partido",
+      "partidos": [
+        "DC"
+      ],
+      "votos": 2034,
+      "inicio": 1925351,
+      "fim": 1927385
+    },
+    {
+      "nome": "NOVO",
+      "tipo": "partido",
+      "partidos": [
+        "NOVO"
+      ],
+      "votos": 1688,
+      "inicio": 1927385,
+      "fim": 1929073
+    },
+    {
+      "nome": "PSB",
+      "tipo": "partido",
+      "partidos": [
+        "PSB"
+      ],
+      "votos": 1120,
+      "inicio": 1929073,
+      "fim": 1930193
+    },
+    {
+      "nome": "PODE",
+      "tipo": "partido",
+      "partidos": [
+        "PODE"
+      ],
+      "votos": 31,
+      "inicio": 1930193,
+      "fim": 1930224
+    }
+  ],
+  "partidos": [
+    {
+      "partido": "AVANTE",
+      "candidatos2022": 9,
+      "candidatos2026": 9
+    },
+    {
+      "partido": "MDB",
+      "candidatos2022": 9,
+      "candidatos2026": 9
+    },
+    {
+      "partido": "PL",
+      "candidatos2022": 9,
+      "candidatos2026": 9
+    },
+    {
+      "partido": "PSD",
+      "candidatos2022": 9,
+      "candidatos2026": 9
+    },
+    {
+      "partido": "REPUBLICANOS",
+      "candidatos2022": 9,
+      "candidatos2026": 9
+    },
+    {
+      "partido": "PDT",
+      "candidatos2022": 9,
+      "candidatos2026": 8
+    },
+    {
+      "partido": "UNIÃO",
+      "candidatos2022": 9,
+      "candidatos2026": 7
+    },
+    {
+      "partido": "DC",
+      "candidatos2022": 5,
+      "candidatos2026": 9
+    },
+    {
+      "partido": "SOLIDARIEDADE",
+      "candidatos2022": 5,
+      "candidatos2026": 8
+    },
+    {
+      "partido": "PT",
+      "candidatos2022": 5,
+      "candidatos2026": 7
+    },
+    {
+      "partido": "PSB",
+      "candidatos2022": 2,
+      "candidatos2026": 9
+    },
+    {
+      "partido": "NOVO",
+      "candidatos2022": 1,
+      "candidatos2026": 9
+    },
+    {
+      "partido": "PODE",
+      "candidatos2022": 1,
+      "candidatos2026": 9
+    },
+    {
+      "partido": "REDE",
+      "candidatos2022": 6,
+      "candidatos2026": 4
+    },
+    {
+      "partido": "MISSÃO",
+      "candidatos2022": 0,
+      "candidatos2026": 9
+    },
+    {
+      "partido": "PATRIOTA",
+      "candidatos2022": 9,
+      "candidatos2026": 0
+    },
+    {
+      "partido": "PMN",
+      "candidatos2022": 9,
+      "candidatos2026": 0
+    },
+    {
+      "partido": "PSC",
+      "candidatos2022": 9,
+      "candidatos2026": 0
+    },
+    {
+      "partido": "PSOL",
+      "candidatos2022": 3,
+      "candidatos2026": 5
+    },
+    {
+      "partido": "AGIR",
+      "candidatos2022": 7,
+      "candidatos2026": 0
+    },
+    {
+      "partido": "PTB",
+      "candidatos2022": 6,
+      "candidatos2026": 0
+    },
+    {
+      "partido": "CIDADANIA",
+      "candidatos2022": 5,
+      "candidatos2026": 0
+    },
+    {
+      "partido": "PROS",
+      "candidatos2022": 5,
+      "candidatos2026": 0
+    },
+    {
+      "partido": "PSDB",
+      "candidatos2022": 4,
+      "candidatos2026": 0
+    },
+    {
+      "partido": "MOBILIZA",
+      "candidatos2022": 0,
+      "candidatos2026": 2
+    },
+    {
+      "partido": "PC do B",
+      "candidatos2022": 2,
+      "candidatos2026": 0
+    },
+    {
+      "partido": "PCDOB",
+      "candidatos2022": 0,
+      "candidatos2026": 2
+    },
+    {
+      "partido": "PP",
+      "candidatos2022": 0,
+      "candidatos2026": 2
+    },
+    {
+      "partido": "PSTU",
+      "candidatos2022": 0,
+      "candidatos2026": 2
+    },
+    {
+      "partido": "PV",
+      "candidatos2022": 2,
+      "candidatos2026": 0
+    },
+    {
+      "partido": "UP",
+      "candidatos2022": 0,
+      "candidatos2026": 2
+    }
+  ],
+  "sairam": [
+    {
+      "nome": "Marcos Oliveira Gazel",
+      "nomeUrna": "Daniel Oliveira",
+      "partido": "AGIR",
+      "numero": "3636",
+      "foto": ""
+    },
+    {
+      "nome": "Edson do Nascimento Pereira",
+      "nomeUrna": "Edinho",
+      "partido": "AGIR",
+      "numero": "3600",
+      "foto": ""
+    },
+    {
+      "nome": "Antônio Erivelton Fernandes da Silva",
+      "nomeUrna": "Erivelto Silva",
+      "partido": "AGIR",
+      "numero": "3655",
+      "foto": ""
+    },
+    {
+      "nome": "Fátima Vitória de Jesus Spener Xavier",
+      "nomeUrna": "Fátima Spener",
+      "partido": "AGIR",
+      "numero": "3672",
+      "foto": ""
+    },
+    {
+      "nome": "Gilmar da Silva Ribeiro",
+      "nomeUrna": "Irmão Ribeiro",
+      "partido": "AGIR",
+      "numero": "3633",
+      "foto": ""
+    },
+    {
+      "nome": "Jonia Muniz da Silva",
+      "nomeUrna": "Jonia Muniz",
+      "partido": "AGIR",
+      "numero": "3612",
+      "foto": ""
+    },
+    {
+      "nome": "Silvio José Cintra Maia",
+      "nomeUrna": "Silvio Maia",
+      "partido": "AGIR",
+      "numero": "3622",
+      "foto": ""
+    },
+    {
+      "nome": "David Valente Reis",
+      "nomeUrna": "David Reis",
+      "partido": "AVANTE",
+      "numero": "7070",
+      "foto": ""
+    },
+    {
+      "nome": "Katiane Gama Feitoza",
+      "nomeUrna": "Katy Feitoza",
+      "partido": "AVANTE",
+      "numero": "7010",
+      "foto": ""
+    },
+    {
+      "nome": "Liliane Araujo de Almeida",
+      "nomeUrna": "Liliane Araújo",
+      "partido": "AVANTE",
+      "numero": "7001",
+      "foto": ""
+    },
+    {
+      "nome": "Lissandro Breval Santiago",
+      "nomeUrna": "Lissandro Breval",
+      "partido": "AVANTE",
+      "numero": "7000",
+      "foto": ""
+    },
+    {
+      "nome": "Marcel Alexandre da Silva",
+      "nomeUrna": "Marcel Alexandre",
+      "partido": "AVANTE",
+      "numero": "7022",
+      "foto": ""
+    },
+    {
+      "nome": "Marcelo Augusto da Eira Corrêa",
+      "nomeUrna": "Marcelo Serafim",
+      "partido": "AVANTE",
+      "numero": "7040",
+      "foto": ""
+    },
+    {
+      "nome": "Marcio Paixão Ribeiro",
+      "nomeUrna": "Marcio Paixão",
+      "partido": "AVANTE",
+      "numero": "7077",
+      "foto": ""
+    },
+    {
+      "nome": "Raymison Monteiro de Souza",
+      "nomeUrna": "Dr. Raymison",
+      "partido": "CIDADANIA",
+      "numero": "2333",
+      "foto": ""
+    },
+    {
+      "nome": "Israel Alexandre Muniz Paulain",
+      "nomeUrna": "Israel Paulain",
+      "partido": "CIDADANIA",
+      "numero": "2345",
+      "foto": ""
+    },
+    {
+      "nome": "Josete Costa dos Santos",
+      "nomeUrna": "Joseth Yohanna",
+      "partido": "CIDADANIA",
+      "numero": "2300",
+      "foto": ""
+    },
+    {
+      "nome": "Marilena Monica Perez Said",
+      "nomeUrna": "Monica Mendes",
+      "partido": "CIDADANIA",
+      "numero": "2332",
+      "foto": ""
+    },
+    {
+      "nome": "Celso Corsino da Silva",
+      "nomeUrna": "Celso Corsino",
+      "partido": "DC",
+      "numero": "2777",
+      "foto": ""
+    },
+    {
+      "nome": "Cicero Jose de Lima Alencar",
+      "nomeUrna": "Cicero Alencar",
+      "partido": "DC",
+      "numero": "2727",
+      "foto": ""
+    },
+    {
+      "nome": "Cimara Alencar Cavalcante",
+      "nomeUrna": "Cimara Cavalcante",
+      "partido": "DC",
+      "numero": "2700",
+      "foto": ""
+    },
+    {
+      "nome": "Jefferson Alves de Lima",
+      "nomeUrna": "Jefferson Brasil Cante",
+      "partido": "DC",
+      "numero": "2773",
+      "foto": ""
+    },
+    {
+      "nome": "Renato Mendonça de Alencar",
+      "nomeUrna": "Renato Alencar",
+      "partido": "DC",
+      "numero": "2707",
+      "foto": ""
+    },
+    {
+      "nome": "Francidalva de Morais Machado",
+      "nomeUrna": "Dalva Morais",
+      "partido": "MDB",
+      "numero": "1522",
+      "foto": ""
+    },
+    {
+      "nome": "Nelson Raimundo de Oliveira Azedo",
+      "nomeUrna": "Dr. Nelson Azedo",
+      "partido": "MDB",
+      "numero": "1500",
+      "foto": ""
+    },
+    {
+      "nome": "Eli Costa de Souza",
+      "nomeUrna": "Eli Souza",
+      "partido": "MDB",
+      "numero": "1512",
+      "foto": ""
+    },
+    {
+      "nome": "Maria Elizabeth dos Santos Oliveira",
+      "nomeUrna": "Elizabeth Oliveira",
+      "partido": "MDB",
+      "numero": "1544",
+      "foto": ""
+    },
+    {
+      "nome": "Gina Maria Reis Gonzalez",
+      "nomeUrna": "Gina Gonzalez",
+      "partido": "MDB",
+      "numero": "1599",
+      "foto": ""
+    },
+    {
+      "nome": "Márcia Auxiliadora Cardoso Baranda",
+      "nomeUrna": "Márcia Baranda",
+      "partido": "MDB",
+      "numero": "1505",
+      "foto": ""
+    },
+    {
+      "nome": "Antônia Socorro Dantas da Silva",
+      "nomeUrna": "Tenente Socorro Dantas",
+      "partido": "MDB",
+      "numero": "1519",
+      "foto": ""
+    },
+    {
+      "nome": "João Paulo Andrade de Queiroz",
+      "nomeUrna": "Professor João Paulo",
+      "partido": "NOVO",
+      "numero": "3030",
+      "foto": ""
+    },
+    {
+      "nome": "Carlos Cristiano Felix",
+      "nomeUrna": "Carlos Felix e Bancada Mista",
+      "partido": "PATRIOTA",
+      "numero": "5100",
+      "foto": ""
+    },
+    {
+      "nome": "Dennyson Ramos Moreira",
+      "nomeUrna": "Dennyson Moreira",
+      "partido": "PATRIOTA",
+      "numero": "5122",
+      "foto": ""
+    },
+    {
+      "nome": "Fabiana Zappia de Azevedo Frota Aragão",
+      "nomeUrna": "Dra Fabiana Aragão",
+      "partido": "PATRIOTA",
+      "numero": "5152",
+      "foto": ""
+    },
+    {
+      "nome": "Inaldo Cruz Placido",
+      "nomeUrna": "Inaldo Placido",
+      "partido": "PATRIOTA",
+      "numero": "5151",
+      "foto": ""
+    },
+    {
+      "nome": "Noé Martins da Silva",
+      "nomeUrna": "Noé Martins",
+      "partido": "PATRIOTA",
+      "numero": "5101",
+      "foto": ""
+    },
+    {
+      "nome": "Sirrame Maquiné de Sá",
+      "nomeUrna": "Sirrame Maquiné",
+      "partido": "PATRIOTA",
+      "numero": "5115",
+      "foto": ""
+    },
+    {
+      "nome": "Tania Maria Mussa",
+      "nomeUrna": "Tania Bancada da Causa Animal",
+      "partido": "PATRIOTA",
+      "numero": "5155",
+      "foto": ""
+    },
+    {
+      "nome": "Tania Mara Ferreira da Costa",
+      "nomeUrna": "Tania e Conselheiras Tutelares",
+      "partido": "PATRIOTA",
+      "numero": "5102",
+      "foto": ""
+    },
+    {
+      "nome": "Tiago do Vale Falcão",
+      "nomeUrna": "Tiago Falcão",
+      "partido": "PATRIOTA",
+      "numero": "5111",
+      "foto": ""
+    },
+    {
+      "nome": "Delcinei de Oliveira Alves",
+      "nomeUrna": "Delcinei",
+      "partido": "PC do B",
+      "numero": "6562",
+      "foto": ""
+    },
+    {
+      "nome": "Vanessa Grazziotin",
+      "nomeUrna": "Vanessa",
+      "partido": "PC do B",
+      "numero": "6513",
+      "foto": ""
+    },
+    {
+      "nome": "Alan Kardeck Pereira Amazonas",
+      "nomeUrna": "Alan Amazonas",
+      "partido": "PDT",
+      "numero": "1200",
+      "foto": ""
+    },
+    {
+      "nome": "Ismael Franklin Gonçalves",
+      "nomeUrna": "Cacique Mungurukú",
+      "partido": "PDT",
+      "numero": "1214",
+      "foto": ""
+    },
+    {
+      "nome": "Christiani Maria Mendes Barros",
+      "nomeUrna": "Cris Barros",
+      "partido": "PDT",
+      "numero": "1223",
+      "foto": ""
+    },
+    {
+      "nome": "Mario Rubens Macedo Vianna",
+      "nomeUrna": "Dr Mario Vianna",
+      "partido": "PDT",
+      "numero": "1222",
+      "foto": ""
+    },
+    {
+      "nome": "Ernando Figueira Santana Filho",
+      "nomeUrna": "Ernando Santana",
+      "partido": "PDT",
+      "numero": "1236",
+      "foto": ""
+    },
+    {
+      "nome": "Gelson do Nascimento Albuquerque",
+      "nomeUrna": "Guma",
+      "partido": "PDT",
+      "numero": "1234",
+      "foto": ""
+    },
+    {
+      "nome": "Paulo Henrique da Paixão e Silva Junior",
+      "nomeUrna": "Paulo Paixão",
+      "partido": "PDT",
+      "numero": "1212",
+      "foto": ""
+    },
+    {
+      "nome": "Pedrinha Lasmar Cruz",
+      "nomeUrna": "Pedrinha Lasmar",
+      "partido": "PDT",
+      "numero": "1232",
+      "foto": ""
+    },
+    {
+      "nome": "Wanessa Simões Pacheco",
+      "nomeUrna": "Wanessa Pacheco",
+      "partido": "PDT",
+      "numero": "1213",
+      "foto": ""
+    },
+    {
+      "nome": "Alberto Barros Cavalcante Neto",
+      "nomeUrna": "Capitão Alberto Neto",
+      "partido": "PL",
+      "numero": "2210",
+      "foto": ""
+    },
+    {
+      "nome": "Alfredo Jacauna Pinheiro Filho",
+      "nomeUrna": "Jacauna",
+      "partido": "PL",
+      "numero": "2277",
+      "foto": ""
+    },
+    {
+      "nome": "Joele Silva da Cruz",
+      "nomeUrna": "Joele Silva",
+      "partido": "PL",
+      "numero": "2200",
+      "foto": ""
+    },
+    {
+      "nome": "Jose Nilmar Alves de Oliveira",
+      "nomeUrna": "Nilmar Oliveira",
+      "partido": "PL",
+      "numero": "2211",
+      "foto": ""
+    },
+    {
+      "nome": "Maria Josefa de Assis Alves",
+      "nomeUrna": "Pastora Jô",
+      "partido": "PL",
+      "numero": "2255",
+      "foto": ""
+    },
+    {
+      "nome": "Rodrigo de Sá Barbosa",
+      "nomeUrna": "Rodrigo Sá",
+      "partido": "PL",
+      "numero": "2244",
+      "foto": ""
+    },
+    {
+      "nome": "Vanilda de Oliveira Guimarães",
+      "nomeUrna": "Vania Guimarães",
+      "partido": "PL",
+      "numero": "2266",
+      "foto": ""
+    },
+    {
+      "nome": "Peter Schmidt",
+      "nomeUrna": "Coronel Peter",
+      "partido": "PMN",
+      "numero": "3322",
+      "foto": ""
+    },
+    {
+      "nome": "Ester Lemos dos Santos",
+      "nomeUrna": "Ester Lemos",
+      "partido": "PMN",
+      "numero": "3399",
+      "foto": ""
+    },
+    {
+      "nome": "Jose Luiz Viana Benevides",
+      "nomeUrna": "Jose Benevides",
+      "partido": "PMN",
+      "numero": "3331",
+      "foto": ""
+    },
+    {
+      "nome": "Mario Fernando Nogueira Cardoso",
+      "nomeUrna": "Major Fernando Nogueira",
+      "partido": "PMN",
+      "numero": "3345",
+      "foto": ""
+    },
+    {
+      "nome": "Marilene Alves de Oliveira",
+      "nomeUrna": "Mary Alves",
+      "partido": "PMN",
+      "numero": "3311",
+      "foto": ""
+    },
+    {
+      "nome": "Alexander Cherem de Mello",
+      "nomeUrna": "Sub Oficial Cherem",
+      "partido": "PMN",
+      "numero": "3355",
+      "foto": ""
+    },
+    {
+      "nome": "Severino Germano da Silva",
+      "nomeUrna": "Sub Oficial Germano",
+      "partido": "PMN",
+      "numero": "3333",
+      "foto": ""
+    },
+    {
+      "nome": "Pericles de Souza Araujo",
+      "nomeUrna": "Tenente Pericles",
+      "partido": "PMN",
+      "numero": "3377",
+      "foto": ""
+    },
+    {
+      "nome": "Tatiane Santos de Oliveira",
+      "nomeUrna": "Thaty Barone",
+      "partido": "PMN",
+      "numero": "3344",
+      "foto": ""
+    },
+    {
+      "nome": "Maria Pereira Dantas",
+      "nomeUrna": "Maria Dantas",
+      "partido": "PODE",
+      "numero": "1955",
+      "foto": ""
+    },
+    {
+      "nome": "Adriana Moura de Mendonça",
+      "nomeUrna": "Adriana Mendonça",
+      "partido": "PROS",
+      "numero": "9099",
+      "foto": ""
+    },
+    {
+      "nome": "Darlam Melo dos Santos",
+      "nomeUrna": "Apóstolo Darlam Santos",
+      "partido": "PROS",
+      "numero": "9077",
+      "foto": ""
+    },
+    {
+      "nome": "Antônio Carlos Santos Silva",
+      "nomeUrna": "Carlos Silva",
+      "partido": "PROS",
+      "numero": "9022",
+      "foto": ""
+    },
+    {
+      "nome": "Elison Nunes de Souza",
+      "nomeUrna": "Elison Nunes",
+      "partido": "PROS",
+      "numero": "9023",
+      "foto": ""
+    },
+    {
+      "nome": "Luciano de Farias",
+      "nomeUrna": "Luciano de Farias",
+      "partido": "PROS",
+      "numero": "9090",
+      "foto": ""
+    },
+    {
+      "nome": "Aldamir da Costa Souza",
+      "nomeUrna": "Aldamir Satere",
+      "partido": "PSB",
+      "numero": "4013",
+      "foto": ""
+    },
+    {
+      "nome": "Iêda Santos Cardoso",
+      "nomeUrna": "Dra Iêda Cardoso",
+      "partido": "PSB",
+      "numero": "4040",
+      "foto": ""
+    },
+    {
+      "nome": "Ademir Rocha dos Santos",
+      "nomeUrna": "Ademir Rocha",
+      "partido": "PSC",
+      "numero": "2011",
+      "foto": ""
+    },
+    {
+      "nome": "Aluizio Barbosa de Souza",
+      "nomeUrna": "Aluizio Barboza",
+      "partido": "PSC",
+      "numero": "2041",
+      "foto": ""
+    },
+    {
+      "nome": "Castor Segundo de Medeiros Regalado Regis",
+      "nomeUrna": "Castor",
+      "partido": "PSC",
+      "numero": "2020",
+      "foto": ""
+    },
+    {
+      "nome": "Gelma Maria Santos Silva",
+      "nomeUrna": "Gelma Santos",
+      "partido": "PSC",
+      "numero": "2022",
+      "foto": ""
+    },
+    {
+      "nome": "Izabel Santarém Barroso",
+      "nomeUrna": "Izabel Barroso",
+      "partido": "PSC",
+      "numero": "2044",
+      "foto": ""
+    },
+    {
+      "nome": "João Batista da Costa Paula",
+      "nomeUrna": "João Bithy",
+      "partido": "PSC",
+      "numero": "2007",
+      "foto": ""
+    },
+    {
+      "nome": "Jucelino Vieira do Nascimento",
+      "nomeUrna": "Jucelino Nascimento",
+      "partido": "PSC",
+      "numero": "2023",
+      "foto": ""
+    },
+    {
+      "nome": "Cirley Mendonça Botêlho",
+      "nomeUrna": "Missionária Cirley Botêlho",
+      "partido": "PSC",
+      "numero": "2073",
+      "foto": ""
+    },
+    {
+      "nome": "Sóstenes Adiel Pereira Batista",
+      "nomeUrna": "Totti Adiel",
+      "partido": "PSC",
+      "numero": "2000",
+      "foto": ""
+    },
+    {
+      "nome": "Andreia Mara Andrade Pessoa",
+      "nomeUrna": "Andréia Mara",
+      "partido": "PSD",
+      "numero": "5512",
+      "foto": ""
+    },
+    {
+      "nome": "Gilvandro Mota da Silva",
+      "nomeUrna": "Coronel Gilvandro",
+      "partido": "PSD",
+      "numero": "5544",
+      "foto": ""
+    },
+    {
+      "nome": "Givancir de Oliveira Silva",
+      "nomeUrna": "Givancir dos Rodoviários",
+      "partido": "PSD",
+      "numero": "5599",
+      "foto": ""
+    },
+    {
+      "nome": "Cristiane Souza dos Anjos",
+      "nomeUrna": "Kiky Anjos",
+      "partido": "PSD",
+      "numero": "5577",
+      "foto": ""
+    },
+    {
+      "nome": "Marcelo Ramos Rodrigues",
+      "nomeUrna": "Marcelo Ramos",
+      "partido": "PSD",
+      "numero": "5500",
+      "foto": ""
+    },
+    {
+      "nome": "Orsine Rufino de Oliveira Junior",
+      "nomeUrna": "Orsine Jr",
+      "partido": "PSD",
+      "numero": "5566",
+      "foto": ""
+    },
+    {
+      "nome": "Eleomea Maria Barroso Vieira",
+      "nomeUrna": "Eleomea Barroso",
+      "partido": "PSDB",
+      "numero": "4545",
+      "foto": ""
+    },
+    {
+      "nome": "Emidio Niro Kohashi",
+      "nomeUrna": "Niró Japonês",
+      "partido": "PSDB",
+      "numero": "4500",
+      "foto": ""
+    },
+    {
+      "nome": "Suelania Cristina Gonzaga de Figueiredo",
+      "nomeUrna": "Professora Suelania",
+      "partido": "PSDB",
+      "numero": "4555",
+      "foto": ""
+    },
+    {
+      "nome": "Francisco Virgilio Melo da Silva",
+      "nomeUrna": "Virgilio Melo",
+      "partido": "PSDB",
+      "numero": "4567",
+      "foto": ""
+    },
+    {
+      "nome": "José Luiz da Silva Vasques",
+      "nomeUrna": "José Luiz",
+      "partido": "PSOL",
+      "numero": "5044",
+      "foto": ""
+    },
+    {
+      "nome": "Maria Francelizia da Silva",
+      "nomeUrna": "Professora Francelizia",
+      "partido": "PT",
+      "numero": "1315",
+      "foto": ""
+    },
+    {
+      "nome": "Cícero Custódio da Silva",
+      "nomeUrna": "Sassá da Construção Civil",
+      "partido": "PT",
+      "numero": "1318",
+      "foto": ""
+    },
+    {
+      "nome": "José Ricardo Wendling",
+      "nomeUrna": "Zé Ricardo",
+      "partido": "PT",
+      "numero": "1313",
+      "foto": ""
+    },
+    {
+      "nome": "Alcides Cordovil de Assis",
+      "nomeUrna": "Alcides Cordovil",
+      "partido": "PTB",
+      "numero": "1414",
+      "foto": ""
+    },
+    {
+      "nome": "Edmilson Aguiar de Souza",
+      "nomeUrna": "Edmilson Boka",
+      "partido": "PTB",
+      "numero": "1478",
+      "foto": ""
+    },
+    {
+      "nome": "Maria Flaviane Castro Braga",
+      "nomeUrna": "Flaviane Braga",
+      "partido": "PTB",
+      "numero": "1444",
+      "foto": ""
+    },
+    {
+      "nome": "Helade Maués Gonçalves",
+      "nomeUrna": "Helade Maués",
+      "partido": "PTB",
+      "numero": "1401",
+      "foto": ""
+    },
+    {
+      "nome": "Antonio Sidney Silva da Costa",
+      "nomeUrna": "Magal do Social",
+      "partido": "PTB",
+      "numero": "1415",
+      "foto": ""
+    },
+    {
+      "nome": "Nazildo dos Reis Oliveira",
+      "nomeUrna": "Nazildo Reis",
+      "partido": "PTB",
+      "numero": "1422",
+      "foto": ""
+    },
+    {
+      "nome": "Jose Adalberto da Silva",
+      "nomeUrna": "Adal-frente Verde",
+      "partido": "PV",
+      "numero": "4343",
+      "foto": ""
+    },
+    {
+      "nome": "Rosimeire da Conceicao Anjos",
+      "nomeUrna": "Rosa dos Anjos Bancada Verde",
+      "partido": "PV",
+      "numero": "4333",
+      "foto": ""
+    },
+    {
+      "nome": "Bruno Farias da Luz",
+      "nomeUrna": "Bruno Luz",
+      "partido": "REDE",
+      "numero": "1801",
+      "foto": ""
+    },
+    {
+      "nome": "George Gomes de Oliveira",
+      "nomeUrna": "Delegado George Gomes",
+      "partido": "REDE",
+      "numero": "1800",
+      "foto": ""
+    },
+    {
+      "nome": "Jefferson Praia Bezerra",
+      "nomeUrna": "Jefferson Praia",
+      "partido": "REDE",
+      "numero": "1819",
+      "foto": ""
+    },
+    {
+      "nome": "Jerson Aranha de Oliveira Junior",
+      "nomeUrna": "Jerson Aranha",
+      "partido": "REDE",
+      "numero": "1888",
+      "foto": ""
+    },
+    {
+      "nome": "Elisangela de Oliveira Brunno",
+      "nomeUrna": "Lili Bruno",
+      "partido": "REDE",
+      "numero": "1881",
+      "foto": ""
+    },
+    {
+      "nome": "Nicia Andrea Mota Medeiros",
+      "nomeUrna": "Dedeia Medeiros",
+      "partido": "REPUBLICANOS",
+      "numero": "1088",
+      "foto": ""
+    },
+    {
+      "nome": "Maria Mirtes Sales de Oliveira",
+      "nomeUrna": "Mirtes Salles",
+      "partido": "REPUBLICANOS",
+      "numero": "1044",
+      "foto": ""
+    },
+    {
+      "nome": "Raimunda Nonata de Melo Martins",
+      "nomeUrna": "Pra Raimunda da Quadrangular",
+      "partido": "REPUBLICANOS",
+      "numero": "1077",
+      "foto": ""
+    },
+    {
+      "nome": "Edson Carlos de Deus Castilho",
+      "nomeUrna": "Prof. Edson Carlos",
+      "partido": "REPUBLICANOS",
+      "numero": "1012",
+      "foto": ""
+    },
+    {
+      "nome": "Rodrigo Guedes Oliveira de Araujo",
+      "nomeUrna": "Rodrigo Guedes",
+      "partido": "REPUBLICANOS",
+      "numero": "1020",
+      "foto": ""
+    },
+    {
+      "nome": "Augusto Cesar Paula de Andrade",
+      "nomeUrna": "Tc Cesar Andrade",
+      "partido": "REPUBLICANOS",
+      "numero": "1011",
+      "foto": ""
+    },
+    {
+      "nome": "Appio da Silva Tolentino",
+      "nomeUrna": "Appio Tolentino",
+      "partido": "SOLIDARIEDADE",
+      "numero": "7700",
+      "foto": ""
+    },
+    {
+      "nome": "Rosenildo Queiroz da Silva",
+      "nomeUrna": "Babalu",
+      "partido": "SOLIDARIEDADE",
+      "numero": "7707",
+      "foto": ""
+    },
+    {
+      "nome": "João Francisco de Miranda Soares",
+      "nomeUrna": "Joãozinho Miranda",
+      "partido": "SOLIDARIEDADE",
+      "numero": "7789",
+      "foto": ""
+    },
+    {
+      "nome": "Cleia Fatima Assunção Rebelo",
+      "nomeUrna": "Policial Cleia",
+      "partido": "SOLIDARIEDADE",
+      "numero": "7788",
+      "foto": ""
+    },
+    {
+      "nome": "Aná Campos Guimarães",
+      "nomeUrna": "Conselheira Aná Campos",
+      "partido": "UNIÃO",
+      "numero": "4488",
+      "foto": ""
+    },
+    {
+      "nome": "Louismar de Matos Bonates",
+      "nomeUrna": "Coronel Bonates",
+      "partido": "UNIÃO",
+      "numero": "4456",
+      "foto": ""
+    },
+    {
+      "nome": "Emília Ferraz de Carvalho",
+      "nomeUrna": "Delegada Emília Ferraz",
+      "partido": "UNIÃO",
+      "numero": "4401",
+      "foto": ""
+    },
+    {
+      "nome": "Diego Roberto Afonso",
+      "nomeUrna": "Diego Afonso",
+      "partido": "UNIÃO",
+      "numero": "4411",
+      "foto": ""
+    },
+    {
+      "nome": "Leda Maria Maia Xavier",
+      "nomeUrna": "Leda Maia",
+      "partido": "UNIÃO",
+      "numero": "4440",
+      "foto": ""
+    }
+  ],
+  "entraram": [
+    {
+      "nome": "Alfredo Alexandre de Menezes Junior",
+      "nomeUrna": "Coronel Menezes",
+      "partido": "AVANTE",
+      "numero": "7022",
+      "foto": "/fotos/2026/40002536433.jpg"
+    },
+    {
+      "nome": "Raione Cabral Queiroz",
+      "nomeUrna": "Dr Raione Cabral",
+      "partido": "AVANTE",
+      "numero": "7010",
+      "foto": "/fotos/2026/40002536437.jpg"
+    },
+    {
+      "nome": "Fernanda Aryel Rodrigues de Almeida Lima",
+      "nomeUrna": "Dra Aryel Almeida",
+      "partido": "AVANTE",
+      "numero": "7070",
+      "foto": "/fotos/2026/40002536432.jpg"
+    },
+    {
+      "nome": "Maria Eunice Torres do Nascimento",
+      "nomeUrna": "Dra. Eunice Nascimento",
+      "partido": "AVANTE",
+      "numero": "7077",
+      "foto": "/fotos/2026/40002536438.jpg"
+    },
+    {
+      "nome": "Joelson Sales Silva",
+      "nomeUrna": "Joelson Silva",
+      "partido": "AVANTE",
+      "numero": "7001",
+      "foto": "/fotos/2026/40002536435.jpg"
+    },
+    {
+      "nome": "Gilberto Borges dos Santos Junior",
+      "nomeUrna": "Junior Resgate",
+      "partido": "AVANTE",
+      "numero": "7000",
+      "foto": "/fotos/2026/40002536440.jpg"
+    },
+    {
+      "nome": "Antonio Dalmir Bezerra Salazar",
+      "nomeUrna": "Professor Dalmir Salazar",
+      "partido": "AVANTE",
+      "numero": "7012",
+      "foto": "/fotos/2026/40002536436.jpg"
+    },
+    {
+      "nome": "Radyr Gomes de Oliveira Junior",
+      "nomeUrna": "Radyr Junior",
+      "partido": "AVANTE",
+      "numero": "7025",
+      "foto": "/fotos/2026/40002536434.jpg"
+    },
+    {
+      "nome": "Denison de Carvalho Vilar",
+      "nomeUrna": "Denison Vilar da Saúde",
+      "partido": "DC",
+      "numero": "2777",
+      "foto": "/fotos/2026/40002536077.jpg"
+    },
+    {
+      "nome": "Amanda Tereza Nascimento de Souza",
+      "nomeUrna": "Doutora Amanda Souza",
+      "partido": "DC",
+      "numero": "2766",
+      "foto": "/fotos/2026/40002536080.jpg"
+    },
+    {
+      "nome": "Elpídio Marques Dácio",
+      "nomeUrna": "Elpídio dos Povos Mura",
+      "partido": "DC",
+      "numero": "2772",
+      "foto": "/fotos/2026/40002536085.jpg"
+    },
+    {
+      "nome": "Frank Carlos Oliveira de Souza",
+      "nomeUrna": "Frank Carlos",
+      "partido": "DC",
+      "numero": "2700",
+      "foto": "/fotos/2026/40002536079.jpg"
+    },
+    {
+      "nome": "Gláucia Amazonas da Silva",
+      "nomeUrna": "Gláucia Amazonas",
+      "partido": "DC",
+      "numero": "2707",
+      "foto": "/fotos/2026/40002536083.jpg"
+    },
+    {
+      "nome": "Ronaldo Gonzaga Lavareda",
+      "nomeUrna": "Gonza",
+      "partido": "DC",
+      "numero": "2757",
+      "foto": "/fotos/2026/40002536078.jpg"
+    },
+    {
+      "nome": "Raimundo Nonato da Conceição Rodrigues",
+      "nomeUrna": "Nonato Chegado",
+      "partido": "DC",
+      "numero": "2711",
+      "foto": "/fotos/2026/40002536081.jpg"
+    },
+    {
+      "nome": "Roque Lane Wilkens Marinho",
+      "nomeUrna": "Professor Roque Lane",
+      "partido": "DC",
+      "numero": "2727",
+      "foto": "/fotos/2026/40002536082.jpg"
+    },
+    {
+      "nome": "Josilene Vasconcelos Maia",
+      "nomeUrna": "Professora Lene Maia",
+      "partido": "DC",
+      "numero": "2789",
+      "foto": "/fotos/2026/40002536084.jpg"
+    },
+    {
+      "nome": "Arthur Virgilio do Carmo Ribeiro Neto",
+      "nomeUrna": "Arthur Neto",
+      "partido": "MDB",
+      "numero": "1545",
+      "foto": "/fotos/2026/40002531442.jpg"
+    },
+    {
+      "nome": "Elizabeth de Souza Levy Vasconcelos",
+      "nomeUrna": "Beth Docinho",
+      "partido": "MDB",
+      "numero": "1551",
+      "foto": "/fotos/2026/40002531444.jpg"
+    },
+    {
+      "nome": "Caila Carim Belchior",
+      "nomeUrna": "Caila Carim",
+      "partido": "MDB",
+      "numero": "1516",
+      "foto": "/fotos/2026/40002534877.jpg"
+    },
+    {
+      "nome": "Amanda Martins Pinheiro",
+      "nomeUrna": "Dra. Amanda Pinheiro",
+      "partido": "MDB",
+      "numero": "1505",
+      "foto": "/fotos/2026/40002531439.jpg"
+    },
+    {
+      "nome": "Jesus Alves dos Santos",
+      "nomeUrna": "Jesus Alves",
+      "partido": "MDB",
+      "numero": "1500",
+      "foto": "/fotos/2026/40002531440.jpg"
+    },
+    {
+      "nome": "Nathan Macena de Souza",
+      "nomeUrna": "Nathan Macena",
+      "partido": "MDB",
+      "numero": "1522",
+      "foto": "/fotos/2026/40002531443.jpg"
+    },
+    {
+      "nome": "Carlos Edgar Tavares de Oliveira",
+      "nomeUrna": "Edgar Oliveira",
+      "partido": "MISSÃO",
+      "numero": "1456",
+      "foto": "/fotos/2026/40002539049.jpg"
+    },
+    {
+      "nome": "Eduardo Theo Ferreira de Menezes",
+      "nomeUrna": "Eduardo Theo",
+      "partido": "MISSÃO",
+      "numero": "1401",
+      "foto": "/fotos/2026/40002539045.jpg"
+    },
+    {
+      "nome": "Eliabe Almeida Campos",
+      "nomeUrna": "Eliabe Campos",
+      "partido": "MISSÃO",
+      "numero": "1414",
+      "foto": "/fotos/2026/40002539043.jpg"
+    },
+    {
+      "nome": "Iana Nadina Lima de Oliveira",
+      "nomeUrna": "Iana Nadina",
+      "partido": "MISSÃO",
+      "numero": "1415",
+      "foto": "/fotos/2026/40002539048.jpg"
+    },
+    {
+      "nome": "Juarez Souza Brandão Junior",
+      "nomeUrna": "Jota Brandão",
+      "partido": "MISSÃO",
+      "numero": "1433",
+      "foto": "/fotos/2026/40002539051.jpg"
+    },
+    {
+      "nome": "Luciana Soares Viga",
+      "nomeUrna": "Luciana Viga",
+      "partido": "MISSÃO",
+      "numero": "1400",
+      "foto": "/fotos/2026/40002539046.jpg"
+    },
+    {
+      "nome": "Alexandre Mateus dos Santos Lima",
+      "nomeUrna": "Mateus do Ti",
+      "partido": "MISSÃO",
+      "numero": "1420",
+      "foto": "/fotos/2026/40002539044.jpg"
+    },
+    {
+      "nome": "Patricia Rakelly Benzaquem da Cruz",
+      "nomeUrna": "Patricia Benzaquem",
+      "partido": "MISSÃO",
+      "numero": "1477",
+      "foto": "/fotos/2026/40002539047.jpg"
+    },
+    {
+      "nome": "Wick Ryan Barbosa Bitencourt",
+      "nomeUrna": "Wick Ryan",
+      "partido": "MISSÃO",
+      "numero": "1444",
+      "foto": "/fotos/2026/40002539050.jpg"
+    },
+    {
+      "nome": "Alice Mafra Cavalcante Reis Penafort",
+      "nomeUrna": "Doutora Alice Mafra",
+      "partido": "MOBILIZA",
+      "numero": "3333",
+      "foto": "/fotos/2026/40002549918.jpg"
+    },
+    {
+      "nome": "Eberson dos Santos Lima",
+      "nomeUrna": "Eberson Batera",
+      "partido": "MOBILIZA",
+      "numero": "3322",
+      "foto": "/fotos/2026/40002552704.jpg"
+    },
+    {
+      "nome": "Diana Greicy Rodrigues da Silva",
+      "nomeUrna": "Diana Rodrigues",
+      "partido": "NOVO",
+      "numero": "3011",
+      "foto": "/fotos/2026/40002536449.jpg"
+    },
+    {
+      "nome": "Sebastião Efigênio Rodrigues Carvalho",
+      "nomeUrna": "Efigênio Carvalho",
+      "partido": "NOVO",
+      "numero": "3022",
+      "foto": "/fotos/2026/40002536454.jpg"
+    },
+    {
+      "nome": "Jean Carlos de Alencar Carvalho",
+      "nomeUrna": "Jean Carlos",
+      "partido": "NOVO",
+      "numero": "3044",
+      "foto": "/fotos/2026/40002554220.jpg"
+    },
+    {
+      "nome": "Layon Gabriel Moraes Nunes",
+      "nomeUrna": "Layon Nunes",
+      "partido": "NOVO",
+      "numero": "3030",
+      "foto": "/fotos/2026/40002536448.jpg"
+    },
+    {
+      "nome": "Maria Osvaldina Gato Castro",
+      "nomeUrna": "Maria Gato",
+      "partido": "NOVO",
+      "numero": "3033",
+      "foto": "/fotos/2026/40002536452.jpg"
+    },
+    {
+      "nome": "Oder Coelho Aurélio",
+      "nomeUrna": "Oder Aurélio",
+      "partido": "NOVO",
+      "numero": "3077",
+      "foto": "/fotos/2026/40002536450.jpg"
+    },
+    {
+      "nome": "Paulo Arthur Braga Ruiz",
+      "nomeUrna": "Paulo Arthur",
+      "partido": "NOVO",
+      "numero": "3010",
+      "foto": "/fotos/2026/40002536453.jpg"
+    },
+    {
+      "nome": "Richard Santos Stone",
+      "nomeUrna": "Richard Stone",
+      "partido": "NOVO",
+      "numero": "3067",
+      "foto": "/fotos/2026/40002536451.jpg"
+    },
+    {
+      "nome": "Soraya Gomes Cohen",
+      "nomeUrna": "Soraya Cohen",
+      "partido": "NOVO",
+      "numero": "3000",
+      "foto": "/fotos/2026/40002536447.jpg"
+    },
+    {
+      "nome": "Marilia Freire da Silva",
+      "nomeUrna": "Marília Freire",
+      "partido": "PCDOB",
+      "numero": "6565",
+      "foto": "/fotos/2026/40002545596.jpg"
+    },
+    {
+      "nome": "Arqleydsson de Lima Pinheiro",
+      "nomeUrna": "Professor Arqleydsson",
+      "partido": "PCDOB",
+      "numero": "6555",
+      "foto": "/fotos/2026/40002545597.jpg"
+    },
+    {
+      "nome": "Daniel Almeida de Souza",
+      "nomeUrna": "Daniel Souza",
+      "partido": "PDT",
+      "numero": "1213",
+      "foto": "/fotos/2026/40002549856.jpg"
+    },
+    {
+      "nome": "Darlene Pereira Neves",
+      "nomeUrna": "Darlene Neves",
+      "partido": "PDT",
+      "numero": "1222",
+      "foto": "/fotos/2026/40002549862.jpg"
+    },
+    {
+      "nome": "Israel Fontes Dutra",
+      "nomeUrna": "Dr. Israel Tuyuka",
+      "partido": "PDT",
+      "numero": "1251",
+      "foto": "/fotos/2026/40002549858.jpg"
+    },
+    {
+      "nome": "Evaldo do Nascimento Vasconcelos",
+      "nomeUrna": "Evaldo Vasconcelos",
+      "partido": "PDT",
+      "numero": "1299",
+      "foto": "/fotos/2026/40002549855.jpg"
+    },
+    {
+      "nome": "Francisco Assis Santos Soares",
+      "nomeUrna": "Jornada",
+      "partido": "PDT",
+      "numero": "1233",
+      "foto": "/fotos/2026/40002549861.jpg"
+    },
+    {
+      "nome": "Madalena de Souza Silva",
+      "nomeUrna": "Madalena Silva",
+      "partido": "PDT",
+      "numero": "1212",
+      "foto": "/fotos/2026/40002549860.jpg"
+    },
+    {
+      "nome": "Renata Costa Nascimento",
+      "nomeUrna": "Renata Kokama",
+      "partido": "PDT",
+      "numero": "1234",
+      "foto": "/fotos/2026/40002549857.jpg"
+    },
+    {
+      "nome": "Roberio Ramires dos Santos",
+      "nomeUrna": "Robério Kambeba",
+      "partido": "PDT",
+      "numero": "1255",
+      "foto": "/fotos/2026/40002549859.jpg"
+    },
+    {
+      "nome": "Ubirajara Rosses do Nascimento Junior",
+      "nomeUrna": "Coronel Rosses",
+      "partido": "PL",
+      "numero": "2233",
+      "foto": "/fotos/2026/40002540484.jpg"
+    },
+    {
+      "nome": "Patricia Del Pilar Suarez Sicchar",
+      "nomeUrna": "Dra. Patricia Sicchar",
+      "partido": "PL",
+      "numero": "2259",
+      "foto": "/fotos/2026/40002540486.jpg"
+    },
+    {
+      "nome": "Jean Alexander Batista Francine",
+      "nomeUrna": "Jean Batista",
+      "partido": "PL",
+      "numero": "2210",
+      "foto": "/fotos/2026/40002540478.jpg"
+    },
+    {
+      "nome": "Mickaelle Sevalho Neves Barbosa",
+      "nomeUrna": "Micka Sevalho",
+      "partido": "PL",
+      "numero": "2244",
+      "foto": "/fotos/2026/40002540482.jpg"
+    },
+    {
+      "nome": "Paula Jussara dos Santos Portela",
+      "nomeUrna": "Paula Portela",
+      "partido": "PL",
+      "numero": "2200",
+      "foto": "/fotos/2026/40002540479.jpg"
+    },
+    {
+      "nome": "Alexandre da Silva Salazar",
+      "nomeUrna": "Sargento Salazar",
+      "partido": "PL",
+      "numero": "2211",
+      "foto": "/fotos/2026/40002540480.jpg"
+    },
+    {
+      "nome": "Luiz Andre Souto Passos",
+      "nomeUrna": "Andre Passos",
+      "partido": "PODE",
+      "numero": "2022",
+      "foto": "/fotos/2026/40002541589.jpg"
+    },
+    {
+      "nome": "Hermano Galvão Alves Junior",
+      "nomeUrna": "Hermano Junior",
+      "partido": "PODE",
+      "numero": "2040",
+      "foto": "/fotos/2026/40002541588.jpg"
+    },
+    {
+      "nome": "Mauro Teixeira Pires Junior",
+      "nomeUrna": "Mauro Teixeira",
+      "partido": "PODE",
+      "numero": "2066",
+      "foto": "/fotos/2026/40002541584.jpg"
+    },
+    {
+      "nome": "Ruth da Costa Conceição da Rocha",
+      "nomeUrna": "Pastora Ruth Costa",
+      "partido": "PODE",
+      "numero": "2012",
+      "foto": "/fotos/2026/40002541590.jpg"
+    },
+    {
+      "nome": "Edivan Castilho Ferreira",
+      "nomeUrna": "Pr. Edivan Castilho",
+      "partido": "PODE",
+      "numero": "2021",
+      "foto": "/fotos/2026/40002541585.jpg"
+    },
+    {
+      "nome": "Amilton Bezerra Gadelha",
+      "nomeUrna": "Professor Amilton Gadelha",
+      "partido": "PODE",
+      "numero": "2025",
+      "foto": "/fotos/2026/40002541591.jpg"
+    },
+    {
+      "nome": "Rita do Socorro Cristo dos Santos",
+      "nomeUrna": "Rita da Enfermagem",
+      "partido": "PODE",
+      "numero": "2015",
+      "foto": "/fotos/2026/40002541587.jpg"
+    },
+    {
+      "nome": "Vanete Cezario Carvalho",
+      "nomeUrna": "Vanete Carvalho",
+      "partido": "PODE",
+      "numero": "2026",
+      "foto": "/fotos/2026/40002541583.jpg"
+    },
+    {
+      "nome": "Tadeu de Souza Silva",
+      "nomeUrna": "Tadeu de Souza",
+      "partido": "PP",
+      "numero": "1111",
+      "foto": "/fotos/2026/40002542674.jpg"
+    },
+    {
+      "nome": "Adriana Sales Gomes",
+      "nomeUrna": "Tenente Coronel Adriana",
+      "partido": "PP",
+      "numero": "1144",
+      "foto": "/fotos/2026/40002542673.jpg"
+    },
+    {
+      "nome": "Christiane Maciel de Lima Melchior",
+      "nomeUrna": "Christiane Melchior",
+      "partido": "PSB",
+      "numero": "4000",
+      "foto": "/fotos/2026/40002541624.jpg"
+    },
+    {
+      "nome": "Joaquim Felipe Guimaraes Gomes",
+      "nomeUrna": "Joaquim Felipe",
+      "partido": "PSB",
+      "numero": "4044",
+      "foto": "/fotos/2026/40002541625.jpg"
+    },
+    {
+      "nome": "Jardel Araujo da Silva Inacio",
+      "nomeUrna": "Jàrdel Inácio",
+      "partido": "PSB",
+      "numero": "4004",
+      "foto": "/fotos/2026/40002541619.jpg"
+    },
+    {
+      "nome": "Creuza Regina de Souza Lima",
+      "nomeUrna": "Loira do Salgado",
+      "partido": "PSB",
+      "numero": "4007",
+      "foto": "/fotos/2026/40002541617.jpg"
+    },
+    {
+      "nome": "Marciana Silva de Oliveira",
+      "nomeUrna": "Marcia Silva",
+      "partido": "PSB",
+      "numero": "4008",
+      "foto": "/fotos/2026/40002541621.jpg"
+    },
+    {
+      "nome": "Melyssa Geber Correa Reboucas de Lima",
+      "nomeUrna": "Melyssa Geber",
+      "partido": "PSB",
+      "numero": "4040",
+      "foto": "/fotos/2026/40002541622.jpg"
+    },
+    {
+      "nome": "Estelio Pereira Gabino",
+      "nomeUrna": "Mestre Estelio Gabino",
+      "partido": "PSB",
+      "numero": "4022",
+      "foto": "/fotos/2026/40002541618.jpg"
+    },
+    {
+      "nome": "Manoel da Paixao Tavares da Graca",
+      "nomeUrna": "Paixão",
+      "partido": "PSB",
+      "numero": "4023",
+      "foto": "/fotos/2026/40002541620.jpg"
+    },
+    {
+      "nome": "Denison Nascimento de Rezende",
+      "nomeUrna": "Ronaldinho Show",
+      "partido": "PSB",
+      "numero": "4011",
+      "foto": "/fotos/2026/40002541623.jpg"
+    },
+    {
+      "nome": "Amauri Gomes dos Santos",
+      "nomeUrna": "Amauri Gomes",
+      "partido": "PSD",
+      "numero": "5511",
+      "foto": "/fotos/2026/40002532766.jpg"
+    },
+    {
+      "nome": "Ana Paula Mesquita de Araujo",
+      "nomeUrna": "Ana Paula Mesquita",
+      "partido": "PSD",
+      "numero": "5512",
+      "foto": "/fotos/2026/40002532760.jpg"
+    },
+    {
+      "nome": "Lazaro Sebastiao Santiago Mendes Neto",
+      "nomeUrna": "Delegado Lázaro Mendes",
+      "partido": "PSD",
+      "numero": "5588",
+      "foto": "/fotos/2026/40002532764.jpg"
+    },
+    {
+      "nome": "Jorge Elias Costa de Oliveira",
+      "nomeUrna": "Jorge Oliveira",
+      "partido": "PSD",
+      "numero": "5500",
+      "foto": "/fotos/2026/40002532759.jpg"
+    },
+    {
+      "nome": "Nathalia Rachel Silva Nascimento",
+      "nomeUrna": "Nath Nascimento",
+      "partido": "PSD",
+      "numero": "5544",
+      "foto": "/fotos/2026/40002532758.jpg"
+    },
+    {
+      "nome": "Natalia Demes Bezerra Tavares Pereira",
+      "nomeUrna": "Natalia",
+      "partido": "PSOL",
+      "numero": "5055",
+      "foto": "/fotos/2026/40002551003.jpg"
+    },
+    {
+      "nome": "Valdenir Costa Soares",
+      "nomeUrna": "Valdeco Tattoo",
+      "partido": "PSOL",
+      "numero": "5033",
+      "foto": "/fotos/2026/40002551005.jpg"
+    },
+    {
+      "nome": "Álex Sousa de Sá",
+      "nomeUrna": "Álex Sousa",
+      "partido": "PSOL",
+      "numero": "5050",
+      "foto": "/fotos/2026/40002551004.jpg"
+    },
+    {
+      "nome": "Alexandre Neves Solorzano",
+      "nomeUrna": "Alexandre Solorzano",
+      "partido": "PSTU",
+      "numero": "1600",
+      "foto": "/fotos/2026/40002535273.jpg"
+    },
+    {
+      "nome": "Maria Auxiliadora Oliveira de Castro",
+      "nomeUrna": "Auxiliadora Castro",
+      "partido": "PSTU",
+      "numero": "1616",
+      "foto": "/fotos/2026/40002535274.jpg"
+    },
+    {
+      "nome": "Adriana de Almeida Neves Xavier",
+      "nomeUrna": "Adriana Xavier",
+      "partido": "PT",
+      "numero": "1300",
+      "foto": "/fotos/2026/40002554165.jpg"
+    },
+    {
+      "nome": "Anne Karolyne Moura de Souza",
+      "nomeUrna": "Anne Moura",
+      "partido": "PT",
+      "numero": "1314",
+      "foto": "/fotos/2026/40002545594.jpg"
+    },
+    {
+      "nome": "Joao Victor Tayah Lima",
+      "nomeUrna": "Delegado Tayah",
+      "partido": "PT",
+      "numero": "1350",
+      "foto": "/fotos/2026/40002545595.jpg"
+    },
+    {
+      "nome": "Denis da Silva Pereira",
+      "nomeUrna": "Denis da Silva",
+      "partido": "PT",
+      "numero": "1313",
+      "foto": "/fotos/2026/40002545599.jpg"
+    },
+    {
+      "nome": "Luis Carlos Rodrigues de Moura",
+      "nomeUrna": "Luis Carlos Velho",
+      "partido": "PT",
+      "numero": "1363",
+      "foto": "/fotos/2026/40002545600.jpg"
+    },
+    {
+      "nome": "Luiz Andrade de Sousa",
+      "nomeUrna": "Luiz Andrade",
+      "partido": "REDE",
+      "numero": "1800",
+      "foto": "/fotos/2026/40002551010.jpg"
+    },
+    {
+      "nome": "Antonio Marcos de Oliveira Apurinã",
+      "nomeUrna": "Marcos Apurinã",
+      "partido": "REDE",
+      "numero": "1818",
+      "foto": "/fotos/2026/40002551009.jpg"
+    },
+    {
+      "nome": "Maria Odimar da Silva Guimaraes",
+      "nomeUrna": "Odimar Guimarães",
+      "partido": "REDE",
+      "numero": "1813",
+      "foto": "/fotos/2026/40002551008.jpg"
+    },
+    {
+      "nome": "Patricia Barroso Veras",
+      "nomeUrna": "Patrícia Barroso",
+      "partido": "REDE",
+      "numero": "1888",
+      "foto": "/fotos/2026/40002551006.jpg"
+    },
+    {
+      "nome": "Adriana Pinto Borges",
+      "nomeUrna": "Adriana Borges",
+      "partido": "REPUBLICANOS",
+      "numero": "1001",
+      "foto": "/fotos/2026/40002533203.jpg"
+    },
+    {
+      "nome": "Glaucia Rebelo Barcelos",
+      "nomeUrna": "Glaucia Rebelo",
+      "partido": "REPUBLICANOS",
+      "numero": "1063",
+      "foto": "/fotos/2026/40002533202.jpg"
+    },
+    {
+      "nome": "Josildo de Oliveira Silva",
+      "nomeUrna": "Josildo Oliveira",
+      "partido": "REPUBLICANOS",
+      "numero": "1044",
+      "foto": "/fotos/2026/40002533209.jpg"
+    },
+    {
+      "nome": "Masami Miki",
+      "nomeUrna": "Massami Miki",
+      "partido": "REPUBLICANOS",
+      "numero": "1024",
+      "foto": "/fotos/2026/40002533210.jpg"
+    },
+    {
+      "nome": "Carlos Alexandre Ferreira Silva",
+      "nomeUrna": "Alexandre da Carbrás",
+      "partido": "SOLIDARIEDADE",
+      "numero": "7777",
+      "foto": "/fotos/2026/40002549901.jpg"
+    },
+    {
+      "nome": "Carles Waldemar Correa dos Santos",
+      "nomeUrna": "Carles Waldemar Maguila",
+      "partido": "SOLIDARIEDADE",
+      "numero": "7770",
+      "foto": "/fotos/2026/40002549906.jpg"
+    },
+    {
+      "nome": "Denis da Silva Figueiroa",
+      "nomeUrna": "Denis Real",
+      "partido": "SOLIDARIEDADE",
+      "numero": "7707",
+      "foto": "/fotos/2026/40002549899.jpg"
+    },
+    {
+      "nome": "Will Robson Fontes Goiabeira",
+      "nomeUrna": "Goiabeira",
+      "partido": "SOLIDARIEDADE",
+      "numero": "7712",
+      "foto": "/fotos/2026/40002549902.jpg"
+    },
+    {
+      "nome": "Karola Karen Pontes Caldas",
+      "nomeUrna": "Karola Pro Vida",
+      "partido": "SOLIDARIEDADE",
+      "numero": "7711",
+      "foto": "/fotos/2026/40002549903.jpg"
+    },
+    {
+      "nome": "Lucilene Rodrigues de Souza",
+      "nomeUrna": "Lene Souza",
+      "partido": "SOLIDARIEDADE",
+      "numero": "7790",
+      "foto": "/fotos/2026/40002549905.jpg"
+    },
+    {
+      "nome": "Givanildo Marques Maia",
+      "nomeUrna": "Marquinhos Maia",
+      "partido": "SOLIDARIEDADE",
+      "numero": "7706",
+      "foto": "/fotos/2026/40002549900.jpg"
+    },
+    {
+      "nome": "Miguel Carratte Neto",
+      "nomeUrna": "Dr. Miguel Carratte",
+      "partido": "UNIÃO",
+      "numero": "4455",
+      "foto": "/fotos/2026/40002542678.jpg"
+    },
+    {
+      "nome": "Joana Darc Cordeiro de Lima",
+      "nomeUrna": "Joana Darc",
+      "partido": "UNIÃO",
+      "numero": "4444",
+      "foto": "/fotos/2026/40002542676.jpg"
+    },
+    {
+      "nome": "Therezinha Ruiz de Oliveira",
+      "nomeUrna": "Professora Therezinha Ruiz",
+      "partido": "UNIÃO",
+      "numero": "4411",
+      "foto": "/fotos/2026/40002542671.jpg"
+    },
+    {
+      "nome": "Simon de Souza Guimaraes Bessa",
+      "nomeUrna": "Saimon Bessa",
+      "partido": "UNIÃO",
+      "numero": "4433",
+      "foto": "/fotos/2026/40002542675.jpg"
+    },
+    {
+      "nome": "Thaysa Lippy de Souza Florencio",
+      "nomeUrna": "Thaysa Lippy",
+      "partido": "UNIÃO",
+      "numero": "4400",
+      "foto": "/fotos/2026/40002542672.jpg"
+    },
+    {
+      "nome": "Walzenir de Oliveira Falcao",
+      "nomeUrna": "Walzenir Falcão",
+      "partido": "UNIÃO",
+      "numero": "4456",
+      "foto": "/fotos/2026/40002542677.jpg"
+    },
+    {
+      "nome": "Ana Alice Roque de Souza",
+      "nomeUrna": "Ana Roque",
+      "partido": "UP",
+      "numero": "8000",
+      "foto": "/fotos/2026/40002546978.jpg"
+    },
+    {
+      "nome": "Joao Antonio de Oliveira Marques Lima",
+      "nomeUrna": "João Lima",
+      "partido": "UP",
+      "numero": "8080",
+      "foto": "/fotos/2026/40002546977.jpg"
+    }
+  ],
+  "trocas": [
+    {
+      "nomeUrna": "Hissa Abrahão",
+      "nome": "Hissa Nagib Abrahão Filho",
+      "partido2022": "AVANTE",
+      "partido2026": "REPUBLICANOS"
+    },
+    {
+      "nomeUrna": "Amom Mandel",
+      "nome": "Amom Mandel Lins Filho",
+      "partido2022": "CIDADANIA",
+      "partido2026": "REPUBLICANOS"
+    },
+    {
+      "nomeUrna": "Sargento Augusto",
+      "nome": "César Augusto Oliveira da Fonseca",
+      "partido2022": "MDB",
+      "partido2026": "PODE"
+    },
+    {
+      "nomeUrna": "Viviane Lima",
+      "nome": "Viviane Pereira da Silva Lago Lima",
+      "partido2022": "MDB",
+      "partido2026": "REPUBLICANOS"
+    },
+    {
+      "nomeUrna": "Vanda Witoto",
+      "nome": "Vanderlecia Ortega dos Santos",
+      "partido2022": "REDE",
+      "partido2026": "MDB"
+    },
+    {
+      "nomeUrna": "Adail Filho",
+      "nome": "Adail José Figueiredo Pinheiro",
+      "partido2022": "REPUBLICANOS",
+      "partido2026": "MDB"
+    },
+    {
+      "nomeUrna": "Delegado Pablo",
+      "nome": "Pablo Oliva Souza",
+      "partido2022": "UNIÃO",
+      "partido2026": "PL"
+    },
+    {
+      "nomeUrna": "Pauderney Avelino",
+      "nome": "Pauderney Tomaz Avelino",
+      "partido2022": "UNIÃO",
+      "partido2026": "PSD"
+    },
+    {
+      "nomeUrna": "Saullo Vianna",
+      "nome": "Saullo Velame Vianna",
+      "partido2022": "UNIÃO",
+      "partido2026": "MDB"
+    }
+  ],
+  "foraDaDisputa": [
+    {
+      "nome": "Capitão Alberto Neto",
+      "partido": "PL",
+      "foto": "/fotos/eleitos/204572.jpg"
+    }
+  ],
+  "notaFotos2026": "As fotos de 2026 vêm do arquivo oficial foto_cand2026_AM divulgado pelo TSE.",
+  "notaEleitos": "As fotos dos eleitos são as oficiais da Câmara dos Deputados."
+}
