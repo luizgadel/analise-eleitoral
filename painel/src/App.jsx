@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { baixarApuracao, encontrarCandidato, INTERVALO_APURACAO_MS, interpretarApuracao } from "./apuracao.js";
 import "./estilos.css";
 
 function iniciais(nome) {
@@ -81,7 +82,7 @@ function corBloco(indice) {
   return `var(--bloco-${indice % 24})`;
 }
 
-function Federacoes({ dados, bandeiras }) {
+function Federacoes({ dados, bandeiras, titulo = "Votos acumulados em 2022", ancora = "quociente" }) {
   const grupos = dados.federacoes ?? [];
   const quociente = dados.quociente;
   if (!grupos.length || !quociente) return null;
@@ -93,9 +94,9 @@ function Federacoes({ dados, bandeiras }) {
   const maiorIndividual = Math.max(...grupos.map((grupo) => grupo.votos), 1);
 
   return (
-    <section id="quociente">
+    <section id={ancora}>
       <div className="secao-titulo">
-        <h2>Votos acumulados em 2022</h2>
+        <h2>{titulo}</h2>
         <p>
           A raia soma os votos, da maior votação para a menor. O gráfico de baixo mostra cada federação e cada
           partido sozinho. As linhas são o quociente eleitoral e 80% dele.
@@ -245,11 +246,61 @@ function ficha2026(pessoa) {
 
 function Aba2026({ dados, bandeiras }) {
   const [busca, setBusca] = useState("");
-  const [ordem, setOrdem] = useState("gasto");
+  const [ordem, setOrdem] = useState("votos");
+  const [apuracao, setApuracao] = useState(null);
+  const [falhaApuracao, setFalhaApuracao] = useState("");
+
+  useEffect(() => {
+    let ativo = true;
+    let espera = 0;
+    let ultimo = "";
+
+    async function buscar() {
+      try {
+        const texto = await baixarApuracao();
+        if (!ativo) return;
+        if (texto !== ultimo) {
+          ultimo = texto;
+          setApuracao(interpretarApuracao(JSON.parse(texto)));
+          setFalhaApuracao("");
+        }
+        if (JSON.parse(texto).and === "f") {
+          fetch("/api/apuracao-snapshot", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: texto,
+          }).catch(() => {});
+          return;
+        }
+      } catch (falha) {
+        if (!ativo) return;
+        setFalhaApuracao(falha.message || "Não foi possível ler a apuração do TSE.");
+      }
+      if (!ativo) return;
+      espera = window.setTimeout(buscar, INTERVALO_APURACAO_MS);
+    }
+
+    buscar();
+    return () => {
+      ativo = false;
+      window.clearTimeout(espera);
+    };
+  }, []);
 
   const candidaturas = useMemo(
-    () => dados.desempenho.filter((pessoa) => pessoa.concorre2026).map(ficha2026),
-    [dados],
+    () =>
+      dados.desempenho.filter((pessoa) => pessoa.concorre2026).map((pessoa) => {
+        const ficha = ficha2026(pessoa);
+        const candidato = encontrarCandidato(apuracao, ficha);
+        return {
+          ...ficha,
+          votos2026: candidato ? candidato.votos : null,
+          percentual2026: candidato?.percentual || "",
+          eleito2026: Boolean(candidato?.eleito),
+          situacao2026: candidato?.situacao || "",
+        };
+      }),
+    [apuracao, dados],
   );
 
   const maioresGastos = useMemo(
@@ -273,7 +324,8 @@ function Aba2026({ dados, bandeiras }) {
     );
     return filtradas.sort((a, b) => {
       if (ordem === "nome") return a.nomeUrna.localeCompare(b.nomeUrna, "pt");
-      return b.gasto - a.gasto || a.nomeUrna.localeCompare(b.nomeUrna, "pt");
+      if (ordem === "gasto") return b.gasto - a.gasto || a.nomeUrna.localeCompare(b.nomeUrna, "pt");
+      return (b.votos2026 ?? -1) - (a.votos2026 ?? -1) || a.nomeUrna.localeCompare(b.nomeUrna, "pt");
     });
   }, [busca, candidaturas, ordem]);
 
@@ -300,23 +352,85 @@ function Aba2026({ dados, bandeiras }) {
   return (
     <>
       <nav className="nav">
+        <a href="#eleitos-2026">Eleitos</a>
+        <a href="#quociente-2026">Quociente</a>
+        <a href="#candidaturas-2026">Votos</a>
         <a href="#maiores-2026">50 maiores gastos</a>
         <a href="#faixas-2026">Faixas de gasto</a>
-        <a href="#candidaturas-2026">Candidaturas</a>
         <a href="#gastos-partido-2026">Gastos por partido</a>
         <a href="#partidos-2026">Por partido</a>
       </nav>
 
-      <section className="numeros dois" aria-label="Resumo de 2026">
+      <section className="numeros" aria-label="Resumo de 2026">
         <article className="numero">
           <strong>{formatoInteiro.format(dados.totais.candidatos2026)}</strong>
           <span>candidaturas em 2026</span>
+        </article>
+        <article className="numero">
+          <strong>{apuracao ? votosDe(apuracao.votosNominais) : "…"}</strong>
+          <span>votos nominais em 2026</span>
+        </article>
+        <article className="numero">
+          <strong>{apuracao?.secoes?.pst ? `${apuracao.secoes.pst}%` : "…"}</strong>
+          <span>
+            {apuracao?.secoes?.st && apuracao?.secoes?.ts
+              ? `${apuracao.secoes.st} de ${apuracao.secoes.ts} seções`
+              : "seções totalizadas"}
+          </span>
         </article>
         <article className="numero">
           <strong>{reais(dados.totais.publicidade2026)}</strong>
           <span>despesas contratadas em 2026</span>
         </article>
       </section>
+      <p className="miudo nota">
+        {falhaApuracao
+          ? falhaApuracao
+          : apuracao
+            ? `Totalização em ${apuracao.carimbo}. ${apuracao.fechada ? "Apuração encerrada." : "Apuração em andamento."}`
+            : "Carregando a apuração do TSE…"}
+      </p>
+
+      <section id="eleitos-2026">
+        <div className="secao-titulo">
+          <h2>Eleitos em 2026</h2>
+          <p>Só entra quem o TSE já marcou como eleito. Situação vazia continua em apuração.</p>
+        </div>
+        {candidaturas.some((pessoa) => pessoa.eleito2026) ? (
+          <div className="grade-eleitos">
+            {candidaturas
+              .filter((pessoa) => pessoa.eleito2026)
+              .sort((a, b) => (b.votos2026 ?? 0) - (a.votos2026 ?? 0))
+              .map((pessoa) => (
+                <article className="eleito" key={`eleito-2026-${pessoa.numero}-${pessoa.nome}`}>
+                  <Foto className="avatar" src={pessoa.foto} nome={pessoa.nomeUrna} />
+                  <div>
+                    <h3>{pessoa.nomeUrna}</h3>
+                    <p className="voto-grande">
+                      {votosDe(pessoa.votos2026)} <span>votos</span>
+                    </p>
+                    <p className="partido-linha">
+                      <Sigla nome={pessoa.partido} bandeiras={bandeiras} />
+                      <span>· {pessoa.numero}</span>
+                    </p>
+                    {pessoa.situacao2026 && <p className="partido-linha">{pessoa.situacao2026}</p>}
+                  </div>
+                </article>
+              ))}
+          </div>
+        ) : (
+          <p className="miudo nota">O TSE ainda não atribuiu eleitos.</p>
+        )}
+      </section>
+
+      {apuracao && (
+        <Federacoes
+          dados={{ federacoes: apuracao.federacoes, quociente: apuracao.quociente }}
+          bandeiras={bandeiras}
+          titulo="Votos acumulados em 2026"
+          ancora="quociente-2026"
+        />
+      )}
 
       <section id="despesas-2026">
         <div className="secao-titulo">
@@ -376,11 +490,15 @@ function Aba2026({ dados, bandeiras }) {
         </div>
 
         <div className="secao-titulo sub" id="candidaturas-2026">
-          <h2>Candidaturas de 2026</h2>
-          <p>Todas as candidaturas do cadastro oficial do estado, com a despesa já contratada.</p>
+          <h2>Votos de 2026 e gastos da campanha</h2>
+          <p>
+            O voto nominal válido fica ao lado da despesa contratada. Quem ainda não apareceu na apuração fica sem
+            voto. O voto de 2022 não entra nesta coluna.
+          </p>
         </div>
         <div className="ordens" role="group" aria-label="Ordenar candidaturas de 2026">
           {[
+            ["votos", "Mais votos"],
             ["gasto", "Maior gasto"],
             ["nome", "Nome"],
           ].map(([id, rotulo]) => (
@@ -397,13 +515,15 @@ function Aba2026({ dados, bandeiras }) {
           aria-label="Buscar candidatura de 2026"
         />
         <div className="ranking">
-          <div className="linha-voto cabeca gasto">
+          <div className="linha-voto cabeca apuracao">
             <span />
             <span>Candidatura</span>
+            <span>Votos em 2026</span>
+            <span>%</span>
             <span>Gastos da campanha</span>
           </div>
           {lista.map((pessoa, indice) => (
-            <div className="linha-voto gasto" key={`lista-2026-${pessoa.numero}-${pessoa.nome}`}>
+            <div className="linha-voto apuracao" key={`lista-2026-${pessoa.numero}-${pessoa.nome}`}>
               <span className="posicao">{indice + 1}</span>
               <div className="quem">
                 {pessoa.foto && <Foto className="mini" src={pessoa.foto} nome={pessoa.nomeUrna} />}
@@ -412,9 +532,12 @@ function Aba2026({ dados, bandeiras }) {
                   <span className="partido-linha">
                     <Sigla nome={pessoa.partido} bandeiras={bandeiras} />
                     <span>· {pessoa.numero}</span>
+                    {pessoa.eleito2026 && <span className="etiqueta dentro">Eleito</span>}
                   </span>
                 </div>
               </div>
+              <span className="nums">{votosDe(pessoa.votos2026)}</span>
+              <span className="nums">{pessoa.percentual2026 ? `${pessoa.percentual2026}%` : "—"}</span>
               <span className="nums">{reais(pessoa.gasto)}</span>
             </div>
           ))}
