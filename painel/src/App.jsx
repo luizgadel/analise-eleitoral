@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { baixarApuracao, encontrarCandidato, INTERVALO_APURACAO_MS, interpretarApuracao } from "./apuracao.js";
+import { baixarApuracao, cadeirasNoInstante, encontrarCandidato, INTERVALO_APURACAO_MS, interpretarApuracao } from "./apuracao.js";
 import "./estilos.css";
 
 function iniciais(nome) {
@@ -294,6 +294,7 @@ function Aba2026({ dados, bandeiras }) {
         const candidato = encontrarCandidato(apuracao, ficha);
         return {
           ...ficha,
+          partidoApuracao: candidato?.partido || "",
           votos2026: candidato ? candidato.votos : null,
           percentual2026: candidato?.percentual || "",
           eleito2026: Boolean(candidato?.eleito),
@@ -302,6 +303,22 @@ function Aba2026({ dados, bandeiras }) {
       }),
     [apuracao, dados],
   );
+
+  const naCadeira = useMemo(() => {
+    if (!apuracao?.quociente?.qe || !apuracao.quociente.vagas) return new Set();
+    return cadeirasNoInstante(
+      apuracao.federacoes,
+      candidaturas
+        .filter((pessoa) => pessoa.votos2026 != null)
+        .map((pessoa) => ({
+          id: String(pessoa.sequencial2026 || pessoa.numero),
+          partido: pessoa.partidoApuracao || pessoa.partido,
+          votos: pessoa.votos2026,
+        })),
+      apuracao.quociente.qe,
+      apuracao.quociente.vagas,
+    );
+  }, [apuracao, candidaturas]);
 
   const maioresGastos = useMemo(
     () => [...candidaturas].sort((a, b) => b.gasto - a.gasto || a.nomeUrna.localeCompare(b.nomeUrna, "pt")).slice(0, 50),
@@ -492,8 +509,8 @@ function Aba2026({ dados, bandeiras }) {
         <div className="secao-titulo sub" id="candidaturas-2026">
           <h2>Votos de 2026 e gastos da campanha</h2>
           <p>
-            O voto nominal válido fica ao lado da despesa contratada. Quem ainda não apareceu na apuração fica sem
-            voto. O voto de 2022 não entra nesta coluna.
+            O voto nominal válido fica ao lado da despesa contratada. O fundo marca quem levaria cadeira com estes
+            votos. Quem ainda não apareceu na apuração fica sem voto. O voto de 2022 não entra nesta coluna.
           </p>
         </div>
         <div className="ordens" role="group" aria-label="Ordenar candidaturas de 2026">
@@ -523,7 +540,11 @@ function Aba2026({ dados, bandeiras }) {
             <span>Gastos da campanha</span>
           </div>
           {lista.map((pessoa, indice) => (
-            <div className="linha-voto apuracao" key={`lista-2026-${pessoa.numero}-${pessoa.nome}`}>
+            <div
+              className={naCadeira.has(String(pessoa.sequencial2026 || pessoa.numero)) ? "linha-voto apuracao na-cadeira" : "linha-voto apuracao"}
+              key={`lista-2026-${pessoa.numero}-${pessoa.nome}`}
+              title={naCadeira.has(String(pessoa.sequencial2026 || pessoa.numero)) ? "Levando cadeira com os votos deste instante" : undefined}
+            >
               <span className="posicao">{indice + 1}</span>
               <div className="quem">
                 {pessoa.foto && <Foto className="mini" src={pessoa.foto} nome={pessoa.nomeUrna} />}

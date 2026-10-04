@@ -14,6 +14,7 @@
   --sobre-verde: #f6f3ec;
   --faixa: #f7f3ea;
   --faixa-eleita: #f3f7f4;
+  --faixa-cadeira: #f4ead3;
   --trilho: #efe8dc;
   --vidro: rgba(255, 253, 248, 0.72);
   --brilho: rgba(196, 165, 116, 0.28);
@@ -71,6 +72,7 @@
     --sobre-verde: #14241c;
     --faixa: #26221c;
     --faixa-eleita: #1a2822;
+    --faixa-cadeira: #3a3220;
     --trilho: #2c2823;
     --vidro: rgba(30, 27, 23, 0.78);
     --brilho: rgba(196, 165, 116, 0.14);
@@ -259,6 +261,7 @@ h1 {
 }
 
 .linha-voto.eleita { background: var(--faixa-eleita); }
+.linha-voto.na-cadeira { background: var(--faixa-cadeira); }
 
 .linha-voto.curta {
   grid-template-columns: 42px minmax(240px, 1.6fr) minmax(110px, 0.5fr) minmax(160px, 0.7fr);
