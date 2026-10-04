@@ -1,6 +1,6 @@
 # Requisitos
 
-Painel de deputado federal no Amazonas. A página tem abas de 2022 e de 2026. Em 2022, a navegação por âncoras reúne eleitos, quociente, gastos, votos, partidos e o movimento entre as duas eleições. Em 2026, a mesma organização mostra candidaturas, despesas contratadas e os votos ao vivo da apuração.
+Painel de deputado federal no Amazonas. A página tem abas de 2022 e de 2026. Em 2022, a navegação por âncoras reúne eleitos, quociente, gastos, votos, partidos e o movimento entre as duas eleições. Em 2026, a mesma organização mostra candidaturas, despesas contratadas e os votos ao vivo da apuração. Na lista de votos e gastos, o fundo marca quem levaria cadeira neste instante.
 
 ## Tabela de IDs
 
@@ -8,6 +8,36 @@ Painel de deputado federal no Amazonas. A página tem abas de 2022 e de 2026. Em
 | --- | --- | --- | --- |
 | REQ-001 | Aba com os dados de 2026 | implementado | 1 |
 | REQ-002 | Votos ao vivo de 2026 | implementado | 2 |
+| REQ-003 | Destaque de quem está sendo eleito | implementado | 3 |
+
+## REQ-003 — Destaque de quem está sendo eleito
+
+**Status:** implementado
+**Prioridade:** 3
+**Depende de:** nenhuma
+
+### Objetivo
+
+Na seção "Votos de 2026 e gastos da campanha", calcular quais candidatos estão sendo eleitos neste instante da apuração e marcar essas linhas com outra cor de fundo.
+
+### Experiência desejada
+
+- Na lista de votos e gastos de 2026, as candidaturas que levariam uma cadeira com os votos apurados agora ficam com cor de fundo diferente.
+- A conta usa o quociente eleitoral publicado pelo TSE, o quociente partidário da legenda e as sobras, e acompanha cada atualização da apuração.
+- A cor indica essa conta do momento. Não substitui a marca oficial de eleito do TSE.
+
+### Fora do escopo deste requisito
+
+- Mudar a seção "Eleitos em 2026", que continua só com quem o TSE marcou.
+- Recalcular o quociente eleitoral publicado pelo TSE.
+- Aplicar o mesmo destaque na aba de 2022.
+
+### Critérios de aceite
+
+- [x] Na seção "Votos de 2026 e gastos da campanha", a lista calcula quem levaria uma das cadeiras com os votos deste instante.
+- [x] Essas linhas têm cor de fundo diferente das demais.
+- [x] O destaque acompanha a atualização da apuração.
+- [x] A marca oficial de eleito do TSE não é substituída por essa conta.
 
 ## REQ-002 — Votos ao vivo de 2026
 
