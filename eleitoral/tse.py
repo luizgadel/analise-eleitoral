@@ -228,12 +228,23 @@ def _codigo_igual(serie: pd.Series, esperado: str) -> pd.Series:
     return serie.map(somente_digitos).str.lstrip("0").eq(esperado)
 
 
-def _mascara_deputado_federal(pedaco: pd.DataFrame) -> pd.Series:
+def _cargo_tse(cargo: int) -> tuple[str, str, str]:
+    if int(cargo) == 7:
+        return "7", "DEPUTADO ESTADUAL", "deputado_estadual"
+    return "6", "DEPUTADO FEDERAL", "deputado_federal"
+
+
+def _mascara_cargo(pedaco: pd.DataFrame, cargo: int = 6) -> pd.Series:
+    codigo, descricao, _slug = _cargo_tse(cargo)
     if "CD_CARGO" in pedaco.columns and pedaco["CD_CARGO"].map(limpar_codigo).ne("").any():
-        return _codigo_igual(pedaco["CD_CARGO"], "6")
+        return _codigo_igual(pedaco["CD_CARGO"], codigo)
     if "DS_CARGO" in pedaco.columns:
-        return pedaco["DS_CARGO"].map(normalizar_texto).eq("DEPUTADO FEDERAL")
+        return pedaco["DS_CARGO"].map(normalizar_texto).eq(descricao)
     return pd.Series(True, index=pedaco.index)
+
+
+def _mascara_deputado_federal(pedaco: pd.DataFrame) -> pd.Series:
+    return _mascara_cargo(pedaco, 6)
 
 
 def _mascara_ordinaria(pedaco: pd.DataFrame) -> pd.Series:
@@ -264,8 +275,10 @@ def _mascara_uf(pedaco: pd.DataFrame, uf: str | None, coluna: str = "SG_UF") -> 
     return pedaco[coluna].map(limpar_codigo).str.upper().eq(uf)
 
 
-def _filtrar_candidatos(pedaco: pd.DataFrame, ano: int, somente_aptos: bool, uf: str | None = None) -> pd.DataFrame:
-    mascara = _mascara_deputado_federal(pedaco) & _mascara_ordinaria(pedaco) & _mascara_turno(pedaco)
+def _filtrar_candidatos(
+    pedaco: pd.DataFrame, ano: int, somente_aptos: bool, uf: str | None = None, cargo: int = 6
+) -> pd.DataFrame:
+    mascara = _mascara_cargo(pedaco, cargo) & _mascara_ordinaria(pedaco) & _mascara_turno(pedaco)
     mascara = mascara & _mascara_uf(pedaco, uf)
     if "ANO_ELEICAO" in pedaco.columns:
         ano_texto = pedaco["ANO_ELEICAO"].map(limpar_codigo)
@@ -276,7 +289,9 @@ def _filtrar_candidatos(pedaco: pd.DataFrame, ano: int, somente_aptos: bool, uf:
     return pedaco.loc[mascara]
 
 
-def candidatos_do_arquivo(caminho: Path, ano: int, somente_aptos: bool = True, uf: str | None = None) -> pd.DataFrame:
+def candidatos_do_arquivo(
+    caminho: Path, ano: int, somente_aptos: bool = True, uf: str | None = None, cargo: int = 6
+) -> pd.DataFrame:
     uf = _uf(uf)
     quadros: list[pd.DataFrame] = []
     with _abrir_zip(caminho) as arquivo_zip:
@@ -288,33 +303,35 @@ def candidatos_do_arquivo(caminho: Path, ano: int, somente_aptos: bool = True, u
         for nome in nomes:
             print(f"Lendo {Path(nome).name}")
             for pedaco, _disponiveis in _iterar_csv(arquivo_zip, nome, COLUNAS_CANDIDATOS):
-                filtrado = _filtrar_candidatos(pedaco, ano, somente_aptos, uf=uf)
+                filtrado = _filtrar_candidatos(pedaco, ano, somente_aptos, uf=uf, cargo=cargo)
                 if not filtrado.empty:
                     quadros.append(filtrado)
     if not quadros:
         aviso = ""
         if somente_aptos:
             aviso = " Se a situação da candidatura vier com outro rótulo, use carregar_candidatos(ano, somente_aptos=False)."
-        raise ErroFonte(f"Nenhum candidato a deputado federal em {ano} no arquivo {caminho.name}.{aviso}")
+        _codigo, descricao, _slug = _cargo_tse(cargo)
+        raise ErroFonte(f"Nenhum candidato a {descricao.lower()} em {ano} no arquivo {caminho.name}.{aviso}")
     return _padronizar_candidato(pd.concat(quadros, ignore_index=True))
 
 
-def carregar_candidatos(ano: int, somente_aptos: bool = True, uf: str | None = None) -> pd.DataFrame:
+def carregar_candidatos(ano: int, somente_aptos: bool = True, uf: str | None = None, cargo: int = 6) -> pd.DataFrame:
     if ano not in URL_CANDIDATOS:
         raise ErroFonte(f"Não há endereço configurado para os candidatos de {ano}.")
     uf = _uf(uf)
     origem = baixar_arquivo(URL_CANDIDATOS[ano], DIR_BRUTOS / f"consulta_cand_{ano}.zip")
     sufixo = "aptos" if somente_aptos else "todos"
     recorte = f"_{uf}" if uf else ""
-    cache = DIR_PROCESSADOS / f"candidatos_deputado_federal_{ano}_{sufixo}{recorte}.csv"
+    _codigo, _descricao, slug = _cargo_tse(cargo)
+    cache = DIR_PROCESSADOS / f"candidatos_{slug}_{ano}_{sufixo}{recorte}.csv"
     if _cache_valido(cache, origem):
         return _ler_cache(cache)
-    quadro = candidatos_do_arquivo(origem, ano, somente_aptos=somente_aptos, uf=uf)
+    quadro = candidatos_do_arquivo(origem, ano, somente_aptos=somente_aptos, uf=uf, cargo=cargo)
     _gravar_cache(quadro, cache, origem)
     return quadro
 
 
-def _agregar_votos(caminho: Path, uf: str | None = None) -> pd.DataFrame:
+def _agregar_votos(caminho: Path, uf: str | None = None, cargo: int = 6) -> pd.DataFrame:
     uf = _uf(uf)
     votos: dict[str, int] = {}
     atributos: dict[str, dict[str, str]] = {}
@@ -328,7 +345,7 @@ def _agregar_votos(caminho: Path, uf: str | None = None) -> pd.DataFrame:
                 if "QT_VOTOS_NOMINAIS" not in disponiveis:
                     raise ErroFonte(f"{Path(nome).name} não tem a coluna QT_VOTOS_NOMINAIS.")
                 pedaco = pedaco.loc[
-                    _mascara_deputado_federal(pedaco)
+                    _mascara_cargo(pedaco, cargo)
                     & _mascara_turno(pedaco)
                     & _mascara_ordinaria(pedaco)
                     & _mascara_uf(pedaco, uf)
@@ -356,7 +373,8 @@ def _agregar_votos(caminho: Path, uf: str | None = None) -> pd.DataFrame:
                             "resultado": limpar_codigo(linha.get("DS_SIT_TOT_TURNO", "")),
                         }
     if not votos:
-        raise ErroFonte("A votação de deputado federal em 2022 não foi encontrada no arquivo.")
+        _codigo, descricao, _slug = _cargo_tse(cargo)
+        raise ErroFonte(f"A votação de {descricao.lower()} em 2022 não foi encontrada no arquivo.")
     quadro = pd.DataFrame({"sequencial": list(votos), "votos": list(votos.values())})
     detalhes = pd.DataFrame([{"sequencial": chave, **valor} for chave, valor in atributos.items()])
     return quadro.merge(detalhes, on="sequencial", how="left")
@@ -379,16 +397,17 @@ def juntar_votos(votos: pd.DataFrame, candidatos: pd.DataFrame) -> pd.DataFrame:
     return quadro.sort_values(["votos", "partido", "nome_urna"], ascending=[False, True, True]).reset_index(drop=True)
 
 
-def carregar_votos(candidatos_2022: pd.DataFrame, uf: str | None = None) -> pd.DataFrame:
+def carregar_votos(candidatos_2022: pd.DataFrame, uf: str | None = None, cargo: int = 6) -> pd.DataFrame:
     uf = _uf(uf)
     origem = baixar_arquivo(URL_VOTOS_2022, DIR_BRUTOS / "votacao_candidato_munzona_2022.zip")
     recorte = f"_{uf}" if uf else ""
-    cache = DIR_PROCESSADOS / f"votos_deputado_federal_2022{recorte}.csv"
+    _codigo, _descricao, slug = _cargo_tse(cargo)
+    cache = DIR_PROCESSADOS / f"votos_{slug}_2022{recorte}.csv"
     if _cache_valido(cache, origem):
         quadro = _ler_cache(cache)
         quadro["votos"] = quadro["votos"].map(parse_inteiro)
         return quadro.sort_values(["votos", "partido", "nome_urna"], ascending=[False, True, True]).reset_index(drop=True)
-    quadro = juntar_votos(_agregar_votos(origem, uf=uf), candidatos_2022)
+    quadro = juntar_votos(_agregar_votos(origem, uf=uf, cargo=cargo), candidatos_2022)
     _gravar_cache(quadro, cache, origem)
     return quadro
 
@@ -407,6 +426,7 @@ def _acumular_despesas(
     data_corte: date | None,
     uf: str | None = None,
     somente_publicidade: bool = True,
+    cargo: int = 6,
 ) -> tuple[dict[str, float], dict[str, dict[str, float | int | bool]], dict[str, int | date | None | str]]:
     uf = _uf(uf)
     gastos: dict[str, float] = {}
@@ -445,7 +465,7 @@ def _acumular_despesas(
                     resumo["gerado_em"] = limpar_codigo(pedaco["DT_GERACAO"].iloc[0])
                 if "SQ_CANDIDATO" not in pedaco.columns:
                     continue
-                pedaco = pedaco.loc[_mascara_deputado_federal(pedaco) & _mascara_uf(pedaco, uf)].copy()
+                pedaco = pedaco.loc[_mascara_cargo(pedaco, cargo) & _mascara_uf(pedaco, uf)].copy()
                 pedaco["sequencial"] = pedaco["SQ_CANDIDATO"].map(limpar_codigo)
                 pedaco = pedaco.loc[pedaco["sequencial"].isin(sequenciais)]
                 if pedaco.empty:
@@ -565,6 +585,7 @@ def carregar_gastos_publicidade(
     data_corte: date | None = None,
     uf: str | None = None,
     somente_publicidade: bool = True,
+    cargo: int = 6,
 ) -> GastosPublicidade:
     if ano not in URL_CONTAS:
         raise ErroFonte(f"Não há prestação de contas configurada para {ano}.")
@@ -575,9 +596,15 @@ def carregar_gastos_publicidade(
     corte_nome = data_corte.isoformat() if data_corte else "completa"
     recorte = f"_{uf}" if uf else ""
     prefixo = "publicidade" if somente_publicidade else "campanha"
-    cache = DIR_PROCESSADOS / f"{prefixo}_deputado_federal_{ano}{recorte}_{corte_nome}.csv"
-    cache_categorias = DIR_PROCESSADOS / f"{prefixo}_categorias_{ano}{recorte}_{corte_nome}.csv"
-    cache_texto = DIR_PROCESSADOS / f"{prefixo}_deputado_federal_{ano}{recorte}_{corte_nome}.txt"
+    _codigo, _descricao, slug = _cargo_tse(cargo)
+    cache = DIR_PROCESSADOS / f"{prefixo}_{slug}_{ano}{recorte}_{corte_nome}.csv"
+    nome_categorias = (
+        f"{prefixo}_categorias_{ano}{recorte}_{corte_nome}.csv"
+        if slug == "deputado_federal"
+        else f"{prefixo}_categorias_{slug}_{ano}{recorte}_{corte_nome}.csv"
+    )
+    cache_categorias = DIR_PROCESSADOS / nome_categorias
+    cache_texto = DIR_PROCESSADOS / f"{prefixo}_{slug}_{ano}{recorte}_{corte_nome}.txt"
     if _cache_valido(cache, origem) and cache_categorias.exists() and cache_texto.exists():
         por_candidato = _ler_cache(cache)
         por_candidato["gasto_publicidade"] = por_candidato["gasto_publicidade"].map(parse_valor)
@@ -596,7 +623,7 @@ def carregar_gastos_publicidade(
         )
     sequenciais = {limpar_codigo(valor) for valor in candidatos["sequencial"] if limpar_codigo(valor)}
     gastos, categorias, resumo = _acumular_despesas(
-        origem, sequenciais, data_corte, uf=uf, somente_publicidade=somente_publicidade
+        origem, sequenciais, data_corte, uf=uf, somente_publicidade=somente_publicidade, cargo=cargo
     )
     relatorio = montar_gastos(
         candidatos,

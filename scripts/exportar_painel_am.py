@@ -17,7 +17,7 @@ sys.path.insert(0, str(RAIZ))
 from eleitoral.analise import _preparar_chaves, comparar_disputas, cruzar_deputados, resumo_por_partido
 from eleitoral.camara import carregar_deputados_atuais
 from eleitoral.regras import eh_eleito, somente_digitos
-from eleitoral.tse import carregar_candidatos, carregar_gastos_publicidade
+from eleitoral.tse import carregar_candidatos, carregar_gastos_publicidade, carregar_votos
 
 PAINEL = RAIZ / "painel" / "public"
 DIVULGA_2026 = RAIZ / "dados" / "processados" / "divulga_despesas_2026_AM.json"
@@ -53,7 +53,14 @@ def exibir_resultado(valor: object) -> str:
 # Votos válidos oficiais de deputado federal no Amazonas em 2022 (nominal + legenda).
 VOTOS_VALIDOS_2022_AM = 1_991_796
 VAGAS_DEPUTADO_FEDERAL_AM = 8
+# Deputado estadual no Amazonas em 2022: 1.972.089 votos válidos e 24 cadeiras.
+VOTOS_VALIDOS_ESTADUAL_2022_AM = 1_972_089
+VAGAS_DEPUTADO_ESTADUAL_AM = 24
 CORTE_UMA_SEMANA_2022 = date(2022, 9, 25)
+URL_APURACAO = {
+    6: "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/am/am-c0006-e006259-u.json",
+    7: "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/am/am-c0007-e006259-u.json",
+}
 
 
 def quociente_eleitoral(votos_validos: int, vagas: int) -> int:
@@ -183,35 +190,45 @@ def copiar_fotos_2026(sequenciais: set[str]) -> dict[str, str]:
     return caminhos
 
 
-def main() -> None:
-    candidatos_2022 = carregar_candidatos(2022, uf="AM")
-    candidatos_2026 = carregar_candidatos(2026, uf="AM")
-    deputados = carregar_deputados_atuais(uf="AM")
+def main(cargo: int = 6) -> None:
+    cargo = 7 if int(cargo) == 7 else 6
+    estadual = cargo == 7
+    candidatos_2022 = carregar_candidatos(2022, uf="AM", cargo=cargo)
+    candidatos_2026 = carregar_candidatos(2026, uf="AM", cargo=cargo)
+    deputados = None if estadual else carregar_deputados_atuais(uf="AM")
     comparacao = comparar_disputas(candidatos_2022, candidatos_2026)
-    cruzamento = cruzar_deputados(deputados, candidatos_2026)
+    cruzamento = None if estadual else cruzar_deputados(deputados, candidatos_2026)
 
     fotos_2026 = copiar_fotos_2026(set(candidatos_2026["sequencial"].astype(str)))
-    deputados_por_cpf = {
-        somente_digitos(linha.cpf): linha for linha in deputados.itertuples(index=False)
-    }
+    deputados_por_cpf = {}
+    if deputados is not None:
+        deputados_por_cpf = {
+            somente_digitos(linha.cpf): linha for linha in deputados.itertuples(index=False)
+        }
     partido_2026 = {
         str(linha.sequencial): str(linha.partido_2026)
         for linha in comparacao.continuam.itertuples(index=False)
     }
-    arquivo_votos = RAIZ / "dados" / "processados" / "votos_deputado_federal_2022_AM.csv"
+    arquivo_votos = (
+        RAIZ / "dados" / "processados" / ("votos_deputado_estadual_2022_AM.csv" if estadual else "votos_deputado_federal_2022_AM.csv")
+    )
+    carregar_votos(candidatos_2022, uf="AM", cargo=cargo)
     votos = ler_coluna(arquivo_votos, "votos")
     federacoes = montar_federacoes(arquivo_votos)
-    qe = quociente_eleitoral(VOTOS_VALIDOS_2022_AM, VAGAS_DEPUTADO_FEDERAL_AM)
+    votos_validos = VOTOS_VALIDOS_ESTADUAL_2022_AM if estadual else VOTOS_VALIDOS_2022_AM
+    vagas = VAGAS_DEPUTADO_ESTADUAL_AM if estadual else VAGAS_DEPUTADO_FEDERAL_AM
+    qe = quociente_eleitoral(votos_validos, vagas)
     oitenta = round(qe * 0.8)
-    gastos_2022 = carregar_gastos_publicidade(2022, candidatos_2022, uf="AM", somente_publicidade=False)
+    gastos_2022 = carregar_gastos_publicidade(2022, candidatos_2022, uf="AM", somente_publicidade=False, cargo=cargo)
     gastos_ate_semana = carregar_gastos_publicidade(
         2022,
         candidatos_2022,
         data_corte=CORTE_UMA_SEMANA_2022,
         uf="AM",
         somente_publicidade=False,
+        cargo=cargo,
     )
-    gastos_2026 = carregar_gastos_publicidade(2026, candidatos_2026, uf="AM", somente_publicidade=False)
+    gastos_2026 = carregar_gastos_publicidade(2026, candidatos_2026, uf="AM", somente_publicidade=False, cargo=cargo)
     gasto_2022 = {
         str(linha.sequencial): float(linha.gasto_publicidade)
         for linha in gastos_2022.por_candidato.itertuples(index=False)
@@ -228,7 +245,7 @@ def main() -> None:
         "Mesma soma, só com despesa datada. O arquivo do TSE foi gerado em 04/09/2026 "
         "e o período datado vai até 03/09/2026. Lançamentos sem data ficaram de fora."
     )
-    if DIVULGA_2026.exists():
+    if not estadual and DIVULGA_2026.exists():
         divulga = json.loads(DIVULGA_2026.read_text(encoding="utf-8"))
         gasto_2026 = {str(item["sequencial"]): float(item["total"]) for item in divulga["candidatos"]}
         nota_2026 = str(divulga["nota"])
@@ -247,6 +264,8 @@ def main() -> None:
             url = f"https://www.camara.leg.br/internet/deputado/bandep/{deputado.id}.jpg"
             if baixar_foto(url, arquivo):
                 foto = f"/fotos/eleitos/{deputado.id}.jpg"
+        if not foto:
+            foto = fotos_2026.get(seq_2026.get(str(linha.sequencial), ""), "")
         registro = pessoa(linha._asdict(), foto)
         if deputado is not None:
             registro["nomeUrna"] = exibir_nome(deputado.nome)
@@ -371,16 +390,22 @@ def main() -> None:
         )
 
     fora = []
-    for linha in cruzamento.fora_da_disputa_2026.itertuples(index=False):
-        arquivo = FOTOS_ELEITOS / f"{linha.id}.jpg"
-        foto = f"/fotos/eleitos/{linha.id}.jpg" if arquivo.exists() else ""
-        fora.append(
-            {
-                "nome": exibir_nome(linha.nome),
-                "partido": str(linha.partido),
-                "foto": foto,
-            }
-        )
+    if estadual:
+        for item in eleitos:
+            if item["concorre2026"]:
+                continue
+            fora.append({"nome": item["nome"], "partido": item["partidoAtual"], "foto": item["foto"]})
+    else:
+        for linha in cruzamento.fora_da_disputa_2026.itertuples(index=False):
+            arquivo = FOTOS_ELEITOS / f"{linha.id}.jpg"
+            foto = f"/fotos/eleitos/{linha.id}.jpg" if arquivo.exists() else ""
+            fora.append(
+                {
+                    "nome": exibir_nome(linha.nome),
+                    "partido": str(linha.partido),
+                    "foto": foto,
+                }
+            )
 
     payload = {
         "uf": "AM",
@@ -389,7 +414,7 @@ def main() -> None:
             "candidatos2022": int(len(candidatos_2022)),
             "candidatos2026": int(len(candidatos_2026)),
             "eleitos2022": len(eleitos),
-            "deputados": int(len(deputados)),
+            "deputados": len(eleitos) if deputados is None else int(len(deputados)),
             "sairam": int(len(comparacao.sairam)),
             "entraram": int(len(comparacao.entraram)),
             "continuam": int(len(comparacao.continuam)),
@@ -410,13 +435,22 @@ def main() -> None:
         ),
         "notaPublicidade2026": nota_2026,
         "quociente": {
-            "votosValidos": VOTOS_VALIDOS_2022_AM,
-            "vagas": VAGAS_DEPUTADO_FEDERAL_AM,
+            "votosValidos": votos_validos,
+            "vagas": vagas,
             "qe": qe,
             "oitenta": oitenta,
             "nota": (
-                "Quociente eleitoral de deputado federal no Amazonas em 2022: "
-                "1.991.796 votos válidos divididos por 8 cadeiras. A fração 0,5 é desprezada. "
+                (
+                    "Quociente eleitoral de deputado estadual no Amazonas em 2022: "
+                    "1.972.089 votos válidos divididos por 24 cadeiras. A fração 0,375 é desprezada. "
+                )
+                if estadual
+                else (
+                    "Quociente eleitoral de deputado federal no Amazonas em 2022: "
+                    "1.991.796 votos válidos divididos por 8 cadeiras. A fração 0,5 é desprezada. "
+                )
+            )
+            + (
                 "Os 80% desse quociente eram o mínimo para o partido ou a federação disputar as sobras. "
                 "A raia soma o voto nominal de cada federação e de cada partido que concorreu sozinho. "
                 "O voto de legenda entra no quociente e não está separado nesta raia."
@@ -429,20 +463,34 @@ def main() -> None:
         "trocas": trocas,
         "foraDaDisputa": fora,
         "notaFotos2026": "As fotos de 2026 vêm do arquivo oficial foto_cand2026_AM divulgado pelo TSE.",
-        "notaEleitos": "As fotos dos eleitos são as oficiais da Câmara dos Deputados.",
+        "notaEleitos": (
+            "Os eleitos são os que o TSE marcou como eleitos em 2022."
+            if estadual
+            else "As fotos dos eleitos são as oficiais da Câmara dos Deputados."
+        ),
+        "cargo": "estadual" if estadual else "federal",
+        "codigoCargo": "7" if estadual else "6",
+        "rotulo": "Deputado estadual" if estadual else "Deputado federal",
+        "apuracaoUrl": URL_APURACAO[cargo],
     }
-    destino = PAINEL / "dados" / "amazonas.json"
+    destino = PAINEL / "dados" / ("amazonas-estadual.json" if estadual else "amazonas.json")
     destino.parent.mkdir(parents=True, exist_ok=True)
     destino.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"JSON: {destino}")
     print(f"Eleitos com foto: {sum(1 for item in eleitos if item['foto'])}/{len(eleitos)}")
     print(f"Fotos 2026: {len(fotos_2026)}")
-    amom = next(item for item in desempenho if item.get("gastoAteSemana") and "Amom" in item["nomeUrna"])
-    print(
-        f"Amom ate 25/09: {amom['gastoAteSemana']:.2f} de {amom['gasto2022']:.2f} "
-        f"({amom['gastoAteSemana'] / amom['gasto2022'] * 100:.2f}%)"
-    )
+    if not estadual:
+        amom = next(item for item in desempenho if item.get("gastoAteSemana") and "Amom" in item["nomeUrna"])
+        print(
+            f"Amom ate 25/09: {amom['gastoAteSemana']:.2f} de {amom['gasto2022']:.2f} "
+            f"({amom['gastoAteSemana'] / amom['gasto2022'] * 100:.2f}%)"
+        )
 
 
 if __name__ == "__main__":
-    main()
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--estadual", action="store_true")
+    args = parser.parse_args()
+    main(7 if args.estadual else 6)
