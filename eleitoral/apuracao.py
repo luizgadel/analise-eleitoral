@@ -18,13 +18,14 @@ def voto_valido(candidato: dict) -> int:
     return int(digitos) if digitos else 0
 
 
-def _cargo(bruto: dict) -> dict:
+def _cargo(bruto: dict, codigo: str = "6") -> dict:
     cargos = bruto.get("carg") or []
     for cargo in cargos:
-        if str(cargo.get("cd")) == "6":
+        if str(cargo.get("cd")) == str(codigo):
             return cargo
     if not cargos:
-        raise ValueError("O arquivo do TSE não trouxe deputado federal.")
+        nome = "deputado estadual" if str(codigo) == "7" else "deputado federal"
+        raise ValueError(f"O arquivo do TSE não trouxe {nome}.")
     return cargos[0]
 
 
@@ -190,7 +191,7 @@ def _encontrar(pessoa: dict, por_sequencial: dict[str, dict], por_numero: dict[s
     return por_numero.get(numero)
 
 
-def aplicar_snapshot(painel: dict, bruto: dict) -> bool:
+def aplicar_snapshot(painel: dict, bruto: dict, codigo: str = "6") -> bool:
     """Grava votos2026, situação e quociente quando a totalização fechou.
 
     Devolve False sem alterar o painel enquanto ``and`` não for ``f``.
@@ -198,7 +199,7 @@ def aplicar_snapshot(painel: dict, bruto: dict) -> bool:
     """
     if str(bruto.get("and") or "") != "f":
         return False
-    cargo = _cargo(bruto)
+    cargo = _cargo(bruto, codigo)
     por_sequencial, por_numero = _indice(cargo)
     for pessoa in painel.get("desempenho") or []:
         if not pessoa.get("concorre2026"):

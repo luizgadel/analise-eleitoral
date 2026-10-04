@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { baixarApuracao, cadeirasNoInstante, encontrarCandidato, INTERVALO_APURACAO_MS, interpretarApuracao } from "./apuracao.js";
+import { URL_APURACAO, baixarApuracao, cadeirasNoInstante, encontrarCandidato, INTERVALO_APURACAO_MS, interpretarApuracao } from "./apuracao.js";
 import "./estilos.css";
 
 function iniciais(nome) {
@@ -249,6 +249,8 @@ function Aba2026({ dados, bandeiras }) {
   const [ordem, setOrdem] = useState("votos");
   const [apuracao, setApuracao] = useState(null);
   const [falhaApuracao, setFalhaApuracao] = useState("");
+  const url = dados.apuracaoUrl || URL_APURACAO;
+  const codigo = String(dados.codigoCargo || "6");
 
   useEffect(() => {
     let ativo = true;
@@ -257,15 +259,16 @@ function Aba2026({ dados, bandeiras }) {
 
     async function buscar() {
       try {
-        const texto = await baixarApuracao();
+        const texto = await baixarApuracao(url);
         if (!ativo) return;
         if (texto !== ultimo) {
           ultimo = texto;
-          setApuracao(interpretarApuracao(JSON.parse(texto)));
+          setApuracao(interpretarApuracao(JSON.parse(texto), codigo));
           setFalhaApuracao("");
         }
         if (JSON.parse(texto).and === "f") {
-          fetch("/api/apuracao-snapshot", {
+          const destino = dados.cargo === "estadual" ? "estadual" : "federal";
+          fetch(`/api/apuracao-snapshot?destino=${destino}`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: texto,
@@ -285,7 +288,7 @@ function Aba2026({ dados, bandeiras }) {
       ativo = false;
       window.clearTimeout(espera);
     };
-  }, []);
+  }, [url, codigo, dados.cargo]);
 
   const candidaturas = useMemo(
     () =>
@@ -601,6 +604,19 @@ function Aba2026({ dados, bandeiras }) {
   );
 }
 
+function AbasCargo({ cargo, escolher }) {
+  return (
+    <div className="ordens abas" role="tablist" aria-label="Cargo">
+      <button type="button" role="tab" aria-selected={cargo === "federal"} className={cargo === "federal" ? "ativo" : ""} onClick={() => escolher("federal")}>
+        Deputado federal
+      </button>
+      <button type="button" role="tab" aria-selected={cargo === "estadual"} className={cargo === "estadual" ? "ativo" : ""} onClick={() => escolher("estadual")}>
+        Deputado estadual
+      </button>
+    </div>
+  );
+}
+
 export default function App() {
   const [dados, setDados] = useState(null);
   const [bandeiras, setBandeiras] = useState({});
@@ -609,21 +625,31 @@ export default function App() {
   const [buscaDesempenho, setBuscaDesempenho] = useState("");
   const [ordem, setOrdem] = useState("votos");
   const [ano, setAno] = useState("2022");
+  const [cargo, setCargo] = useState("federal");
 
   useEffect(() => {
+    let ativo = true;
+    const arquivo = cargo === "estadual" ? "/dados/amazonas-estadual.json" : "/dados/amazonas.json";
     Promise.all([
-      fetch("/dados/amazonas.json", { cache: "no-store" }).then((resposta) => {
+      fetch(arquivo, { cache: "no-store" }).then((resposta) => {
         if (!resposta.ok) throw new Error("Não foi possível carregar os dados.");
         return resposta.json();
       }),
       fetch("/bandeiras/mapa.json", { cache: "no-store" }).then((resposta) => (resposta.ok ? resposta.json() : {})),
     ])
       .then(([quadro, mapa]) => {
+        if (!ativo) return;
         setDados(quadro);
         setBandeiras(mapa);
       })
-      .catch((falha) => setErro(falha.message));
-  }, []);
+      .catch((falha) => {
+        if (!ativo) return;
+        setErro(falha.message);
+      });
+    return () => {
+      ativo = false;
+    };
+  }, [cargo]);
 
   const filtrados = useMemo(() => {
     if (!dados) return { sairam: [], entraram: [] };
@@ -715,8 +741,21 @@ export default function App() {
     return { faixas, semDespesa, acima };
   }, [dados]);
 
-  if (erro) return <p className="estado">{erro}</p>;
-  if (!dados) return <p className="estado">Carregando o Amazonas…</p>;
+  function escolherCargo(proximo) {
+    if (proximo === cargo) return;
+    setDados(null);
+    setErro("");
+    setCargo(proximo);
+  }
+
+  if (erro || !dados) {
+    return (
+      <main className="pagina">
+        <AbasCargo cargo={cargo} escolher={escolherCargo} />
+        <p className="estado">{erro || "Carregando o Amazonas…"}</p>
+      </main>
+    );
+  }
 
   const maior = Math.max(...dados.partidos.flatMap((item) => [item.candidatos2022, item.candidatos2026]), 1);
   const maiorVoto = Math.max(...dados.desempenho.map((pessoa) => pessoa.votos || 0), 1);
@@ -734,14 +773,16 @@ export default function App() {
     <main className="pagina">
       <header className="topo">
         <div>
-          <p className="selo">Deputado federal · Amazonas</p>
+          <p className="selo">{dados.rotulo || "Deputado federal"} · Amazonas</p>
           <h1>Quem disputou, quem senta e quem volta em 2026.</h1>
         </div>
         <p className="intro">
-          Candidaturas aptas a deputado federal na eleição ordinária. Em 2026 a situação ainda não veio
-          preenchida pelo TSE, então a lista reúne quem está no cadastro oficial do estado.
+          Candidaturas aptas a {(dados.rotulo || "Deputado federal").toLowerCase()} na eleição ordinária. Em 2026 a
+          situação ainda não veio preenchida pelo TSE, então a lista reúne quem está no cadastro oficial do estado.
         </p>
       </header>
+
+      <AbasCargo cargo={cargo} escolher={escolherCargo} />
 
       <div className="ordens abas" role="tablist" aria-label="Ano da eleição">
         <button type="button" role="tab" aria-selected={ano === "2022"} className={ano === "2022" ? "ativo" : ""} onClick={() => setAno("2022")}>
@@ -753,7 +794,7 @@ export default function App() {
       </div>
 
       {ano === "2026" ? (
-        <Aba2026 dados={dados} bandeiras={bandeiras} />
+        <Aba2026 key={dados.cargo || "federal"} dados={dados} bandeiras={bandeiras} />
       ) : (
       <>
       <nav className="nav">
@@ -774,7 +815,7 @@ export default function App() {
         </article>
         <article className="numero">
           <strong>{dados.totais.eleitos2022}</strong>
-          <span>eleitos, todos ainda na Câmara</span>
+          <span>{dados.cargo === "estadual" ? "eleitos em 2022" : "eleitos, todos ainda na Câmara"}</span>
         </article>
         <article className="numero">
           <strong>{dados.totais.candidatos2026}</strong>
@@ -789,7 +830,11 @@ export default function App() {
       <section id="eleitos">
         <div className="secao-titulo">
           <h2>Eleitos em 2022</h2>
-          <p>Oito cadeiras. A foto é a oficial da Câmara. O partido de baixo é o de hoje, quando mudou desde a eleição.</p>
+          <p>
+            {dados.cargo === "estadual"
+              ? "Vinte e quatro cadeiras. A foto aparece quando a pessoa também está no arquivo de fotos de 2026."
+              : "Oito cadeiras. A foto é a oficial da Câmara. O partido de baixo é o de hoje, quando mudou desde a eleição."}
+          </p>
         </div>
         <div className="grade-eleitos">
           {dados.eleitos.map((pessoa) => (
@@ -836,9 +881,18 @@ export default function App() {
             <div>
               <h3>{pessoa.nome} não está na disputa de 2026</h3>
               <p>
-                É o único deputado do Amazonas em exercício, hoje no{" "}
-                <Sigla nome={pessoa.partido} bandeiras={bandeiras} />, que não aparece entre os candidatos a
-                deputado federal neste ano.
+                {dados.cargo === "estadual" ? (
+                  <>
+                    Foi eleito deputado estadual em 2022, pelo <Sigla nome={pessoa.partido} bandeiras={bandeiras} />, e
+                    não aparece entre os candidatos deste ano.
+                  </>
+                ) : (
+                  <>
+                    É o único deputado do Amazonas em exercício, hoje no{" "}
+                    <Sigla nome={pessoa.partido} bandeiras={bandeiras} />, que não aparece entre os candidatos a
+                    deputado federal neste ano.
+                  </>
+                )}
               </p>
             </div>
           </aside>
@@ -1109,7 +1163,10 @@ export default function App() {
 
       <footer className="rodape">
         <p>
-          Fontes: candidaturas do TSE e deputados em exercício da Câmara. {dados.notaEleitos} {dados.notaFotos2026}
+          {dados.cargo === "estadual"
+            ? "Fontes: candidaturas e votos do TSE."
+            : "Fontes: candidaturas do TSE e deputados em exercício da Câmara."}{" "}
+          {dados.notaEleitos} {dados.notaFotos2026}
         </p>
       </footer>
     </main>

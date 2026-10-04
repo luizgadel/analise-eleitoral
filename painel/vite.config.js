@@ -12,10 +12,25 @@ function gravarSnapshot() {
     configureServer(server) {
       server.middlewares.use('/api/apuracao-snapshot', (req, res, next) => {
         if (req.method !== 'POST') return next()
+        const pedido = new URL(req.url || '', 'http://localhost')
+        const estadual = pedido.searchParams.get('destino') === 'estadual'
         const partes = []
         req.on('data', (parte) => partes.push(parte))
         req.on('end', () => {
-          const proc = spawn('python', ['scripts/gravar_apuracao_2026.py', '--stdin'], { cwd: raiz })
+          const proc = spawn('python', ['scripts/gravar_apuracao_2026.py', '--stdin'], {
+            cwd: raiz,
+            env: {
+              ...process.env,
+              APURACAO_DESTINO: path.join(
+                raiz,
+                'painel',
+                'public',
+                'dados',
+                estadual ? 'amazonas-estadual.json' : 'amazonas.json',
+              ),
+              APURACAO_CARGO: estadual ? '7' : '6',
+            },
+          })
           let saida = ''
           proc.stdout.on('data', (parte) => {
             saida += parte

@@ -15,6 +15,7 @@ sys.path.insert(0, str(RAIZ))
 from eleitoral.apuracao import URL_APURACAO_2026, aplicar_snapshot
 
 DESTINO = Path(os.environ.get("APURACAO_DESTINO") or (RAIZ / "painel" / "public" / "dados" / "amazonas.json"))
+CODIGO_CARGO = os.environ.get("APURACAO_CARGO") or "6"
 
 
 def main() -> None:
@@ -25,7 +26,7 @@ def main() -> None:
         resposta.raise_for_status()
         bruto = resposta.json()
     painel = json.loads(DESTINO.read_text(encoding="utf-8"))
-    if not aplicar_snapshot(painel, bruto):
+    if not aplicar_snapshot(painel, bruto, codigo=CODIGO_CARGO):
         print("Apuração ainda aberta. O JSON do painel não foi alterado.")
         return
     DESTINO.write_text(json.dumps(painel, ensure_ascii=False, indent=2), encoding="utf-8")

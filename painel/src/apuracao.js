@@ -3,20 +3,21 @@ export const URL_APURACAO =
 
 export const INTERVALO_APURACAO_MS = 50_000;
 
-let pedidoAtual = null;
+const pedidos = new Map();
 
-export function baixarApuracao() {
-  if (!pedidoAtual) {
-    pedidoAtual = fetch(URL_APURACAO, { cache: "no-cache" })
+export function baixarApuracao(url = URL_APURACAO) {
+  if (!pedidos.has(url)) {
+    const pedido = fetch(url, { cache: "no-cache" })
       .then(async (resposta) => {
         if (!resposta.ok) throw new Error("Não foi possível ler a apuração do TSE.");
         return resposta.text();
       })
       .finally(() => {
-        pedidoAtual = null;
+        pedidos.delete(url);
       });
+    pedidos.set(url, pedido);
   }
-  return pedidoAtual;
+  return pedidos.get(url);
 }
 
 function semAcento(texto) {
@@ -36,9 +37,9 @@ export function votoValido(candidato) {
   return inteiro(candidato?.vap);
 }
 
-function cargoDeputado(bruto) {
+function cargoDeputado(bruto, codigo) {
   const cargos = bruto?.carg || [];
-  return cargos.find((item) => String(item.cd) === "6") || cargos[0];
+  return cargos.find((item) => String(item.cd) === String(codigo)) || cargos[0];
 }
 
 function grupos(cargo) {
@@ -73,9 +74,12 @@ function grupos(cargo) {
   return lista;
 }
 
-export function interpretarApuracao(bruto) {
-  const cargo = cargoDeputado(bruto);
-  if (!cargo) throw new Error("O arquivo do TSE não trouxe deputado federal.");
+export function interpretarApuracao(bruto, codigo = "6") {
+  const cargo = cargoDeputado(bruto, codigo);
+  if (!cargo) {
+    const nome = String(codigo) === "7" ? "deputado estadual" : "deputado federal";
+    throw new Error(`O arquivo do TSE não trouxe ${nome}.`);
+  }
   const candidatos = [];
   for (const agrupamento of cargo.agr || []) {
     for (const partido of agrupamento.par || []) {
