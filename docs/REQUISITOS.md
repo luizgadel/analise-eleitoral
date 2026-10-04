@@ -1,6 +1,6 @@
 # Requisitos
 
-Painel de deputado federal no Amazonas. A página tem abas de 2022 e de 2026. Em 2022, a navegação por âncoras reúne eleitos, quociente, gastos, votos, partidos e o movimento entre as duas eleições. Em 2026, a mesma organização mostra candidaturas, despesas contratadas e os votos ao vivo da apuração. Na lista de votos e gastos, o fundo marca quem levaria cadeira neste instante.
+Painel de deputado federal e de deputado estadual no Amazonas. A pessoa escolhe o cargo. Em cada um, a página tem abas de 2022 e de 2026. Em 2022, a navegação por âncoras reúne eleitos, quociente, gastos, votos, partidos e o movimento entre as duas eleições. Em 2026, a mesma organização mostra candidaturas, despesas contratadas e os votos ao vivo da apuração. Na lista de votos e gastos, o fundo marca quem levaria cadeira neste instante.
 
 ## Tabela de IDs
 
@@ -9,6 +9,7 @@ Painel de deputado federal no Amazonas. A página tem abas de 2022 e de 2026. Em
 | REQ-001 | Aba com os dados de 2026 | implementado | 1 |
 | REQ-002 | Votos ao vivo de 2026 | implementado | 2 |
 | REQ-003 | Destaque de quem está sendo eleito | implementado | 3 |
+| REQ-004 | Deputados estaduais no mesmo desenho | implementado | 4 |
 
 ## REQ-003 — Destaque de quem está sendo eleito
 
@@ -105,5 +106,35 @@ Adicionar uma aba na página para exibir os dados de 2026, organizados da mesma 
 - [x] A aba de 2026 lista as candidaturas de 2026 com partido, número e despesa contratada.
 - [x] Quem disputou os dois anos aparece na aba de 2026 com o partido e o número de 2026.
 - [x] A visão de 2022 permanece como está.
+
+## REQ-004 — Deputados estaduais no mesmo desenho
+
+**Status:** implementado
+**Prioridade:** 4
+**Depende de:** nenhuma
+
+### Objetivo
+
+Fazer para deputado estadual no Amazonas o mesmo painel que já existe para deputado federal.
+
+### Experiência desejada
+
+- A pessoa escolhe deputado estadual e vê a mesma organização do deputado federal.
+- Em 2022: eleitos, quociente, gastos, votos, partidos e o movimento entre as duas eleições.
+- Em 2026: candidaturas, despesas contratadas, votos ao vivo e o fundo de quem levaria cadeira neste instante.
+- O painel de deputado federal continua no lugar.
+
+### Fora do escopo deste requisito
+
+- Outros cargos e outros estados.
+- A Câmara dos Deputados como fonte dos estaduais. Eles não são deputados federais.
+
+### Critérios de aceite
+
+- [x] O painel oferece deputado estadual no Amazonas, no mesmo desenho do deputado federal.
+- [x] A visão de 2022 traz eleitos, quociente, gastos, votos, partidos e quem saiu ou entrou em 2026.
+- [x] A visão de 2026 traz candidaturas, despesas contratadas, votos ao vivo da apuração e o destaque de quem levaria cadeira.
+- [x] A apuração ao vivo usa o arquivo do cargo de deputado estadual.
+- [x] O painel de deputado federal permanece como está.
 
 ## Próximos requisitos (ainda não detalhados)
