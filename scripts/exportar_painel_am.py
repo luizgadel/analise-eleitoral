@@ -283,6 +283,7 @@ def main() -> None:
                     "concorre2026": bool(outro),
                     "partido2026": str(ficha.partido) if ficha is not None else "",
                     "numero2026": str(ficha.numero) if ficha is not None else "",
+                    "sequencial2026": str(ficha.sequencial) if ficha is not None else "",
                 }
             )
             return registro
@@ -297,6 +298,7 @@ def main() -> None:
                 "concorre2026": True,
                 "partido2026": str(linha.partido),
                 "numero2026": str(linha.numero),
+                "sequencial2026": sequencial,
             }
         )
         return registro
