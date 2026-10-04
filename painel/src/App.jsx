@@ -234,6 +234,229 @@ function Lista({ titulo, pessoas, bandeiras, sentido }) {
   );
 }
 
+function ficha2026(pessoa) {
+  return {
+    ...pessoa,
+    partido: pessoa.partido2026 || pessoa.partido,
+    numero: pessoa.numero2026 || pessoa.numero,
+    gasto: pessoa.gasto2026 ?? 0,
+  };
+}
+
+function Aba2026({ dados, bandeiras }) {
+  const [busca, setBusca] = useState("");
+  const [ordem, setOrdem] = useState("gasto");
+
+  const candidaturas = useMemo(
+    () => dados.desempenho.filter((pessoa) => pessoa.concorre2026).map(ficha2026),
+    [dados],
+  );
+
+  const maioresGastos = useMemo(
+    () => [...candidaturas].sort((a, b) => b.gasto - a.gasto || a.nomeUrna.localeCompare(b.nomeUrna, "pt")).slice(0, 50),
+    [candidaturas],
+  );
+
+  const faixasGasto = useMemo(
+    () =>
+      FAIXAS_GASTO.map((faixa) => ({
+        rotulo: faixa.rotulo,
+        quantidade: candidaturas.filter((pessoa) => faixa.testa(pessoa.gasto)).length,
+      })),
+    [candidaturas],
+  );
+
+  const lista = useMemo(() => {
+    const termo = semAcento(busca.trim());
+    const filtradas = candidaturas.filter(
+      (pessoa) => !termo || semAcento(`${pessoa.nomeUrna} ${pessoa.nome} ${pessoa.partido} ${pessoa.numero}`).includes(termo),
+    );
+    return filtradas.sort((a, b) => {
+      if (ordem === "nome") return a.nomeUrna.localeCompare(b.nomeUrna, "pt");
+      return b.gasto - a.gasto || a.nomeUrna.localeCompare(b.nomeUrna, "pt");
+    });
+  }, [busca, candidaturas, ordem]);
+
+  const gastosPartido = useMemo(
+    () =>
+      dados.publicidadePartidos
+        .filter((item) => item.gasto2026 > 0)
+        .sort((a, b) => b.gasto2026 - a.gasto2026 || a.partido.localeCompare(b.partido, "pt")),
+    [dados],
+  );
+
+  const partidos = useMemo(
+    () =>
+      dados.partidos
+        .filter((item) => item.candidatos2026 > 0)
+        .sort((a, b) => b.candidatos2026 - a.candidatos2026 || a.partido.localeCompare(b.partido, "pt")),
+    [dados],
+  );
+
+  const maiorGasto = Math.max(...gastosPartido.map((item) => item.gasto2026), 1);
+  const maiorPartido = Math.max(...partidos.map((item) => item.candidatos2026), 1);
+  const tetoFaixa = Math.max(...faixasGasto.map((item) => item.quantidade), 1);
+
+  return (
+    <>
+      <nav className="nav">
+        <a href="#maiores-2026">50 maiores gastos</a>
+        <a href="#faixas-2026">Faixas de gasto</a>
+        <a href="#candidaturas-2026">Candidaturas</a>
+        <a href="#gastos-partido-2026">Gastos por partido</a>
+        <a href="#partidos-2026">Por partido</a>
+      </nav>
+
+      <section className="numeros dois" aria-label="Resumo de 2026">
+        <article className="numero">
+          <strong>{formatoInteiro.format(dados.totais.candidatos2026)}</strong>
+          <span>candidaturas em 2026</span>
+        </article>
+        <article className="numero">
+          <strong>{reais(dados.totais.publicidade2026)}</strong>
+          <span>despesas contratadas em 2026</span>
+        </article>
+      </section>
+
+      <section id="despesas-2026">
+        <div className="secao-titulo">
+          <h2>Despesas contratadas em 2026</h2>
+          <p>
+            O mesmo recorte de 2022: todas as despesas contratadas, não só publicidade. O partido e o número são os
+            deste ano.
+          </p>
+        </div>
+        <p className="miudo nota">{dados.notaPublicidade2026}</p>
+
+        <div className="secao-titulo sub" id="maiores-2026">
+          <h2>Os 50 maiores gastos em 2026</h2>
+          <p>Despesa contratada total, da maior campanha para a menor.</p>
+        </div>
+        <div className="ranking maiores">
+          <div className="linha-voto cabeca gasto">
+            <span />
+            <span>Candidatura</span>
+            <span>Gastos da campanha</span>
+          </div>
+          {maioresGastos.map((pessoa, indice) => (
+            <div className="linha-voto gasto" key={`gasto-2026-${pessoa.numero}-${pessoa.nome}`}>
+              <span className="posicao">{indice + 1}</span>
+              <div className="quem">
+                {pessoa.foto && <Foto className="mini" src={pessoa.foto} nome={pessoa.nomeUrna} />}
+                <div>
+                  <strong>{pessoa.nomeUrna}</strong>
+                  <span className="partido-linha">
+                    <Sigla nome={pessoa.partido} bandeiras={bandeiras} />
+                    <span>· {pessoa.numero}</span>
+                  </span>
+                </div>
+              </div>
+              <span className="nums">{reais(pessoa.gasto)}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="secao-titulo sub" id="faixas-2026">
+          <h2>Candidatos por faixa de gasto</h2>
+          <p>
+            Cada faixa é dez vezes maior que a anterior. Uma escala de R$ 1 mil em R$ 1 mil, de zero até mais de
+            R$ 3 milhões, deixaria a maior parte das colunas vazia.
+          </p>
+        </div>
+        <div className="partidos faixas">
+          {faixasGasto.map((faixa) => (
+            <div className="linha-partido larga" key={faixa.rotulo}>
+              <span className="sigla faixa-nome">{faixa.rotulo}</span>
+              <div className="trilhos">
+                <div className="barra b" style={{ width: faixa.quantidade ? `${(faixa.quantidade / tetoFaixa) * 100}%` : 0 }} />
+              </div>
+              <span className="nums">{faixa.quantidade}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="secao-titulo sub" id="candidaturas-2026">
+          <h2>Candidaturas de 2026</h2>
+          <p>Todas as candidaturas do cadastro oficial do estado, com a despesa já contratada.</p>
+        </div>
+        <div className="ordens" role="group" aria-label="Ordenar candidaturas de 2026">
+          {[
+            ["gasto", "Maior gasto"],
+            ["nome", "Nome"],
+          ].map(([id, rotulo]) => (
+            <button key={id} type="button" className={ordem === id ? "ativo" : ""} onClick={() => setOrdem(id)}>
+              {rotulo}
+            </button>
+          ))}
+        </div>
+        <input
+          className="busca"
+          value={busca}
+          onChange={(evento) => setBusca(evento.target.value)}
+          placeholder="Buscar candidatura"
+          aria-label="Buscar candidatura de 2026"
+        />
+        <div className="ranking">
+          <div className="linha-voto cabeca gasto">
+            <span />
+            <span>Candidatura</span>
+            <span>Gastos da campanha</span>
+          </div>
+          {lista.map((pessoa, indice) => (
+            <div className="linha-voto gasto" key={`lista-2026-${pessoa.numero}-${pessoa.nome}`}>
+              <span className="posicao">{indice + 1}</span>
+              <div className="quem">
+                {pessoa.foto && <Foto className="mini" src={pessoa.foto} nome={pessoa.nomeUrna} />}
+                <div>
+                  <strong>{pessoa.nomeUrna}</strong>
+                  <span className="partido-linha">
+                    <Sigla nome={pessoa.partido} bandeiras={bandeiras} />
+                    <span>· {pessoa.numero}</span>
+                  </span>
+                </div>
+              </div>
+              <span className="nums">{reais(pessoa.gasto)}</span>
+            </div>
+          ))}
+          {lista.length === 0 && <p className="miudo nota">Nenhuma candidatura com esse nome.</p>}
+        </div>
+
+        <div className="secao-titulo sub" id="gastos-partido-2026">
+          <h2>Gastos por partido</h2>
+        </div>
+        <div className="partidos">
+          {gastosPartido.map((item) => (
+            <div className="linha-partido larga" key={item.partido}>
+              <Sigla nome={item.partido} bandeiras={bandeiras} />
+              <div className="trilhos">
+                <div className="barra b" style={{ width: `${(item.gasto2026 / maiorGasto) * 100}%` }} />
+              </div>
+              <span className="nums dinheiro">{reais(item.gasto2026)}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="partidos-2026">
+        <div className="secao-titulo">
+          <h2>Candidaturas por partido</h2>
+        </div>
+        <div className="partidos">
+          {partidos.map((item) => (
+            <div className="linha-partido" key={item.partido}>
+              <Sigla nome={item.partido} bandeiras={bandeiras} />
+              <div className="trilhos">
+                <div className="barra b" style={{ width: `${(item.candidatos2026 / maiorPartido) * 100}%` }} />
+              </div>
+              <span className="nums">{item.candidatos2026}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
+  );
+}
+
 export default function App() {
   const [dados, setDados] = useState(null);
   const [bandeiras, setBandeiras] = useState({});
@@ -241,6 +464,7 @@ export default function App() {
   const [busca, setBusca] = useState("");
   const [buscaDesempenho, setBuscaDesempenho] = useState("");
   const [ordem, setOrdem] = useState("votos");
+  const [ano, setAno] = useState("2022");
 
   useEffect(() => {
     Promise.all([
@@ -375,6 +599,19 @@ export default function App() {
         </p>
       </header>
 
+      <div className="ordens abas" role="tablist" aria-label="Ano da eleição">
+        <button type="button" role="tab" aria-selected={ano === "2022"} className={ano === "2022" ? "ativo" : ""} onClick={() => setAno("2022")}>
+          2022
+        </button>
+        <button type="button" role="tab" aria-selected={ano === "2026"} className={ano === "2026" ? "ativo" : ""} onClick={() => setAno("2026")}>
+          2026
+        </button>
+      </div>
+
+      {ano === "2026" ? (
+        <Aba2026 dados={dados} bandeiras={bandeiras} />
+      ) : (
+      <>
       <nav className="nav">
         <a href="#eleitos">Eleitos</a>
         <a href="#quociente">Quociente</a>
@@ -723,6 +960,8 @@ export default function App() {
           <Lista titulo="Entraram" pessoas={filtrados.entraram} bandeiras={bandeiras} sentido="entrada" />
         </div>
       </section>
+      </>
+      )}
 
       <footer className="rodape">
         <p>

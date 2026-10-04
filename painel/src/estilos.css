@@ -208,6 +208,10 @@ h1 {
 .miudo { margin: 2px 0; }
 .nota { max-width: 80ch; margin: 0 0 16px; }
 
+.abas { margin: 22px 0 0; }
+
+.numeros.dois { grid-template-columns: repeat(2, minmax(0, 320px)); }
+
 .ordens { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
 
 .ordens button {
@@ -259,6 +263,11 @@ h1 {
 .linha-voto.curta {
   grid-template-columns: 42px minmax(240px, 1.6fr) minmax(110px, 0.5fr) minmax(160px, 0.7fr);
   min-width: 640px;
+}
+
+.linha-voto.gasto {
+  grid-template-columns: 42px minmax(240px, 1.6fr) minmax(160px, 0.7fr);
+  min-width: 520px;
 }
 
 .ranking.maiores { max-height: none; margin-bottom: 28px; }
@@ -773,7 +782,7 @@ h2 { margin: 0; font-size: 2rem; }
 
 @media (max-width: 700px) {
   .pagina { width: min(1440px, calc(100% - 28px)); }
-  .grade-eleitos, .numeros, .trocas { grid-template-columns: 1fr; }
+  .grade-eleitos, .numeros, .numeros.dois, .trocas { grid-template-columns: 1fr; }
   .linha-partido, .federacao { grid-template-columns: 1fr; }
   .grafico-individual { grid-template-columns: minmax(92px, 130px) 1fr 78px; }
   .marco span { left: 0; }
