@@ -234,6 +234,7 @@ def main() -> None:
         nota_2026 = str(divulga["nota"])
     seq_2026 = sequencial_no_destino(candidatos_2022, candidatos_2026)
     seq_2022 = sequencial_no_destino(candidatos_2026, candidatos_2022)
+    ficha_2026 = {str(linha.sequencial): linha for linha in candidatos_2026.itertuples(index=False)}
 
     eleitos = []
     for linha in candidatos_2022.loc[candidatos_2022["resultado"].map(eh_eleito)].itertuples(index=False):
@@ -269,6 +270,7 @@ def main() -> None:
         sequencial = str(linha.sequencial)
         if disputou_2022:
             outro = seq_2026.get(sequencial, "")
+            ficha = ficha_2026.get(outro) if outro else None
             registro = pessoa(linha._asdict(), fotos_eleitos.get(str(linha.numero), "") or fotos_2026.get(outro, ""))
             registro.update(
                 {
@@ -279,6 +281,8 @@ def main() -> None:
                     "gastoAteSemana": round(gasto_ate_semana.get(sequencial, 0.0), 2),
                     "gasto2026": round(gasto_2026.get(outro, 0.0), 2) if outro else None,
                     "concorre2026": bool(outro),
+                    "partido2026": str(ficha.partido) if ficha is not None else "",
+                    "numero2026": str(ficha.numero) if ficha is not None else "",
                 }
             )
             return registro
@@ -291,6 +295,8 @@ def main() -> None:
                 "gasto2022": None,
                 "gasto2026": round(gasto_2026.get(sequencial, 0.0), 2),
                 "concorre2026": True,
+                "partido2026": str(linha.partido),
+                "numero2026": str(linha.numero),
             }
         )
         return registro
