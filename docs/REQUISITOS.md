@@ -1,6 +1,6 @@
 # Requisitos
 
-Painel de deputado federal, de deputado estadual e de senador no Amazonas. A pessoa escolhe o cargo. Em cada um, a página tem abas de 2022 e de 2026. Em 2022, a navegação por âncoras reúne eleitos, quociente, gastos, votos, partidos e o movimento entre as duas eleições. Em 2026, a mesma organização mostra candidaturas, despesas contratadas e os votos ao vivo da apuração. Na lista de votos e gastos, o fundo marca quem levaria cadeira neste instante.
+Painel de deputado federal e de deputado estadual no Amazonas, e de senador no Brasil. A pessoa escolhe o cargo. Em cada um, a página tem abas de 2022 e de 2026. Em 2022, a navegação por âncoras reúne eleitos, quociente, gastos, votos, partidos e o movimento entre as duas eleições. Em 2026, a mesma organização mostra candidaturas, despesas contratadas e os votos ao vivo da apuração. Na lista de votos e gastos, o fundo marca quem levaria cadeira neste instante.
 
 ## Tabela de IDs
 
@@ -11,6 +11,7 @@ Painel de deputado federal, de deputado estadual e de senador no Amazonas. A pes
 | REQ-003 | Destaque de quem está sendo eleito | implementado | 3 |
 | REQ-004 | Deputados estaduais no mesmo desenho | implementado | 4 |
 | REQ-005 | Aba de senadores no mesmo desenho | implementado | 5 |
+| REQ-006 | Senador com os dados do Brasil inteiro | implementado | 6 |
 
 ## REQ-003 — Destaque de quem está sendo eleito
 
@@ -167,5 +168,33 @@ Fazer uma aba de senador no Amazonas no mesmo desenho das abas de deputado feder
 - [x] A visão de 2026 traz candidaturas, despesas contratadas, votos ao vivo da apuração e o destaque de quem levaria cadeira.
 - [x] A apuração ao vivo usa o arquivo do cargo de senador.
 - [x] Os painéis de deputado federal e de deputado estadual permanecem como estão.
+
+## REQ-006 — Senador com os dados do Brasil inteiro
+
+**Status:** implementado
+**Prioridade:** 6
+**Depende de:** nenhuma
+
+### Objetivo
+
+Na aba de senador, usar os dados do Brasil inteiro, não só do Amazonas.
+
+### Experiência desejada
+
+- A pessoa escolhe senador e vê candidaturas, votos, gastos e a apuração de todos os estados.
+- Em 2022 e em 2026, a lista não fica restrita ao Amazonas.
+- As abas de deputado federal e de deputado estadual continuam só com o Amazonas.
+
+### Fora do escopo deste requisito
+
+- Levar deputado federal ou deputado estadual para outros estados.
+- Outros cargos.
+
+### Critérios de aceite
+
+- [x] A aba de senador reúne os dados do Brasil, não só do Amazonas.
+- [x] A visão de 2022 traz eleitos, votos, gastos e o movimento entre as eleições desse recorte nacional.
+- [x] A visão de 2026 traz candidaturas, despesas e os votos ao vivo da apuração nacional de senador.
+- [x] Os painéis de deputado federal e de deputado estadual permanecem no Amazonas.
 
 ## Próximos requisitos (ainda não detalhados)
