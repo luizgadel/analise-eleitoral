@@ -24,7 +24,8 @@ def _cargo(bruto: dict, codigo: str = "6") -> dict:
         if str(cargo.get("cd")) == str(codigo):
             return cargo
     if not cargos:
-        nome = "deputado estadual" if str(codigo) == "7" else "deputado federal"
+        nomes = {"5": "senador", "7": "deputado estadual"}
+        nome = nomes.get(str(codigo), "deputado federal")
         raise ValueError(f"O arquivo do TSE não trouxe {nome}.")
     return cargos[0]
 

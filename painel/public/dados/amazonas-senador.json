@@ -1,0 +1,692 @@
+{
+  "uf": "AM",
+  "estado": "Amazonas",
+  "totais": {
+    "candidatos2022": 8,
+    "candidatos2026": 9,
+    "eleitos2022": 1,
+    "deputados": 1,
+    "sairam": 8,
+    "entraram": 9,
+    "continuam": 0,
+    "trocaramPartido": 0,
+    "votos2022": 1892770,
+    "publicidade2022": 10355931.9,
+    "publicidade2026": 206270.5
+  },
+  "eleitos": [
+    {
+      "nome": "Omar José Abdel Aziz",
+      "nomeUrna": "Omar Aziz",
+      "partido": "PSD",
+      "numero": "555",
+      "foto": "",
+      "resultado": "Eleito",
+      "partidoAtual": "PSD",
+      "partido2026": "",
+      "concorre2026": false,
+      "votos": 784007,
+      "gasto2022": 3556974.1,
+      "gasto2026": 0.0
+    }
+  ],
+  "desempenho": [
+    {
+      "nome": "Omar José Abdel Aziz",
+      "nomeUrna": "Omar Aziz",
+      "partido": "PSD",
+      "numero": "555",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": true,
+      "votos": 784007,
+      "gasto2022": 3556974.1,
+      "gastoAteSemana": 3329074.1,
+      "gasto2026": null,
+      "concorre2026": false,
+      "partido2026": "",
+      "numero2026": "",
+      "sequencial2026": ""
+    },
+    {
+      "nome": "Alfredo Alexandre de Menezes Junior",
+      "nomeUrna": "Coronel Menezes",
+      "partido": "PL",
+      "numero": "222",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 737875,
+      "gasto2022": 1161479.0,
+      "gastoAteSemana": 1079679.0,
+      "gasto2026": null,
+      "concorre2026": false,
+      "partido2026": "",
+      "numero2026": "",
+      "sequencial2026": ""
+    },
+    {
+      "nome": "Arthur Virgilio do Carmo Ribeiro Neto",
+      "nomeUrna": "Arthur Neto",
+      "partido": "PSDB",
+      "numero": "451",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 179886,
+      "gasto2022": 3819536.56,
+      "gastoAteSemana": 2683043.37,
+      "gasto2026": null,
+      "concorre2026": false,
+      "partido2026": "",
+      "numero2026": "",
+      "sequencial2026": ""
+    },
+    {
+      "nome": "Luiz Castro Andrade Neto",
+      "nomeUrna": "Luiz Castro",
+      "partido": "PDT",
+      "numero": "123",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 131116,
+      "gasto2022": 1587385.35,
+      "gastoAteSemana": 1517587.25,
+      "gasto2026": null,
+      "concorre2026": false,
+      "partido2026": "",
+      "numero2026": "",
+      "sequencial2026": ""
+    },
+    {
+      "nome": "Marilia Freire da Silva",
+      "nomeUrna": "Marília Freire",
+      "partido": "PSOL",
+      "numero": "500",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 28557,
+      "gasto2022": 143870.89,
+      "gastoAteSemana": 132663.95,
+      "gasto2026": null,
+      "concorre2026": false,
+      "partido2026": "",
+      "numero2026": "",
+      "sequencial2026": ""
+    },
+    {
+      "nome": "Elissandro Amorim Bessa",
+      "nomeUrna": "Bessa",
+      "partido": "SOLIDARIEDADE",
+      "numero": "777",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 17339,
+      "gasto2022": 70000.0,
+      "gastoAteSemana": 69036.0,
+      "gasto2026": null,
+      "concorre2026": false,
+      "partido2026": "",
+      "numero2026": "",
+      "sequencial2026": ""
+    },
+    {
+      "nome": "Marco Antonio Souza Ribeiro da Costa",
+      "nomeUrna": "Chico Preto",
+      "partido": "AVANTE",
+      "numero": "700",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 10200,
+      "gasto2022": 16686.0,
+      "gastoAteSemana": 14650.0,
+      "gasto2026": null,
+      "concorre2026": false,
+      "partido2026": "",
+      "numero2026": "",
+      "sequencial2026": ""
+    },
+    {
+      "nome": "Peter Junior Miranda",
+      "nomeUrna": "Pastor Peter Miranda",
+      "partido": "AGIR",
+      "numero": "361",
+      "foto": "",
+      "disputou2022": true,
+      "eleito": false,
+      "votos": 3790,
+      "gasto2022": 0.0,
+      "gastoAteSemana": 0.0,
+      "gasto2026": null,
+      "concorre2026": false,
+      "partido2026": "",
+      "numero2026": "",
+      "sequencial2026": ""
+    },
+    {
+      "nome": "Alberto Barros Cavalcante Neto",
+      "nomeUrna": "Capitão Alberto Neto",
+      "partido": "PL",
+      "numero": "222",
+      "foto": "/fotos/2026/40002542686.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 60270.5,
+      "concorre2026": true,
+      "partido2026": "PL",
+      "numero2026": "222",
+      "sequencial2026": "40002542686"
+    },
+    {
+      "nome": "Dailson de Queiroz Corrêa",
+      "nomeUrna": "Dailson Corrêa",
+      "partido": "DC",
+      "numero": "277",
+      "foto": "/fotos/2026/40002535391.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true,
+      "partido2026": "DC",
+      "numero2026": "277",
+      "sequencial2026": "40002535391"
+    },
+    {
+      "nome": "Carlos Eduardo de Souza Braga",
+      "nomeUrna": "Eduardo Braga",
+      "partido": "MDB",
+      "numero": "155",
+      "foto": "/fotos/2026/40002531447.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 76000.0,
+      "concorre2026": true,
+      "partido2026": "MDB",
+      "numero2026": "155",
+      "sequencial2026": "40002531447"
+    },
+    {
+      "nome": "José Evandro de Oliveira",
+      "nomeUrna": "Evandro de Oliveira",
+      "partido": "PSTU",
+      "numero": "161",
+      "foto": "/fotos/2026/40002535270.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true,
+      "partido2026": "PSTU",
+      "numero2026": "161",
+      "sequencial2026": "40002535270"
+    },
+    {
+      "nome": "Ismael Franklin Goncalves",
+      "nomeUrna": "Ismael Munduruku",
+      "partido": "REDE",
+      "numero": "181",
+      "foto": "/fotos/2026/40002551283.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true,
+      "partido2026": "REDE",
+      "numero2026": "181",
+      "sequencial2026": "40002551283"
+    },
+    {
+      "nome": "Francisco Plinio Valerio Tomaz",
+      "nomeUrna": "Plinio Valério",
+      "partido": "PSDB",
+      "numero": "455",
+      "foto": "/fotos/2026/40002537344.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 70000.0,
+      "concorre2026": true,
+      "partido2026": "PSDB",
+      "numero2026": "455",
+      "sequencial2026": "40002537344"
+    },
+    {
+      "nome": "Maria Evany do Nascimento",
+      "nomeUrna": "Professora Evany",
+      "partido": "PSOL",
+      "numero": "500",
+      "foto": "/fotos/2026/40002551281.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true,
+      "partido2026": "PSOL",
+      "numero2026": "500",
+      "sequencial2026": "40002551281"
+    },
+    {
+      "nome": "Wilson Miranda Lima",
+      "nomeUrna": "Wilson Lima",
+      "partido": "UNIÃO",
+      "numero": "444",
+      "foto": "/fotos/2026/40002541744.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true,
+      "partido2026": "UNIÃO",
+      "numero2026": "444",
+      "sequencial2026": "40002541744"
+    },
+    {
+      "nome": "Milton Rogério Moreira Pinto",
+      "nomeUrna": "Xuxa do Amazonas",
+      "partido": "MOBILIZA",
+      "numero": "333",
+      "foto": "/fotos/2026/40002550806.jpg",
+      "disputou2022": false,
+      "eleito": false,
+      "votos": null,
+      "gasto2022": null,
+      "gasto2026": 0.0,
+      "concorre2026": true,
+      "partido2026": "MOBILIZA",
+      "numero2026": "333",
+      "sequencial2026": "40002550806"
+    }
+  ],
+  "publicidadePartidos": [
+    {
+      "partido": "PSDB",
+      "gasto2022": 3819536.56,
+      "gasto2026": 70000.0
+    },
+    {
+      "partido": "PSD",
+      "gasto2022": 3556974.1,
+      "gasto2026": 0.0
+    },
+    {
+      "partido": "PDT",
+      "gasto2022": 1587385.35,
+      "gasto2026": 0.0
+    },
+    {
+      "partido": "PL",
+      "gasto2022": 1161479.0,
+      "gasto2026": 60270.5
+    },
+    {
+      "partido": "PSOL",
+      "gasto2022": 143870.89,
+      "gasto2026": 0.0
+    },
+    {
+      "partido": "MDB",
+      "gasto2022": 0.0,
+      "gasto2026": 76000.0
+    },
+    {
+      "partido": "SOLIDARIEDADE",
+      "gasto2022": 70000.0,
+      "gasto2026": 0.0
+    },
+    {
+      "partido": "AVANTE",
+      "gasto2022": 16686.0,
+      "gasto2026": 0.0
+    },
+    {
+      "partido": "AGIR",
+      "gasto2022": 0.0,
+      "gasto2026": 0.0
+    },
+    {
+      "partido": "DC",
+      "gasto2022": 0.0,
+      "gasto2026": 0.0
+    },
+    {
+      "partido": "MOBILIZA",
+      "gasto2022": 0.0,
+      "gasto2026": 0.0
+    },
+    {
+      "partido": "PSTU",
+      "gasto2022": 0.0,
+      "gasto2026": 0.0
+    },
+    {
+      "partido": "REDE",
+      "gasto2022": 0.0,
+      "gasto2026": 0.0
+    },
+    {
+      "partido": "UNIÃO",
+      "gasto2022": 0.0,
+      "gasto2026": 0.0
+    }
+  ],
+  "notaVotos": "Votos nominais do primeiro turno da eleição ordinária de 2022.",
+  "notaPublicidade2022": "Soma de todas as despesas contratadas da campanha, de qualquer tipo. Prestação de contas de 2022, arquivo gerado pelo TSE em 16/11/2025.",
+  "notaGastoAntecipado": "Despesas contratadas com data até 25/09/2022, inclusive, uma semana antes do primeiro turno de 02/10/2022. A porcentagem divide esse valor pelo total final da mesma prestação de contas. Quem fechou a campanha com despesa zero fica fora do gráfico.",
+  "notaPublicidade2026": "Mesma soma, só com despesa datada. O arquivo do TSE foi gerado em 04/09/2026 e o período datado vai até 03/09/2026. Lançamentos sem data ficaram de fora.",
+  "quociente": {
+    "votosValidos": 1892770,
+    "vagas": 1,
+    "qe": 1892770,
+    "oitenta": 1514216,
+    "nota": "Senador no Amazonas em 2022 é eleição majoritária: 1.892.770 votos nominais e 1 cadeira, para o mais votado. O quociente dos deputados não distribui essa vaga. A raia soma o voto nominal de cada partido."
+  },
+  "federacoes": [
+    {
+      "nome": "PSD",
+      "tipo": "partido",
+      "partidos": [
+        "PSD"
+      ],
+      "votos": 784007,
+      "inicio": 0,
+      "fim": 784007
+    },
+    {
+      "nome": "PL",
+      "tipo": "partido",
+      "partidos": [
+        "PL"
+      ],
+      "votos": 737875,
+      "inicio": 784007,
+      "fim": 1521882
+    },
+    {
+      "nome": "PSDB/CIDADANIA",
+      "tipo": "federacao",
+      "partidos": [
+        "PSDB",
+        "CIDADANIA"
+      ],
+      "votos": 179886,
+      "inicio": 1521882,
+      "fim": 1701768
+    },
+    {
+      "nome": "PDT",
+      "tipo": "partido",
+      "partidos": [
+        "PDT"
+      ],
+      "votos": 131116,
+      "inicio": 1701768,
+      "fim": 1832884
+    },
+    {
+      "nome": "PSOL/REDE",
+      "tipo": "federacao",
+      "partidos": [
+        "PSOL",
+        "REDE"
+      ],
+      "votos": 28557,
+      "inicio": 1832884,
+      "fim": 1861441
+    },
+    {
+      "nome": "SOLIDARIEDADE",
+      "tipo": "partido",
+      "partidos": [
+        "SOLIDARIEDADE"
+      ],
+      "votos": 17339,
+      "inicio": 1861441,
+      "fim": 1878780
+    },
+    {
+      "nome": "AVANTE",
+      "tipo": "partido",
+      "partidos": [
+        "AVANTE"
+      ],
+      "votos": 10200,
+      "inicio": 1878780,
+      "fim": 1888980
+    },
+    {
+      "nome": "AGIR",
+      "tipo": "partido",
+      "partidos": [
+        "AGIR"
+      ],
+      "votos": 3790,
+      "inicio": 1888980,
+      "fim": 1892770
+    }
+  ],
+  "partidos": [
+    {
+      "partido": "PL",
+      "candidatos2022": 1,
+      "candidatos2026": 1
+    },
+    {
+      "partido": "PSDB",
+      "candidatos2022": 1,
+      "candidatos2026": 1
+    },
+    {
+      "partido": "PSOL",
+      "candidatos2022": 1,
+      "candidatos2026": 1
+    },
+    {
+      "partido": "AGIR",
+      "candidatos2022": 1,
+      "candidatos2026": 0
+    },
+    {
+      "partido": "AVANTE",
+      "candidatos2022": 1,
+      "candidatos2026": 0
+    },
+    {
+      "partido": "DC",
+      "candidatos2022": 0,
+      "candidatos2026": 1
+    },
+    {
+      "partido": "MDB",
+      "candidatos2022": 0,
+      "candidatos2026": 1
+    },
+    {
+      "partido": "MOBILIZA",
+      "candidatos2022": 0,
+      "candidatos2026": 1
+    },
+    {
+      "partido": "PDT",
+      "candidatos2022": 1,
+      "candidatos2026": 0
+    },
+    {
+      "partido": "PSD",
+      "candidatos2022": 1,
+      "candidatos2026": 0
+    },
+    {
+      "partido": "PSTU",
+      "candidatos2022": 0,
+      "candidatos2026": 1
+    },
+    {
+      "partido": "REDE",
+      "candidatos2022": 0,
+      "candidatos2026": 1
+    },
+    {
+      "partido": "SOLIDARIEDADE",
+      "candidatos2022": 1,
+      "candidatos2026": 0
+    },
+    {
+      "partido": "UNIÃO",
+      "candidatos2022": 0,
+      "candidatos2026": 1
+    }
+  ],
+  "sairam": [
+    {
+      "nome": "Peter Junior Miranda",
+      "nomeUrna": "Pastor Peter Miranda",
+      "partido": "AGIR",
+      "numero": "361",
+      "foto": ""
+    },
+    {
+      "nome": "Marco Antonio Souza Ribeiro da Costa",
+      "nomeUrna": "Chico Preto",
+      "partido": "AVANTE",
+      "numero": "700",
+      "foto": ""
+    },
+    {
+      "nome": "Luiz Castro Andrade Neto",
+      "nomeUrna": "Luiz Castro",
+      "partido": "PDT",
+      "numero": "123",
+      "foto": ""
+    },
+    {
+      "nome": "Alfredo Alexandre de Menezes Junior",
+      "nomeUrna": "Coronel Menezes",
+      "partido": "PL",
+      "numero": "222",
+      "foto": ""
+    },
+    {
+      "nome": "Omar José Abdel Aziz",
+      "nomeUrna": "Omar Aziz",
+      "partido": "PSD",
+      "numero": "555",
+      "foto": ""
+    },
+    {
+      "nome": "Arthur Virgilio do Carmo Ribeiro Neto",
+      "nomeUrna": "Arthur Neto",
+      "partido": "PSDB",
+      "numero": "451",
+      "foto": ""
+    },
+    {
+      "nome": "Marilia Freire da Silva",
+      "nomeUrna": "Marília Freire",
+      "partido": "PSOL",
+      "numero": "500",
+      "foto": ""
+    },
+    {
+      "nome": "Elissandro Amorim Bessa",
+      "nomeUrna": "Bessa",
+      "partido": "SOLIDARIEDADE",
+      "numero": "777",
+      "foto": ""
+    }
+  ],
+  "entraram": [
+    {
+      "nome": "Dailson de Queiroz Corrêa",
+      "nomeUrna": "Dailson Corrêa",
+      "partido": "DC",
+      "numero": "277",
+      "foto": "/fotos/2026/40002535391.jpg"
+    },
+    {
+      "nome": "Carlos Eduardo de Souza Braga",
+      "nomeUrna": "Eduardo Braga",
+      "partido": "MDB",
+      "numero": "155",
+      "foto": "/fotos/2026/40002531447.jpg"
+    },
+    {
+      "nome": "Milton Rogério Moreira Pinto",
+      "nomeUrna": "Xuxa do Amazonas",
+      "partido": "MOBILIZA",
+      "numero": "333",
+      "foto": "/fotos/2026/40002550806.jpg"
+    },
+    {
+      "nome": "Alberto Barros Cavalcante Neto",
+      "nomeUrna": "Capitão Alberto Neto",
+      "partido": "PL",
+      "numero": "222",
+      "foto": "/fotos/2026/40002542686.jpg"
+    },
+    {
+      "nome": "Francisco Plinio Valerio Tomaz",
+      "nomeUrna": "Plinio Valério",
+      "partido": "PSDB",
+      "numero": "455",
+      "foto": "/fotos/2026/40002537344.jpg"
+    },
+    {
+      "nome": "Maria Evany do Nascimento",
+      "nomeUrna": "Professora Evany",
+      "partido": "PSOL",
+      "numero": "500",
+      "foto": "/fotos/2026/40002551281.jpg"
+    },
+    {
+      "nome": "José Evandro de Oliveira",
+      "nomeUrna": "Evandro de Oliveira",
+      "partido": "PSTU",
+      "numero": "161",
+      "foto": "/fotos/2026/40002535270.jpg"
+    },
+    {
+      "nome": "Ismael Franklin Goncalves",
+      "nomeUrna": "Ismael Munduruku",
+      "partido": "REDE",
+      "numero": "181",
+      "foto": "/fotos/2026/40002551283.jpg"
+    },
+    {
+      "nome": "Wilson Miranda Lima",
+      "nomeUrna": "Wilson Lima",
+      "partido": "UNIÃO",
+      "numero": "444",
+      "foto": "/fotos/2026/40002541744.jpg"
+    }
+  ],
+  "trocas": [],
+  "foraDaDisputa": [
+    {
+      "nome": "Omar José Abdel Aziz",
+      "partido": "PSD",
+      "foto": ""
+    }
+  ],
+  "notaFotos2026": "As fotos de 2026 vêm do arquivo oficial foto_cand2026_AM divulgado pelo TSE.",
+  "notaEleitos": "Os eleitos são os que o TSE marcou como eleitos em 2022.",
+  "cargo": "senador",
+  "codigoCargo": "5",
+  "rotulo": "Senador",
+  "majoritario": true,
+  "apuracaoUrl": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/am/am-c0005-e006259-u.json"
+}

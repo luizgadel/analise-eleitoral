@@ -229,6 +229,8 @@ def _codigo_igual(serie: pd.Series, esperado: str) -> pd.Series:
 
 
 def _cargo_tse(cargo: int) -> tuple[str, str, str]:
+    if int(cargo) == 5:
+        return "5", "SENADOR", "senador"
     if int(cargo) == 7:
         return "7", "DEPUTADO ESTADUAL", "deputado_estadual"
     return "6", "DEPUTADO FEDERAL", "deputado_federal"

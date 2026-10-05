@@ -116,6 +116,25 @@ class ArquivosTeste(unittest.TestCase):
         self.assertEqual(list(quadro["nome_urna"]), ["PEDRO"])
         self.assertEqual(quadro.loc[0, "partido"], "MDB")
 
+    def test_candidatos_a_senador_usam_o_cargo_5(self):
+        brasil = _csv_candidatos(
+            [
+                "2022;2;Eleição Ordinária;1;AM;6;Deputado Federal;10;1234;João da Silva;JOÃO;12345678901;111;APTO;PT;Partido dos Trabalhadores;ELEITO POR QP;01/02/1980;",
+                "2022;2;Eleição Ordinária;1;AM;5;Senador;55;5555;Omar Aziz;OMAR;99988877766;555;APTO;PSD;Partido Social Democrático;ELEITO;01/02/1960;",
+                "2022;2;Eleição Ordinária;1;AM;9;1º Suplente;55;5501;Suplente;SUPLENTE;11122233344;556;APTO;PSD;Partido Social Democrático;#NULO#;01/02/1970;",
+            ]
+        )
+        destino = Path(self.id().replace(".", "_") + ".zip")
+        try:
+            with zipfile.ZipFile(destino, "w") as arquivo:
+                arquivo.writestr("consulta_cand_2022_BRASIL.csv", brasil.encode("latin-1"))
+            quadro = candidatos_do_arquivo(destino, 2022, cargo=5)
+        finally:
+            destino.unlink(missing_ok=True)
+
+        self.assertEqual(list(quadro["nome_urna"]), ["OMAR"])
+        self.assertEqual(quadro.loc[0, "partido"], "PSD")
+
     def test_publicidade_respeita_o_corte_de_28_de_setembro(self):
         csv = (
             "DT_GERACAO;SQ_CANDIDATO;CD_CARGO;DS_ORIGEM_DESPESA;DT_DESPESA;VR_DESPESA_CONTRATADA\n"

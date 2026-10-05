@@ -16,13 +16,22 @@ from eleitoral.apuracao import URL_APURACAO_2026, aplicar_snapshot
 
 DESTINO = Path(os.environ.get("APURACAO_DESTINO") or (RAIZ / "painel" / "public" / "dados" / "amazonas.json"))
 CODIGO_CARGO = os.environ.get("APURACAO_CARGO") or "6"
+URLS_APURACAO = {
+    "5": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/am/am-c0005-e006259-u.json",
+    "6": URL_APURACAO_2026,
+    "7": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/am/am-c0007-e006259-u.json",
+}
 
 
 def main() -> None:
     if "--stdin" in sys.argv:
         bruto = json.loads(sys.stdin.read())
     else:
-        resposta = requests.get(URL_APURACAO_2026, timeout=40, headers={"User-Agent": "painel-amazonas"})
+        resposta = requests.get(
+            URLS_APURACAO.get(CODIGO_CARGO, URL_APURACAO_2026),
+            timeout=40,
+            headers={"User-Agent": "painel-amazonas"},
+        )
         resposta.raise_for_status()
         bruto = resposta.json()
     painel = json.loads(DESTINO.read_text(encoding="utf-8"))
