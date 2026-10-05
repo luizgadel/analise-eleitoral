@@ -56,7 +56,8 @@ function agrupar(pessoas) {
 function Foto({ src, nome, className }) {
   const [falhou, setFalhou] = useState(false);
   if (!src || falhou) {
-    return <span className={className === "avatar" ? "iniciais avatar" : "iniciais"}>{iniciais(nome)}</span>;
+    const extra = className === "avatar" || className?.includes("foto-barra") ? ` ${className}` : "";
+    return <span className={`iniciais${extra}`}>{iniciais(nome)}</span>;
   }
   return <img className={className} src={src} alt={`Foto de ${nome}`} onError={() => setFalhou(true)} />;
 }
@@ -82,7 +83,7 @@ function corBloco(indice) {
   return `var(--bloco-${indice % 24})`;
 }
 
-function Federacoes({ dados, bandeiras, titulo = "Votos acumulados em 2022", ancora = "quociente" }) {
+function Federacoes({ dados, bandeiras, pessoas = [], titulo = "Votos acumulados em 2022", ancora = "quociente" }) {
   const grupos = dados.federacoes ?? [];
   const quociente = dados.quociente;
   if (!grupos.length || !quociente) return null;
@@ -137,7 +138,13 @@ function Federacoes({ dados, bandeiras, titulo = "Votos acumulados em 2022", anc
       </div>
       <div className="secao-titulo sub">
         <h2>Votação de cada bloco</h2>
-        <p>A largura da barra é o voto nominal daquele partido ou daquela federação.</p>
+        <p>
+          A largura da barra é o voto nominal daquele partido ou daquela federação. Nas legendas que passaram
+          de 80% do quociente, a foto maior fica no trecho de quem leva cadeira, à direita, perto do corte
+          do quociente. Quem não leva e passou de 10% do quociente ganha um chip com a largura dos votos
+          dele naquela barra. Os outros entram num chip com a quantidade de candidatos e ocupam o que resta
+          da barra.
+        </p>
       </div>
       <div className="grafico-individual">
         <span />
@@ -152,23 +159,74 @@ function Federacoes({ dados, bandeiras, titulo = "Votos acumulados em 2022", anc
           </span>
         </div>
         <span />
-        {grupos.map((grupo, indice) => (
-          <div className="linha-barra" key={`barra-${grupo.nome}`}>
-            <strong>{grupo.nome}</strong>
-            <div className="trilha-barra">
-              <span
-                className="enchimento"
-                style={{
-                  width: `${(grupo.votos / maiorIndividual) * 100}%`,
-                  background: corBloco(indice),
-                }}
-              />
-              <i className="corte oitenta" style={{ left: `${(quociente.oitenta / maiorIndividual) * 100}%` }} />
-              <i className="corte qe" style={{ left: `${(quociente.qe / maiorIndividual) * 100}%` }} />
+        {grupos.map((grupo, indice) => {
+          const passouOitenta = grupo.votos >= quociente.oitenta;
+          const siglas = new Set(grupo.partidos || []);
+          const doGrupo = passouOitenta
+            ? pessoas
+                .filter((pessoa) => siglas.has(pessoa.partido) && pessoa.votos > 0)
+                .sort((a, b) => b.votos - a.votos || Number(b.eleito) - Number(a.eleito) || a.nomeUrna.localeCompare(b.nomeUrna, "pt"))
+            : [];
+          const eleitos = doGrupo.filter((pessoa) => pessoa.eleito);
+          const demais = doGrupo.filter((pessoa) => !pessoa.eleito);
+          const individuais = demais.filter((pessoa) => pessoa.votos * 100 > quociente.qe * 10);
+          const agrupados = demais.filter((pessoa) => pessoa.votos * 100 <= quociente.qe * 10);
+          const fatias = [...eleitos, ...individuais].sort(
+            (a, b) => b.votos - a.votos || Number(b.eleito) - Number(a.eleito) || a.nomeUrna.localeCompare(b.nomeUrna, "pt"),
+          );
+          const resto = Math.max(0, grupo.votos - fatias.reduce((soma, pessoa) => soma + pessoa.votos, 0));
+          const largura = (votos) => ({ flex: `${votos} 1 0%` });
+          return (
+            <div className="linha-barra" key={`barra-${grupo.nome}`}>
+              <strong>{grupo.nome}</strong>
+              <div className={eleitos.length || demais.length ? "trilha-barra alta" : "trilha-barra"}>
+                <span
+                  className={eleitos.length || demais.length ? "enchimento enchimento-fotos" : "enchimento"}
+                  style={{
+                    width: `${(grupo.votos / maiorIndividual) * 100}%`,
+                    background: corBloco(indice),
+                  }}
+                >
+                  {fatias.map((pessoa) =>
+                      pessoa.eleito ? (
+                        <span
+                          className="secao-barra eleito"
+                          key={pessoa.id}
+                          style={largura(pessoa.votos)}
+                          title={`${pessoa.nomeUrna}: ${votosDe(pessoa.votos)} votos · leva cadeira`}
+                        >
+                          <Foto className="foto-barra eleito" src={pessoa.foto} nome={pessoa.nomeUrna} />
+                        </span>
+                      ) : (
+                        <span
+                          className="secao-barra individual"
+                          key={pessoa.id}
+                          style={largura(pessoa.votos)}
+                          title={`${pessoa.nomeUrna}: ${votosDe(pessoa.votos)} votos · acima de 10% do quociente`}
+                        >
+                          <span className="chip-demais">
+                            <Foto className="foto-barra demais" src={pessoa.foto} nome={pessoa.nomeUrna} />
+                          </span>
+                        </span>
+                      ),
+                    )}
+                    {resto > 0 && (
+                      <span className="secao-barra resto" style={largura(resto)}>
+                        {agrupados.length > 0 && (
+                          <span className="chip-demais chip-coletivo" title={agrupados.map((pessoa) => pessoa.nomeUrna).join(", ")}>
+                            {agrupados.length}
+                          </span>
+                        )}
+                      </span>
+                    )}
+                </span>
+                <i className="corte oitenta" style={{ left: `${(quociente.oitenta / maiorIndividual) * 100}%` }} />
+                <i className="corte qe" style={{ left: `${(quociente.qe / maiorIndividual) * 100}%` }} />
+              </div>
+              <span className="nums">{votosDe(grupo.votos)}</span>
             </div>
-            <span className="nums">{votosDe(grupo.votos)}</span>
-          </div>
-        ))}
+          );
+        })}
       </div>
       <div className="federacoes">
         {grupos.map((grupo, indice) => {
@@ -365,6 +423,21 @@ function Aba2026({ dados, bandeiras }) {
     [dados],
   );
 
+  const pessoasNaBarra = useMemo(
+    () =>
+      candidaturas
+        .filter((pessoa) => pessoa.votos2026 > 0)
+        .map((pessoa) => ({
+          id: String(pessoa.sequencial2026 || pessoa.numero),
+          nomeUrna: pessoa.nomeUrna,
+          foto: pessoa.foto,
+          partido: pessoa.partidoApuracao || pessoa.partido,
+          votos: pessoa.votos2026 || 0,
+          eleito: naCadeira.has(String(pessoa.sequencial2026 || pessoa.numero)),
+        })),
+    [candidaturas, naCadeira],
+  );
+
   const maiorGasto = Math.max(...gastosPartido.map((item) => item.gasto2026), 1);
   const maiorPartido = Math.max(...partidos.map((item) => item.candidatos2026), 1);
   const tetoFaixa = Math.max(...faixasGasto.map((item) => item.quantidade), 1);
@@ -447,6 +520,7 @@ function Aba2026({ dados, bandeiras }) {
         <Federacoes
           dados={{ federacoes: apuracao.federacoes, quociente: apuracao.quociente }}
           bandeiras={bandeiras}
+          pessoas={pessoasNaBarra}
           titulo="Votos acumulados em 2026"
           ancora="quociente-2026"
         />
@@ -899,7 +973,20 @@ export default function App() {
         ))}
       </section>
 
-      <Federacoes dados={dados} bandeiras={bandeiras} />
+      <Federacoes
+        dados={dados}
+        bandeiras={bandeiras}
+        pessoas={dados.desempenho
+          .filter((pessoa) => pessoa.disputou2022 && pessoa.votos > 0)
+          .map((pessoa) => ({
+            id: `${pessoa.partido}-${pessoa.numero}`,
+            nomeUrna: pessoa.nomeUrna,
+            foto: pessoa.foto,
+            partido: pessoa.partido,
+            votos: pessoa.votos || 0,
+            eleito: Boolean(pessoa.eleito),
+          }))}
+      />
 
       <section id="votos">
         <div className="secao-titulo">
