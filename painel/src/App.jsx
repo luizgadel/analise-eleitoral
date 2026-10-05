@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { URL_APURACAO, baixarApuracao, cadeirasMajoritarias, cadeirasNoInstante, encontrarCandidato, INTERVALO_APURACAO_MS, interpretarApuracao } from "./apuracao.js";
+import { URL_APURACAO, baixarApuracao, cadeirasMajoritarias, cadeirasNoInstante, encontrarCandidato, INTERVALO_APURACAO_MS, interpretarApuracao, juntarApuracoes } from "./apuracao.js";
 import "./estilos.css";
 
 function iniciais(nome) {
@@ -102,7 +102,9 @@ function Federacoes({ dados, bandeiras, pessoas = [], titulo = "Votos acumulados
           A raia soma os votos, da maior votação para a menor. O gráfico de baixo mostra cada federação e cada
           partido sozinho.
           {dados.majoritario
-            ? " Senador é eleição majoritária: a cadeira fica com os mais votados."
+            ? dados.uf === "BR"
+              ? " Senador é eleição majoritária: uma cadeira por estado, para os mais votados. A raia soma o voto nominal do partido no país."
+              : " Senador é eleição majoritária: a cadeira fica com os mais votados."
             : " As linhas são o quociente eleitoral e 80% dele."}
         </p>
       </div>
@@ -279,7 +281,12 @@ function Federacoes({ dados, bandeiras, pessoas = [], titulo = "Votos acumulados
   );
 }
 
-function Lista({ titulo, pessoas, bandeiras, sentido }) {
+function MarcaUf({ pessoa, mostrar }) {
+  if (!mostrar || !pessoa?.uf) return null;
+  return <span className="etiqueta">{pessoa.uf}</span>;
+}
+
+function Lista({ titulo, pessoas, bandeiras, sentido, mostrarUf = false }) {
   const grupos = agrupar(pessoas);
   const total = pessoas.filter((pessoa) => !pessoa.troca).length;
   return (
@@ -295,11 +302,12 @@ function Lista({ titulo, pessoas, bandeiras, sentido }) {
           </header>
           <div className="pessoas">
             {lista.map((pessoa) => (
-              <span className={pessoa.troca ? "pessoa troca" : "pessoa"} key={`${pessoa.troca ? "troca" : "fixo"}-${pessoa.nome}`}>
+              <span className={pessoa.troca ? "pessoa troca" : "pessoa"} key={`${pessoa.troca ? "troca" : "fixo"}-${pessoa.uf || ""}-${pessoa.nome}`}>
                 <Foto src={pessoa.foto} nome={pessoa.nomeUrna} />
                 <span>
                   {pessoa.nomeUrna}
                   {pessoa.numero ? ` · ${pessoa.numero}` : ""}
+                  {mostrarUf && pessoa.uf ? ` · ${pessoa.uf}` : ""}
                   {pessoa.troca && (
                     <small>
                       {sentido === "entrada" ? "veio de " : "trocou para "}
@@ -326,36 +334,72 @@ function ficha2026(pessoa) {
   };
 }
 
+function idCadeira(pessoa) {
+  const base = String(pessoa.sequencial2026 || pessoa.numero);
+  return pessoa.uf ? `${pessoa.uf}:${base}` : base;
+}
+
 function Aba2026({ dados, bandeiras }) {
   const [busca, setBusca] = useState("");
   const [ordem, setOrdem] = useState("votos");
   const [apuracao, setApuracao] = useState(null);
   const [falhaApuracao, setFalhaApuracao] = useState("");
   const url = dados.apuracaoUrl || URL_APURACAO;
+  const fontes = dados.apuracaoUrls?.length ? dados.apuracaoUrls : [{ url }];
+  const fontesChave = fontes.map((item) => item.url).join("|");
   const codigo = String(dados.codigoCargo || "6");
+  const nacional = dados.uf === "BR";
 
   useEffect(() => {
     let ativo = true;
     let espera = 0;
     let ultimo = "";
+    const listaFontes = fontesChave.split("|").filter(Boolean).map((endereco) => ({ url: endereco }));
 
     async function buscar() {
       try {
-        const texto = await baixarApuracao(url);
-        if (!ativo) return;
-        if (texto !== ultimo) {
-          ultimo = texto;
-          setApuracao(interpretarApuracao(JSON.parse(texto), codigo));
-          setFalhaApuracao("");
-        }
-        if (JSON.parse(texto).and === "f") {
-          const destino = dados.cargo === "estadual" || dados.cargo === "senador" ? dados.cargo : "federal";
-          fetch(`/api/apuracao-snapshot?destino=${destino}`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: texto,
-          }).catch(() => {});
-          return;
+        if (listaFontes.length > 1) {
+          const respostas = await Promise.all(
+            listaFontes.map(async (item) => {
+              try {
+                const texto = await baixarApuracao(item.url);
+                return interpretarApuracao(JSON.parse(texto), codigo);
+              } catch {
+                return null;
+              }
+            }),
+          );
+          if (!ativo) return;
+          const partes = respostas.filter(Boolean);
+          if (!partes.length) throw new Error("Não foi possível ler a apuração do TSE.");
+          const assinatura = partes.map((parte) => `${parte.uf}:${parte.carimbo}`).join("|");
+          if (assinatura !== ultimo) {
+            ultimo = assinatura;
+            setApuracao(juntarApuracoes(partes));
+            setFalhaApuracao(
+              partes.length < listaFontes.length
+                ? "Alguns estados não responderam. A soma usa os que chegaram."
+                : "",
+            );
+          }
+          if (partes.length === listaFontes.length && partes.every((parte) => parte.fechada)) return;
+        } else {
+          const texto = await baixarApuracao(listaFontes[0]?.url || url);
+          if (!ativo) return;
+          if (texto !== ultimo) {
+            ultimo = texto;
+            setApuracao(interpretarApuracao(JSON.parse(texto), codigo));
+            setFalhaApuracao("");
+          }
+          if (JSON.parse(texto).and === "f") {
+            const destino = dados.cargo === "estadual" || dados.cargo === "senador" ? dados.cargo : "federal";
+            fetch(`/api/apuracao-snapshot?destino=${destino}`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: texto,
+            }).catch(() => {});
+            return;
+          }
         }
       } catch (falha) {
         if (!ativo) return;
@@ -370,7 +414,7 @@ function Aba2026({ dados, bandeiras }) {
       ativo = false;
       window.clearTimeout(espera);
     };
-  }, [url, codigo, dados.cargo]);
+  }, [fontesChave, url, codigo, dados.cargo]);
 
   const candidaturas = useMemo(
     () =>
@@ -393,11 +437,14 @@ function Aba2026({ dados, bandeiras }) {
     const comVoto = candidaturas
       .filter((pessoa) => pessoa.votos2026 != null)
       .map((pessoa) => ({
-        id: String(pessoa.sequencial2026 || pessoa.numero),
+        id: idCadeira(pessoa),
+        uf: pessoa.uf || "",
         partido: pessoa.partidoApuracao || pessoa.partido,
         votos: pessoa.votos2026,
       }));
-    if (dados.majoritario) return cadeirasMajoritarias(comVoto, apuracao?.quociente?.vagas || 0);
+    if (dados.majoritario) {
+      return cadeirasMajoritarias(comVoto, apuracao?.quociente?.vagas || 0, apuracao?.vagasPorUf);
+    }
     if (!apuracao?.quociente?.qe || !apuracao.quociente.vagas) return new Set();
     return cadeirasNoInstante(
       apuracao.federacoes,
@@ -424,7 +471,8 @@ function Aba2026({ dados, bandeiras }) {
   const lista = useMemo(() => {
     const termo = semAcento(busca.trim());
     const filtradas = candidaturas.filter(
-      (pessoa) => !termo || semAcento(`${pessoa.nomeUrna} ${pessoa.nome} ${pessoa.partido} ${pessoa.numero}`).includes(termo),
+      (pessoa) =>
+        !termo || semAcento(`${pessoa.nomeUrna} ${pessoa.nome} ${pessoa.partido} ${pessoa.numero} ${pessoa.uf || ""}`).includes(termo),
     );
     return filtradas.sort((a, b) => {
       if (ordem === "nome") return a.nomeUrna.localeCompare(b.nomeUrna, "pt");
@@ -454,12 +502,12 @@ function Aba2026({ dados, bandeiras }) {
       candidaturas
         .filter((pessoa) => pessoa.votos2026 > 0)
         .map((pessoa) => ({
-          id: String(pessoa.sequencial2026 || pessoa.numero),
+          id: idCadeira(pessoa),
           nomeUrna: pessoa.nomeUrna,
           foto: pessoa.foto,
           partido: pessoa.partidoApuracao || pessoa.partido,
           votos: pessoa.votos2026 || 0,
-          eleito: naCadeira.has(String(pessoa.sequencial2026 || pessoa.numero)),
+          eleito: naCadeira.has(idCadeira(pessoa)),
         })),
     [candidaturas, naCadeira],
   );
@@ -521,7 +569,7 @@ function Aba2026({ dados, bandeiras }) {
               .filter((pessoa) => pessoa.eleito2026)
               .sort((a, b) => (b.votos2026 ?? 0) - (a.votos2026 ?? 0))
               .map((pessoa) => (
-                <article className="eleito" key={`eleito-2026-${pessoa.numero}-${pessoa.nome}`}>
+                <article className="eleito" key={`eleito-2026-${pessoa.uf || ""}-${pessoa.numero}-${pessoa.nome}`}>
                   <Foto className="avatar" src={pessoa.foto} nome={pessoa.nomeUrna} />
                   <div>
                     <h3>{pessoa.nomeUrna}</h3>
@@ -530,6 +578,7 @@ function Aba2026({ dados, bandeiras }) {
                     </p>
                     <p className="partido-linha">
                       <Sigla nome={pessoa.partido} bandeiras={bandeiras} />
+                      <MarcaUf pessoa={pessoa} mostrar={nacional} />
                       <span>· {pessoa.numero}</span>
                     </p>
                     {pessoa.situacao2026 && <p className="partido-linha">{pessoa.situacao2026}</p>}
@@ -544,7 +593,7 @@ function Aba2026({ dados, bandeiras }) {
 
       {apuracao && (
         <Federacoes
-          dados={{ federacoes: apuracao.federacoes, quociente: apuracao.quociente, majoritario: dados.majoritario }}
+          dados={{ federacoes: apuracao.federacoes, quociente: apuracao.quociente, majoritario: dados.majoritario, uf: dados.uf }}
           bandeiras={bandeiras}
           pessoas={pessoasNaBarra}
           titulo="Votos acumulados em 2026"
@@ -573,7 +622,7 @@ function Aba2026({ dados, bandeiras }) {
             <span>Gastos da campanha</span>
           </div>
           {maioresGastos.map((pessoa, indice) => (
-            <div className="linha-voto gasto" key={`gasto-2026-${pessoa.numero}-${pessoa.nome}`}>
+            <div className="linha-voto gasto" key={`gasto-2026-${pessoa.uf || ""}-${pessoa.numero}-${pessoa.nome}`}>
               <span className="posicao">{indice + 1}</span>
               <div className="quem">
                 {pessoa.foto && <Foto className="mini" src={pessoa.foto} nome={pessoa.nomeUrna} />}
@@ -581,6 +630,7 @@ function Aba2026({ dados, bandeiras }) {
                   <strong>{pessoa.nomeUrna}</strong>
                   <span className="partido-linha">
                     <Sigla nome={pessoa.partido} bandeiras={bandeiras} />
+                    <MarcaUf pessoa={pessoa} mostrar={nacional} />
                     <span>· {pessoa.numero}</span>
                   </span>
                 </div>
@@ -644,9 +694,9 @@ function Aba2026({ dados, bandeiras }) {
           </div>
           {lista.map((pessoa, indice) => (
             <div
-              className={naCadeira.has(String(pessoa.sequencial2026 || pessoa.numero)) ? "linha-voto apuracao na-cadeira" : "linha-voto apuracao"}
-              key={`lista-2026-${pessoa.numero}-${pessoa.nome}`}
-              title={naCadeira.has(String(pessoa.sequencial2026 || pessoa.numero)) ? "Levando cadeira com os votos deste instante" : undefined}
+              className={naCadeira.has(idCadeira(pessoa)) ? "linha-voto apuracao na-cadeira" : "linha-voto apuracao"}
+              key={`lista-2026-${pessoa.uf || ""}-${pessoa.numero}-${pessoa.nome}`}
+              title={naCadeira.has(idCadeira(pessoa)) ? "Levando cadeira com os votos deste instante" : undefined}
             >
               <span className="posicao">{indice + 1}</span>
               <div className="quem">
@@ -655,6 +705,7 @@ function Aba2026({ dados, bandeiras }) {
                   <strong>{pessoa.nomeUrna}</strong>
                   <span className="partido-linha">
                     <Sigla nome={pessoa.partido} bandeiras={bandeiras} />
+                    <MarcaUf pessoa={pessoa} mostrar={nacional} />
                     <span>· {pessoa.numero}</span>
                     {pessoa.eleito2026 && <span className="etiqueta dentro">Eleito</span>}
                   </span>
@@ -748,7 +799,7 @@ export default function App() {
         if (!ativo) return;
         setDados(quadro);
         setBandeiras(mapa);
-        document.title = `${quadro.rotulo || "Deputado federal"} no Amazonas`;
+        document.title = `${quadro.rotulo || "Deputado federal"} ${quadro.uf === "BR" ? "no Brasil" : "no Amazonas"}`;
       })
       .catch((falha) => {
         if (!ativo) return;
@@ -764,7 +815,7 @@ export default function App() {
     const termo = semAcento(busca.trim());
     const cabe = (pessoa) =>
       !termo ||
-      semAcento(`${pessoa.nomeUrna} ${pessoa.nome} ${pessoa.partido} ${pessoa.outroPartido || ""}`).includes(termo);
+      semAcento(`${pessoa.nomeUrna} ${pessoa.nome} ${pessoa.partido} ${pessoa.outroPartido || ""} ${pessoa.uf || ""}`).includes(termo);
     const fotoPorNome = new Map(
       dados.desempenho
         .filter((pessoa) => pessoa.disputou2022)
@@ -779,6 +830,7 @@ export default function App() {
           partido: pessoa[partidoDe],
           outroPartido: pessoa[outroPartido],
           numero: partidoDe === "partido2022" ? origem?.numero || "" : "",
+          uf: pessoa.uf || origem?.uf || "",
           foto: origem?.foto || "",
           troca: true,
         };
@@ -801,7 +853,7 @@ export default function App() {
     return dados.desempenho
       .filter(
         (pessoa) =>
-          !termo || semAcento(`${pessoa.nomeUrna} ${pessoa.nome} ${pessoa.partido}`).includes(termo),
+          !termo || semAcento(`${pessoa.nomeUrna} ${pessoa.nome} ${pessoa.partido} ${pessoa.uf || ""}`).includes(termo),
       )
       .sort((a, b) => valor(b) - valor(a) || a.nomeUrna.localeCompare(b.nomeUrna, "pt"));
   }, [buscaDesempenho, dados, ordem]);
@@ -860,7 +912,7 @@ export default function App() {
     return (
       <main className="pagina">
         <AbasCargo cargo={cargo} escolher={escolherCargo} />
-        <p className="estado">{erro || "Carregando o Amazonas…"}</p>
+        <p className="estado">{erro || (cargo === "senador" ? "Carregando o Brasil…" : "Carregando o Amazonas…")}</p>
       </main>
     );
   }
@@ -882,12 +934,13 @@ export default function App() {
     <main className="pagina">
       <header className="topo">
         <div>
-          <p className="selo">{dados.rotulo || "Deputado federal"} · Amazonas</p>
+          <p className="selo">{dados.rotulo || "Deputado federal"} · {dados.estado || "Amazonas"}</p>
           <h1>Quem disputou, quem senta e quem volta em 2026.</h1>
         </div>
         <p className="intro">
           Candidaturas aptas a {(dados.rotulo || "Deputado federal").toLowerCase()} na eleição ordinária. Em 2026 a
-          situação ainda não veio preenchida pelo TSE, então a lista reúne quem está no cadastro oficial do estado.
+          situação ainda não veio preenchida pelo TSE, então a lista reúne quem está no cadastro oficial{" "}
+          {dados.uf === "BR" ? "do país" : "do estado"}.
         </p>
       </header>
 
@@ -943,15 +996,15 @@ export default function App() {
             {ehFederal
               ? "Oito cadeiras. A foto é a oficial da Câmara. O partido de baixo é o de hoje, quando mudou desde a eleição."
               : dados.cargo === "senador"
-              ? "Uma cadeira. A foto aparece quando a pessoa também está no arquivo de fotos de 2026."
-              : dados.cargo === "estadual"
-                ? "Vinte e quatro cadeiras. A foto aparece quando a pessoa também está no arquivo de fotos de 2026."
-                : "Uma cadeira. A foto aparece quando a pessoa também está no arquivo de fotos de 2026."}
+                ? "Uma cadeira por estado. A foto aparece quando a pessoa também está no arquivo de fotos de 2026."
+                : dados.cargo === "estadual"
+                  ? "Vinte e quatro cadeiras. A foto aparece quando a pessoa também está no arquivo de fotos de 2026."
+                  : "Uma cadeira. A foto aparece quando a pessoa também está no arquivo de fotos de 2026."}
           </p>
         </div>
         <div className="grade-eleitos">
           {dados.eleitos.map((pessoa) => (
-            <article className="eleito" key={pessoa.numero + pessoa.nome}>
+            <article className="eleito" key={`${pessoa.uf || ""}-${pessoa.numero}-${pessoa.nome}`}>
               <Foto className="avatar" src={pessoa.foto} nome={pessoa.nomeUrna} />
               <div>
                 <h3>{pessoa.nomeUrna}</h3>
@@ -967,6 +1020,7 @@ export default function App() {
                 )}
                 <p className="partido-linha">
                   <Sigla nome={pessoa.partido} bandeiras={bandeiras} />
+                  <MarcaUf pessoa={pessoa} mostrar={dados.uf === "BR"} />
                   {pessoa.partidoAtual !== pessoa.partido && (
                     <>
                       na eleição, hoje <Sigla nome={pessoa.partidoAtual} bandeiras={bandeiras} />
@@ -989,7 +1043,7 @@ export default function App() {
           ))}
         </div>
         {dados.foraDaDisputa.map((pessoa) => (
-          <aside className="aviso" key={pessoa.nome}>
+          <aside className="aviso" key={`${pessoa.uf || ""}-${pessoa.nome}`}>
             <Foto src={pessoa.foto} nome={pessoa.nome} />
             <div>
               <h3>{pessoa.nome} não está na disputa de 2026</h3>
@@ -1002,7 +1056,8 @@ export default function App() {
                   </>
                 ) : (
                   <>
-                    Foi eleito {dados.cargo === "senador" ? "senador" : "deputado estadual"} em 2022, pelo{" "}
+                    Foi eleito {dados.cargo === "senador" ? "senador" : "deputado estadual"} em 2022
+                    {dados.uf === "BR" && pessoa.uf ? ` por ${pessoa.uf}` : ""}, pelo{" "}
                     <Sigla nome={pessoa.partido} bandeiras={bandeiras} />, e não aparece entre os candidatos deste ano.
                   </>
                 )}
@@ -1063,7 +1118,7 @@ export default function App() {
             <span>Gastos da campanha</span>
           </div>
           {maioresGastos.map((pessoa, indice) => (
-            <div className={pessoa.eleito ? "linha-voto curta eleita" : "linha-voto curta"} key={`gasto-${pessoa.numero}-${pessoa.nome}`}>
+            <div className={pessoa.eleito ? "linha-voto curta eleita" : "linha-voto curta"} key={`gasto-${pessoa.uf || ""}-${pessoa.numero}-${pessoa.nome}`}>
               <span className="posicao">{indice + 1}</span>
               <div className="quem">
                 {pessoa.foto && <Foto className="mini" src={pessoa.foto} nome={pessoa.nomeUrna} />}
@@ -1071,6 +1126,7 @@ export default function App() {
                   <strong>{pessoa.nomeUrna}</strong>
                   <span className="partido-linha">
                     <Sigla nome={pessoa.partido} bandeiras={bandeiras} />
+                    <MarcaUf pessoa={pessoa} mostrar={dados.uf === "BR"} />
                     {pessoa.eleito && <span className="etiqueta dentro">Eleito</span>}
                   </span>
                 </div>
@@ -1167,7 +1223,7 @@ export default function App() {
             <span>Gastos 2026</span>
           </div>
           {desempenho.map((pessoa, indice) => (
-            <div className={pessoa.eleito ? "linha-voto eleita" : "linha-voto"} key={`${pessoa.numero}-${pessoa.nome}`}>
+            <div className={pessoa.eleito ? "linha-voto eleita" : "linha-voto"} key={`${pessoa.uf || ""}-${pessoa.numero}-${pessoa.nome}`}>
               <span className="posicao">{indice + 1}</span>
               <div className="quem">
                 {pessoa.foto && <Foto className="mini" src={pessoa.foto} nome={pessoa.nomeUrna} />}
@@ -1175,6 +1231,7 @@ export default function App() {
                   <strong>{pessoa.nomeUrna}</strong>
                   <span className="partido-linha">
                     <Sigla nome={pessoa.partido} bandeiras={bandeiras} />
+                    <MarcaUf pessoa={pessoa} mostrar={dados.uf === "BR"} />
                     {pessoa.eleito && <span className="etiqueta dentro">Eleito</span>}
                     {!pessoa.disputou2022 && <span className="etiqueta">Só em 2026</span>}
                   </span>
@@ -1280,8 +1337,8 @@ export default function App() {
           aria-label="Buscar por nome ou partido"
         />
         <div className="colunas">
-          <Lista titulo="Saíram" pessoas={filtrados.sairam} bandeiras={bandeiras} sentido="saida" />
-          <Lista titulo="Entraram" pessoas={filtrados.entraram} bandeiras={bandeiras} sentido="entrada" />
+          <Lista titulo="Saíram" pessoas={filtrados.sairam} bandeiras={bandeiras} sentido="saida" mostrarUf={dados.uf === "BR"} />
+          <Lista titulo="Entraram" pessoas={filtrados.entraram} bandeiras={bandeiras} sentido="entrada" mostrarUf={dados.uf === "BR"} />
         </div>
       </section>
       </>

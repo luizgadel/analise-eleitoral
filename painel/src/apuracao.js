@@ -81,6 +81,7 @@ export function interpretarApuracao(bruto, codigo = "6") {
     const nome = nomes[String(codigo)] || "deputado federal";
     throw new Error(`O arquivo do TSE não trouxe ${nome}.`);
   }
+  const uf = String(bruto.cdabr || "").toUpperCase();
   const candidatos = [];
   for (const agrupamento of cargo.agr || []) {
     for (const partido of agrupamento.par || []) {
@@ -88,6 +89,7 @@ export function interpretarApuracao(bruto, codigo = "6") {
         candidatos.push({
           sequencial: String(candidato.sqcand || ""),
           numero: String(candidato.n || ""),
+          uf,
           partido: String(partido.sg || ""),
           votos: votoValido(candidato),
           percentual: String(candidato.pvap || ""),
@@ -104,8 +106,13 @@ export function interpretarApuracao(bruto, codigo = "6") {
     carimbo,
     secoes: bruto.s || {},
     votosNominais: inteiro(bruto.v?.vnom),
+    uf,
     porSequencial: new Map(candidatos.filter((item) => item.sequencial).map((item) => [item.sequencial, item])),
-    porNumero: new Map(candidatos.filter((item) => item.numero).map((item) => [item.numero, item])),
+    porNumero: new Map(
+      candidatos
+        .filter((item) => item.numero)
+        .map((item) => [item.uf ? `${item.uf}:${item.numero}` : item.numero, item]),
+    ),
     federacoes: grupos(cargo),
     quociente: {
       qe,
@@ -123,7 +130,21 @@ function alcanca(votos, qe, percentual) {
   return votos * 100 >= qe * percentual;
 }
 
-export function cadeirasMajoritarias(candidatos, vagas) {
+export function cadeirasMajoritarias(candidatos, vagas, vagasPorUf) {
+  if (vagasPorUf && Object.keys(vagasPorUf).length) {
+    const eleitos = new Set();
+    const grupos = new Map();
+    for (const pessoa of candidatos) {
+      const uf = String(pessoa.uf || "");
+      const lista = grupos.get(uf) || [];
+      lista.push(pessoa);
+      grupos.set(uf, lista);
+    }
+    for (const [uf, lista] of grupos) {
+      for (const id of cadeirasMajoritarias(lista, vagasPorUf[uf] || vagas)) eleitos.add(id);
+    }
+    return eleitos;
+  }
   if (vagas <= 0) return new Set();
   return new Set(
     [...candidatos]
@@ -132,6 +153,80 @@ export function cadeirasMajoritarias(candidatos, vagas) {
       .slice(0, vagas)
       .map((pessoa) => String(pessoa.id)),
   );
+}
+
+export function juntarApuracoes(partes) {
+  const porSequencial = new Map();
+  const porNumero = new Map();
+  const blocos = new Map();
+  const vagasPorUf = {};
+  let vagas = 0;
+  let votosNominais = 0;
+  let secoesApuradas = 0;
+  let secoesTotais = 0;
+  let fechada = true;
+  let carimbo = "";
+  for (const parte of partes) {
+    fechada = fechada && Boolean(parte.fechada);
+    if ((parte.carimbo || "") > carimbo) carimbo = parte.carimbo || "";
+    const lugares = parte.quociente?.vagas || 0;
+    vagas += lugares;
+    votosNominais += parte.votosNominais || 0;
+    secoesApuradas += inteiro(parte.secoes?.st);
+    secoesTotais += inteiro(parte.secoes?.ts);
+    if (parte.uf) vagasPorUf[parte.uf] = lugares;
+    for (const candidato of parte.porSequencial.values()) {
+      if (candidato.sequencial) porSequencial.set(candidato.sequencial, candidato);
+      if (candidato.numero) porNumero.set(candidato.uf ? `${candidato.uf}:${candidato.numero}` : candidato.numero, candidato);
+    }
+    for (const grupo of parte.federacoes || []) {
+      const atual = blocos.get(grupo.nome) || {
+        nome: grupo.nome,
+        tipo: grupo.tipo,
+        partidos: [],
+        votos: 0,
+        votosCadeiras: 0,
+      };
+      atual.votos += grupo.votos || 0;
+      atual.votosCadeiras += grupo.votosCadeiras || 0;
+      for (const partido of grupo.partidos || []) {
+        if (!atual.partidos.includes(partido)) atual.partidos.push(partido);
+      }
+      blocos.set(grupo.nome, atual);
+    }
+  }
+  const federacoes = [...blocos.values()].sort((a, b) => b.votos - a.votos || a.nome.localeCompare(b.nome, "pt"));
+  let acumulado = 0;
+  for (const item of federacoes) {
+    item.inicio = acumulado;
+    acumulado += item.votos;
+    item.fim = acumulado;
+  }
+  return {
+    fechada,
+    carimbo,
+    votosNominais,
+    secoes: secoesTotais
+      ? {
+          st: String(secoesApuradas),
+          ts: String(secoesTotais),
+          pst: String(Math.round((secoesApuradas / secoesTotais) * 1000) / 10).replace(".", ","),
+        }
+      : {},
+    uf: "BR",
+    vagasPorUf,
+    porSequencial,
+    porNumero,
+    federacoes,
+    quociente: {
+      qe: 0,
+      vagas,
+      oitenta: 0,
+      nota:
+        `Apuração de senador nos estados. O carimbo mais recente é ${carimbo}, sem conversão de fuso. ` +
+        "Cada estado elege os mais votados. A raia soma o voto nominal do partido no país.",
+    },
+  };
 }
 
 export function cadeirasNoInstante(legendas, candidatos, qe, vagas) {
@@ -214,5 +309,7 @@ export function encontrarCandidato(apuracao, pessoa) {
   const sequencial = String(pessoa.sequencial2026 || "");
   if (sequencial && apuracao.porSequencial.has(sequencial)) return apuracao.porSequencial.get(sequencial);
   const numero = String(pessoa.numero2026 || pessoa.numero || "");
+  const uf = String(pessoa.uf || "");
+  if (uf && apuracao.porNumero.has(`${uf}:${numero}`)) return apuracao.porNumero.get(`${uf}:${numero}`);
   return apuracao.porNumero.get(numero) || null;
 }
