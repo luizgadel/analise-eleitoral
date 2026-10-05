@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { URL_APURACAO, baixarApuracao, cadeirasNoInstante, encontrarCandidato, INTERVALO_APURACAO_MS, interpretarApuracao } from "./apuracao.js";
+import { URL_APURACAO, baixarApuracao, cadeirasMajoritarias, cadeirasNoInstante, encontrarCandidato, INTERVALO_APURACAO_MS, interpretarApuracao } from "./apuracao.js";
 import "./estilos.css";
 
 function iniciais(nome) {
@@ -100,7 +100,10 @@ function Federacoes({ dados, bandeiras, pessoas = [], titulo = "Votos acumulados
         <h2>{titulo}</h2>
         <p>
           A raia soma os votos, da maior votação para a menor. O gráfico de baixo mostra cada federação e cada
-          partido sozinho. As linhas são o quociente eleitoral e 80% dele.
+          partido sozinho.
+          {dados.majoritario
+            ? " Senador é eleição majoritária: a cadeira fica com os mais votados."
+            : " As linhas são o quociente eleitoral e 80% dele."}
         </p>
       </div>
       <div className="raia-caixa">
@@ -115,52 +118,63 @@ function Federacoes({ dados, bandeiras, pessoas = [], titulo = "Votos acumulados
             />
           ))}
           </div>
-          <span className="marco oitenta" style={{ left: lugar(quociente.oitenta) }}>
-            <span>
-              80% do QE
-              <strong>{votosDe(quociente.oitenta)}</strong>
-            </span>
-          </span>
-          <span className="marco qe" style={{ left: lugar(quociente.qe) }}>
-            <span>
-              QE
-              <strong>{votosDe(quociente.qe)}</strong>
-            </span>
-          </span>
+          {!dados.majoritario && (
+            <>
+              <span className="marco oitenta" style={{ left: lugar(quociente.oitenta) }}>
+                <span>
+                  80% do QE
+                  <strong>{votosDe(quociente.oitenta)}</strong>
+                </span>
+              </span>
+              <span className="marco qe" style={{ left: lugar(quociente.qe) }}>
+                <span>
+                  QE
+                  <strong>{votosDe(quociente.qe)}</strong>
+                </span>
+              </span>
+            </>
+          )}
         </div>
         <div className="escala-raia">
           <span>0</span>
           <span>{votosDe(total)} votos nominais</span>
         </div>
         <p className="miudo nota">
-          O quociente cai em {noQe.nome}. Os 80% caem em {noOitenta.nome}. {quociente.nota}
+          {!dados.majoritario && (
+            <>
+              O quociente cai em {noQe.nome}. Os 80% caem em {noOitenta.nome}.{" "}
+            </>
+          )}
+          {quociente.nota}
         </p>
       </div>
       <div className="secao-titulo sub">
         <h2>Votação de cada bloco</h2>
         <p>
-          A largura da barra é o voto nominal daquele partido ou daquela federação. Nas legendas que passaram
-          de 80% do quociente, a foto maior fica no trecho de quem leva cadeira, à direita, perto do corte
-          do quociente. Quem não leva e passou de 10% do quociente ganha um chip com a largura dos votos
-          dele naquela barra. Os outros entram num chip com a quantidade de candidatos e ocupam o que resta
-          da barra.
+          {dados.majoritario
+            ? "A largura da barra é o voto nominal daquele partido. A cadeira não sai do quociente: fica com os mais votados."
+            : "A largura da barra é o voto nominal daquele partido ou daquela federação. Nas legendas que passaram de 80% do quociente, a foto maior fica no trecho de quem leva cadeira, à direita, perto do corte do quociente. Quem não leva e passou de 10% do quociente ganha um chip com a largura dos votos dele naquela barra. Os outros entram num chip com a quantidade de candidatos e ocupam o que resta da barra."}
         </p>
       </div>
       <div className="grafico-individual">
-        <span />
-        <div className="legenda-cortes">
-          <span className="corte-legenda oitenta" style={{ left: `${(quociente.oitenta / maiorIndividual) * 100}%` }}>
-            80% do QE
-            <strong>{votosDe(quociente.oitenta)}</strong>
-          </span>
-          <span className="corte-legenda qe" style={{ left: `${(quociente.qe / maiorIndividual) * 100}%` }}>
-            QE
-            <strong>{votosDe(quociente.qe)}</strong>
-          </span>
-        </div>
-        <span />
+        {!dados.majoritario && (
+          <>
+            <span />
+            <div className="legenda-cortes">
+              <span className="corte-legenda oitenta" style={{ left: `${(quociente.oitenta / maiorIndividual) * 100}%` }}>
+                80% do QE
+                <strong>{votosDe(quociente.oitenta)}</strong>
+              </span>
+              <span className="corte-legenda qe" style={{ left: `${(quociente.qe / maiorIndividual) * 100}%` }}>
+                QE
+                <strong>{votosDe(quociente.qe)}</strong>
+              </span>
+            </div>
+            <span />
+          </>
+        )}
         {grupos.map((grupo, indice) => {
-          const passouOitenta = grupo.votos >= quociente.oitenta;
+          const passouOitenta = !dados.majoritario && grupo.votos >= quociente.oitenta;
           const siglas = new Set(grupo.partidos || []);
           const doGrupo = passouOitenta
             ? pessoas
@@ -220,8 +234,12 @@ function Federacoes({ dados, bandeiras, pessoas = [], titulo = "Votos acumulados
                       </span>
                     )}
                 </span>
-                <i className="corte oitenta" style={{ left: `${(quociente.oitenta / maiorIndividual) * 100}%` }} />
-                <i className="corte qe" style={{ left: `${(quociente.qe / maiorIndividual) * 100}%` }} />
+                {!dados.majoritario && (
+                  <>
+                    <i className="corte oitenta" style={{ left: `${(quociente.oitenta / maiorIndividual) * 100}%` }} />
+                    <i className="corte qe" style={{ left: `${(quociente.qe / maiorIndividual) * 100}%` }} />
+                  </>
+                )}
               </div>
               <span className="nums">{votosDe(grupo.votos)}</span>
             </div>
@@ -230,9 +248,15 @@ function Federacoes({ dados, bandeiras, pessoas = [], titulo = "Votos acumulados
       </div>
       <div className="federacoes">
         {grupos.map((grupo, indice) => {
-          const passouQe = grupo.votos >= quociente.qe;
-          const passouOitenta = grupo.votos >= quociente.oitenta;
-          const situacao = passouQe ? "Passou do quociente" : passouOitenta ? "Passou de 80% do quociente" : "Abaixo de 80% do quociente";
+          const passouQe = !dados.majoritario && grupo.votos >= quociente.qe;
+          const passouOitenta = !dados.majoritario && grupo.votos >= quociente.oitenta;
+          const situacao = dados.majoritario
+            ? "Voto nominal"
+            : passouQe
+              ? "Passou do quociente"
+              : passouOitenta
+                ? "Passou de 80% do quociente"
+                : "Abaixo de 80% do quociente";
           return (
             <article className="federacao" key={grupo.nome}>
               <span className="amostra" style={{ background: corBloco(indice) }} />
@@ -246,7 +270,7 @@ function Federacoes({ dados, bandeiras, pessoas = [], titulo = "Votos acumulados
               </div>
               <span className="nums">{votosDe(grupo.votos)}</span>
               <span className="nums miudo">acumulado {votosDe(grupo.fim)}</span>
-              <span className={passouQe ? "etiqueta dentro" : "etiqueta fora"}>{situacao}</span>
+              <span className={dados.majoritario ? "etiqueta" : passouQe ? "etiqueta dentro" : "etiqueta fora"}>{situacao}</span>
             </article>
           );
         })}
@@ -325,7 +349,7 @@ function Aba2026({ dados, bandeiras }) {
           setFalhaApuracao("");
         }
         if (JSON.parse(texto).and === "f") {
-          const destino = dados.cargo === "estadual" ? "estadual" : "federal";
+          const destino = dados.cargo === "estadual" || dados.cargo === "senador" ? dados.cargo : "federal";
           fetch(`/api/apuracao-snapshot?destino=${destino}`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -366,20 +390,22 @@ function Aba2026({ dados, bandeiras }) {
   );
 
   const naCadeira = useMemo(() => {
+    const comVoto = candidaturas
+      .filter((pessoa) => pessoa.votos2026 != null)
+      .map((pessoa) => ({
+        id: String(pessoa.sequencial2026 || pessoa.numero),
+        partido: pessoa.partidoApuracao || pessoa.partido,
+        votos: pessoa.votos2026,
+      }));
+    if (dados.majoritario) return cadeirasMajoritarias(comVoto, apuracao?.quociente?.vagas || 0);
     if (!apuracao?.quociente?.qe || !apuracao.quociente.vagas) return new Set();
     return cadeirasNoInstante(
       apuracao.federacoes,
-      candidaturas
-        .filter((pessoa) => pessoa.votos2026 != null)
-        .map((pessoa) => ({
-          id: String(pessoa.sequencial2026 || pessoa.numero),
-          partido: pessoa.partidoApuracao || pessoa.partido,
-          votos: pessoa.votos2026,
-        })),
+      comVoto,
       apuracao.quociente.qe,
       apuracao.quociente.vagas,
     );
-  }, [apuracao, candidaturas]);
+  }, [apuracao, candidaturas, dados.majoritario]);
 
   const maioresGastos = useMemo(
     () => [...candidaturas].sort((a, b) => b.gasto - a.gasto || a.nomeUrna.localeCompare(b.nomeUrna, "pt")).slice(0, 50),
@@ -518,7 +544,7 @@ function Aba2026({ dados, bandeiras }) {
 
       {apuracao && (
         <Federacoes
-          dados={{ federacoes: apuracao.federacoes, quociente: apuracao.quociente }}
+          dados={{ federacoes: apuracao.federacoes, quociente: apuracao.quociente, majoritario: dados.majoritario }}
           bandeiras={bandeiras}
           pessoas={pessoasNaBarra}
           titulo="Votos acumulados em 2026"
@@ -687,6 +713,9 @@ function AbasCargo({ cargo, escolher }) {
       <button type="button" role="tab" aria-selected={cargo === "estadual"} className={cargo === "estadual" ? "ativo" : ""} onClick={() => escolher("estadual")}>
         Deputado estadual
       </button>
+      <button type="button" role="tab" aria-selected={cargo === "senador"} className={cargo === "senador" ? "ativo" : ""} onClick={() => escolher("senador")}>
+        Senador
+      </button>
     </div>
   );
 }
@@ -703,7 +732,11 @@ export default function App() {
 
   useEffect(() => {
     let ativo = true;
-    const arquivo = cargo === "estadual" ? "/dados/amazonas-estadual.json" : "/dados/amazonas.json";
+    const arquivos = {
+      estadual: "/dados/amazonas-estadual.json",
+      senador: "/dados/amazonas-senador.json",
+    };
+    const arquivo = arquivos[cargo] || "/dados/amazonas.json";
     Promise.all([
       fetch(arquivo, { cache: "no-store" }).then((resposta) => {
         if (!resposta.ok) throw new Error("Não foi possível carregar os dados.");
@@ -715,6 +748,7 @@ export default function App() {
         if (!ativo) return;
         setDados(quadro);
         setBandeiras(mapa);
+        document.title = `${quadro.rotulo || "Deputado federal"} no Amazonas`;
       })
       .catch((falha) => {
         if (!ativo) return;
@@ -831,6 +865,7 @@ export default function App() {
     );
   }
 
+  const ehFederal = !dados.cargo || dados.cargo === "federal";
   const maior = Math.max(...dados.partidos.flatMap((item) => [item.candidatos2022, item.candidatos2026]), 1);
   const maiorVoto = Math.max(...dados.desempenho.map((pessoa) => pessoa.votos || 0), 1);
   const maiorGasto = Math.max(
@@ -889,7 +924,7 @@ export default function App() {
         </article>
         <article className="numero">
           <strong>{dados.totais.eleitos2022}</strong>
-          <span>{dados.cargo === "estadual" ? "eleitos em 2022" : "eleitos, todos ainda na Câmara"}</span>
+          <span>{ehFederal ? "eleitos, todos ainda na Câmara" : "eleitos em 2022"}</span>
         </article>
         <article className="numero">
           <strong>{dados.totais.candidatos2026}</strong>
@@ -905,9 +940,13 @@ export default function App() {
         <div className="secao-titulo">
           <h2>Eleitos em 2022</h2>
           <p>
-            {dados.cargo === "estadual"
-              ? "Vinte e quatro cadeiras. A foto aparece quando a pessoa também está no arquivo de fotos de 2026."
-              : "Oito cadeiras. A foto é a oficial da Câmara. O partido de baixo é o de hoje, quando mudou desde a eleição."}
+            {ehFederal
+              ? "Oito cadeiras. A foto é a oficial da Câmara. O partido de baixo é o de hoje, quando mudou desde a eleição."
+              : dados.cargo === "senador"
+              ? "Uma cadeira. A foto aparece quando a pessoa também está no arquivo de fotos de 2026."
+              : dados.cargo === "estadual"
+                ? "Vinte e quatro cadeiras. A foto aparece quando a pessoa também está no arquivo de fotos de 2026."
+                : "Uma cadeira. A foto aparece quando a pessoa também está no arquivo de fotos de 2026."}
           </p>
         </div>
         <div className="grade-eleitos">
@@ -955,16 +994,16 @@ export default function App() {
             <div>
               <h3>{pessoa.nome} não está na disputa de 2026</h3>
               <p>
-                {dados.cargo === "estadual" ? (
-                  <>
-                    Foi eleito deputado estadual em 2022, pelo <Sigla nome={pessoa.partido} bandeiras={bandeiras} />, e
-                    não aparece entre os candidatos deste ano.
-                  </>
-                ) : (
+                {ehFederal ? (
                   <>
                     É o único deputado do Amazonas em exercício, hoje no{" "}
                     <Sigla nome={pessoa.partido} bandeiras={bandeiras} />, que não aparece entre os candidatos a
                     deputado federal neste ano.
+                  </>
+                ) : (
+                  <>
+                    Foi eleito {dados.cargo === "senador" ? "senador" : "deputado estadual"} em 2022, pelo{" "}
+                    <Sigla nome={pessoa.partido} bandeiras={bandeiras} />, e não aparece entre os candidatos deste ano.
                   </>
                 )}
               </p>
@@ -1250,9 +1289,9 @@ export default function App() {
 
       <footer className="rodape">
         <p>
-          {dados.cargo === "estadual"
-            ? "Fontes: candidaturas e votos do TSE."
-            : "Fontes: candidaturas do TSE e deputados em exercício da Câmara."}{" "}
+          {ehFederal
+            ? "Fontes: candidaturas do TSE e deputados em exercício da Câmara."
+            : "Fontes: candidaturas e votos do TSE."}{" "}
           {dados.notaEleitos} {dados.notaFotos2026}
         </p>
       </footer>

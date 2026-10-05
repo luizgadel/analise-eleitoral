@@ -13,7 +13,14 @@ function gravarSnapshot() {
       server.middlewares.use('/api/apuracao-snapshot', (req, res, next) => {
         if (req.method !== 'POST') return next()
         const pedido = new URL(req.url || '', 'http://localhost')
-        const estadual = pedido.searchParams.get('destino') === 'estadual'
+        const destinos = {
+          estadual: { arquivo: 'amazonas-estadual.json', cargo: '7' },
+          senador: { arquivo: 'amazonas-senador.json', cargo: '5' },
+        }
+        const escolhido = destinos[pedido.searchParams.get('destino')] || {
+          arquivo: 'amazonas.json',
+          cargo: '6',
+        }
         const partes = []
         req.on('data', (parte) => partes.push(parte))
         req.on('end', () => {
@@ -26,9 +33,9 @@ function gravarSnapshot() {
                 'painel',
                 'public',
                 'dados',
-                estadual ? 'amazonas-estadual.json' : 'amazonas.json',
+                escolhido.arquivo,
               ),
-              APURACAO_CARGO: estadual ? '7' : '6',
+              APURACAO_CARGO: escolhido.cargo,
             },
           })
           let saida = ''

@@ -77,7 +77,8 @@ function grupos(cargo) {
 export function interpretarApuracao(bruto, codigo = "6") {
   const cargo = cargoDeputado(bruto, codigo);
   if (!cargo) {
-    const nome = String(codigo) === "7" ? "deputado estadual" : "deputado federal";
+    const nomes = { 5: "senador", 7: "deputado estadual" };
+    const nome = nomes[String(codigo)] || "deputado federal";
     throw new Error(`O arquivo do TSE não trouxe ${nome}.`);
   }
   const candidatos = [];
@@ -120,6 +121,17 @@ export function interpretarApuracao(bruto, codigo = "6") {
 
 function alcanca(votos, qe, percentual) {
   return votos * 100 >= qe * percentual;
+}
+
+export function cadeirasMajoritarias(candidatos, vagas) {
+  if (vagas <= 0) return new Set();
+  return new Set(
+    [...candidatos]
+      .filter((pessoa) => (pessoa.votos || 0) > 0)
+      .sort((a, b) => (b.votos || 0) - (a.votos || 0) || String(a.id).localeCompare(String(b.id)))
+      .slice(0, vagas)
+      .map((pessoa) => String(pessoa.id)),
+  );
 }
 
 export function cadeirasNoInstante(legendas, candidatos, qe, vagas) {
