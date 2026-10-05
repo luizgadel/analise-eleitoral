@@ -56,18 +56,17 @@ VAGAS_DEPUTADO_FEDERAL_AM = 8
 # Deputado estadual no Amazonas em 2022: 1.972.089 votos válidos e 24 cadeiras.
 VOTOS_VALIDOS_ESTADUAL_2022_AM = 1_972_089
 VAGAS_DEPUTADO_ESTADUAL_AM = 24
-# Senador no Amazonas em 2022: uma cadeira, eleição majoritária.
-VAGAS_SENADOR_2022_AM = 1
+# Senador em 2022: uma cadeira por estado, eleição majoritária.
+VAGAS_SENADOR_2022 = 27
+UFS = (
+    "AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MG", "MS", "MT",
+    "PA", "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RR", "RS", "SC", "SE", "SP", "TO",
+)
 CORTE_UMA_SEMANA_2022 = date(2022, 9, 25)
 URL_APURACAO = {
     5: "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/am/am-c0005-e006259-u.json",
     6: "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/am/am-c0006-e006259-u.json",
     7: "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/am/am-c0007-e006259-u.json",
-}
-ARQUIVO_VOTOS = {
-    5: "votos_senador_2022_AM.csv",
-    6: "votos_deputado_federal_2022_AM.csv",
-    7: "votos_deputado_estadual_2022_AM.csv",
 }
 ARQUIVO_PAINEL = {
     5: "amazonas-senador.json",
@@ -80,9 +79,9 @@ def nota_quociente(cargo: int, votos_validos: int) -> str:
     milhar = f"{votos_validos:,}".replace(",", ".")
     if cargo == 5:
         return (
-            f"Senador no Amazonas em 2022 é eleição majoritária: {milhar} votos nominais e 1 cadeira, "
-            "para o mais votado. O quociente dos deputados não distribui essa vaga. "
-            "A raia soma o voto nominal de cada partido."
+            f"Senador em 2022 é eleição majoritária: uma cadeira por estado, para o mais votado. "
+            f"Os votos nominais no Brasil somam {milhar}. "
+            "A raia soma o voto nominal de cada partido no país. A cadeira de cada estado não sai dessa soma."
         )
     if cargo == 7:
         return (
@@ -189,6 +188,7 @@ def pessoa(linha, foto: str = "") -> dict:
         "nomeUrna": exibir_nome(linha.get("nome_urna", "") or linha.get("nome", "")),
         "partido": str(linha.get("partido", "")),
         "numero": str(linha.get("numero", "")),
+        "uf": str(linha.get("uf", "") or ""),
         "foto": foto,
     }
 
@@ -232,8 +232,9 @@ def main(cargo: int = 6) -> None:
     cargo = int(cargo) if int(cargo) in (5, 6, 7) else 6
     federal = cargo == 6
     senador = cargo == 5
-    candidatos_2022 = carregar_candidatos(2022, uf="AM", cargo=cargo)
-    candidatos_2026 = carregar_candidatos(2026, uf="AM", cargo=cargo)
+    recorte_uf = None if senador else "AM"
+    candidatos_2022 = carregar_candidatos(2022, uf=recorte_uf, cargo=cargo)
+    candidatos_2026 = carregar_candidatos(2026, uf=recorte_uf, cargo=cargo)
     deputados = carregar_deputados_atuais(uf="AM") if federal else None
     comparacao = comparar_disputas(candidatos_2022, candidatos_2026)
     cruzamento = cruzar_deputados(deputados, candidatos_2026) if federal else None
@@ -248,13 +249,14 @@ def main(cargo: int = 6) -> None:
         str(linha.sequencial): str(linha.partido_2026)
         for linha in comparacao.continuam.itertuples(index=False)
     }
-    arquivo_votos = RAIZ / "dados" / "processados" / ARQUIVO_VOTOS[cargo]
-    carregar_votos(candidatos_2022, uf="AM", cargo=cargo)
+    slug = {5: "senador", 6: "deputado_federal", 7: "deputado_estadual"}[cargo]
+    arquivo_votos = RAIZ / "dados" / "processados" / f"votos_{slug}_2022{'' if senador else '_AM'}.csv"
+    carregar_votos(candidatos_2022, uf=recorte_uf, cargo=cargo)
     votos = ler_coluna(arquivo_votos, "votos")
     federacoes = montar_federacoes(arquivo_votos)
     if senador:
         votos_validos = int(sum(votos.values()))
-        vagas = VAGAS_SENADOR_2022_AM
+        vagas = VAGAS_SENADOR_2022
     elif cargo == 7:
         votos_validos = VOTOS_VALIDOS_ESTADUAL_2022_AM
         vagas = VAGAS_DEPUTADO_ESTADUAL_AM
@@ -263,16 +265,16 @@ def main(cargo: int = 6) -> None:
         vagas = VAGAS_DEPUTADO_FEDERAL_AM
     qe = quociente_eleitoral(votos_validos, vagas)
     oitenta = round(qe * 0.8)
-    gastos_2022 = carregar_gastos_publicidade(2022, candidatos_2022, uf="AM", somente_publicidade=False, cargo=cargo)
+    gastos_2022 = carregar_gastos_publicidade(2022, candidatos_2022, uf=recorte_uf, somente_publicidade=False, cargo=cargo)
     gastos_ate_semana = carregar_gastos_publicidade(
         2022,
         candidatos_2022,
         data_corte=CORTE_UMA_SEMANA_2022,
-        uf="AM",
+        uf=recorte_uf,
         somente_publicidade=False,
         cargo=cargo,
     )
-    gastos_2026 = carregar_gastos_publicidade(2026, candidatos_2026, uf="AM", somente_publicidade=False, cargo=cargo)
+    gastos_2026 = carregar_gastos_publicidade(2026, candidatos_2026, uf=recorte_uf, somente_publicidade=False, cargo=cargo)
     gasto_2022 = {
         str(linha.sequencial): float(linha.gasto_publicidade)
         for linha in gastos_2022.por_candidato.itertuples(index=False)
@@ -327,14 +329,17 @@ def main(cargo: int = 6) -> None:
         )
         eleitos.append(registro)
     eleitos.sort(key=lambda item: item["votos"], reverse=True)
-    fotos_eleitos = {item["numero"]: item["foto"] for item in eleitos}
+    fotos_eleitos = {f"{item.get('uf', '')}:{item['numero']}": item["foto"] for item in eleitos}
 
     def linha_desempenho(linha, disputou_2022: bool) -> dict:
         sequencial = str(linha.sequencial)
         if disputou_2022:
             outro = seq_2026.get(sequencial, "")
             ficha = ficha_2026.get(outro) if outro else None
-            registro = pessoa(linha._asdict(), fotos_eleitos.get(str(linha.numero), "") or fotos_2026.get(outro, ""))
+            registro = pessoa(
+                linha._asdict(),
+                fotos_eleitos.get(f"{linha.uf}:{linha.numero}", "") or fotos_2026.get(outro, ""),
+            )
             registro.update(
                 {
                     "disputou2022": True,
@@ -430,6 +435,7 @@ def main(cargo: int = 6) -> None:
                 "nome": exibir_nome(linha.nome),
                 "partido2022": str(linha.partido_2022),
                 "partido2026": str(linha.partido_2026),
+                "uf": str(getattr(linha, "uf", "") or ""),
             }
         )
 
@@ -438,7 +444,14 @@ def main(cargo: int = 6) -> None:
         for item in eleitos:
             if item["concorre2026"]:
                 continue
-            fora.append({"nome": item["nome"], "partido": item["partidoAtual"], "foto": item["foto"]})
+            fora.append(
+                {
+                    "nome": item["nome"],
+                    "partido": item["partidoAtual"],
+                    "foto": item["foto"],
+                    "uf": item.get("uf", ""),
+                }
+            )
     else:
         for linha in cruzamento.fora_da_disputa_2026.itertuples(index=False):
             arquivo = FOTOS_ELEITOS / f"{linha.id}.jpg"
@@ -452,8 +465,8 @@ def main(cargo: int = 6) -> None:
             )
 
     payload = {
-        "uf": "AM",
-        "estado": "Amazonas",
+        "uf": "BR" if senador else "AM",
+        "estado": "Brasil" if senador else "Amazonas",
         "totais": {
             "candidatos2022": int(len(candidatos_2022)),
             "candidatos2026": int(len(candidatos_2026)),
@@ -491,7 +504,11 @@ def main(cargo: int = 6) -> None:
         "entraram": lista(comparacao.entraram, "2026"),
         "trocas": trocas,
         "foraDaDisputa": fora,
-        "notaFotos2026": "As fotos de 2026 vêm do arquivo oficial foto_cand2026_AM divulgado pelo TSE.",
+        "notaFotos2026": (
+            "As fotos de 2026 que existem vêm do arquivo oficial foto_cand2026_AM. Os demais estados ficam com as iniciais."
+            if senador
+            else "As fotos de 2026 vêm do arquivo oficial foto_cand2026_AM divulgado pelo TSE."
+        ),
         "notaEleitos": (
             "As fotos dos eleitos são as oficiais da Câmara dos Deputados."
             if federal
@@ -502,6 +519,18 @@ def main(cargo: int = 6) -> None:
         "rotulo": {5: "Senador", 7: "Deputado estadual"}.get(cargo, "Deputado federal"),
         "majoritario": senador,
         "apuracaoUrl": URL_APURACAO[cargo],
+        "apuracaoUrls": [
+            {
+                "uf": sigla,
+                "url": (
+                    "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/"
+                    f"{sigla.lower()}/{sigla.lower()}-c0005-e006259-u.json"
+                ),
+            }
+            for sigla in UFS
+        ]
+        if senador
+        else [],
     }
     destino = PAINEL / "dados" / ARQUIVO_PAINEL[cargo]
     destino.parent.mkdir(parents=True, exist_ok=True)
