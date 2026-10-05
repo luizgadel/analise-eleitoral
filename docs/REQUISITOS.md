@@ -1,6 +1,6 @@
 # Requisitos
 
-Painel de deputado federal e de deputado estadual no Amazonas. A pessoa escolhe o cargo. Em cada um, a página tem abas de 2022 e de 2026. Em 2022, a navegação por âncoras reúne eleitos, quociente, gastos, votos, partidos e o movimento entre as duas eleições. Em 2026, a mesma organização mostra candidaturas, despesas contratadas e os votos ao vivo da apuração. Na lista de votos e gastos, o fundo marca quem levaria cadeira neste instante.
+Painel de deputado federal, de deputado estadual e de senador no Amazonas. A pessoa escolhe o cargo. Em cada um, a página tem abas de 2022 e de 2026. Em 2022, a navegação por âncoras reúne eleitos, quociente, gastos, votos, partidos e o movimento entre as duas eleições. Em 2026, a mesma organização mostra candidaturas, despesas contratadas e os votos ao vivo da apuração. Na lista de votos e gastos, o fundo marca quem levaria cadeira neste instante.
 
 ## Tabela de IDs
 
@@ -10,6 +10,7 @@ Painel de deputado federal e de deputado estadual no Amazonas. A pessoa escolhe 
 | REQ-002 | Votos ao vivo de 2026 | implementado | 2 |
 | REQ-003 | Destaque de quem está sendo eleito | implementado | 3 |
 | REQ-004 | Deputados estaduais no mesmo desenho | implementado | 4 |
+| REQ-005 | Aba de senadores no mesmo desenho | implementado | 5 |
 
 ## REQ-003 — Destaque de quem está sendo eleito
 
@@ -136,5 +137,35 @@ Fazer para deputado estadual no Amazonas o mesmo painel que já existe para depu
 - [x] A visão de 2026 traz candidaturas, despesas contratadas, votos ao vivo da apuração e o destaque de quem levaria cadeira.
 - [x] A apuração ao vivo usa o arquivo do cargo de deputado estadual.
 - [x] O painel de deputado federal permanece como está.
+
+## REQ-005 — Aba de senadores no mesmo desenho
+
+**Status:** implementado
+**Prioridade:** 5
+**Depende de:** nenhuma
+
+### Objetivo
+
+Fazer uma aba de senador no Amazonas no mesmo desenho das abas de deputado federal e deputado estadual.
+
+### Experiência desejada
+
+- A pessoa escolhe senador e vê a mesma organização dos deputados.
+- Em 2022: eleitos, quociente, gastos, votos, partidos e o movimento entre as duas eleições.
+- Em 2026: candidaturas, despesas contratadas, votos ao vivo e o fundo de quem levaria cadeira neste instante.
+- As abas de deputado federal e de deputado estadual continuam no lugar.
+
+### Fora do escopo deste requisito
+
+- Outros cargos e outros estados.
+- A Câmara dos Deputados como fonte dos senadores.
+
+### Critérios de aceite
+
+- [x] O painel oferece senador no Amazonas, no mesmo desenho dos deputados.
+- [x] A visão de 2022 traz eleitos, quociente, gastos, votos, partidos e quem saiu ou entrou em 2026.
+- [x] A visão de 2026 traz candidaturas, despesas contratadas, votos ao vivo da apuração e o destaque de quem levaria cadeira.
+- [x] A apuração ao vivo usa o arquivo do cargo de senador.
+- [x] Os painéis de deputado federal e de deputado estadual permanecem como estão.
 
 ## Próximos requisitos (ainda não detalhados)
